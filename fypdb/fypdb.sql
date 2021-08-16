@@ -1,0 +1,1 @@
+SELECT * FROM fypdb.admin_user;

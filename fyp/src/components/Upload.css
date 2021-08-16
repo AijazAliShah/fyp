@@ -1,0 +1,83 @@
+#upload,input{
+    color:rgb(45, 52, 151);
+
+}
+
+.form-container1{
+
+
+    position: absolute;;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(rgba(33, 59, 116, 0.918),rgb(113, 153, 204));
+    /* background-color: rgba(42, 57, 122, 0.945); */
+    width: 450px;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 7px 7px 60px rgb(247, 245, 245);
+
+}
+
+h1.Log{
+
+
+    text-transform: uppercase;
+    color: white;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 1em;
+    
+
+}
+.control input{
+
+
+    width: 100%;
+    display: block;
+    padding: 7px;
+    color:#222;
+    border:none;
+    outline:none;
+    margin:1em 0;
+}
+
+
+.control input[type="submit"]{
+
+
+    background:rgb(255, 0, 106);
+    color:#fff;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    opacity: .9;
+    transition: opacity .3s ease;
+
+}
+
+.control input [type="submit"]:hover{
+
+    opacity:1;
+
+}
+.Loglink{
+
+    text-align: center;
+    color: white;
+
+}
+.Loglink a{
+
+    text-decoration:none;
+    color:rgb(255, 255, 255);
+    opacity:.6;
+    transition: opacity .3s ease;
+
+}
+.Loglink a:hover{
+
+    opacity:1;
+}
+label{
+    color: white;
+}

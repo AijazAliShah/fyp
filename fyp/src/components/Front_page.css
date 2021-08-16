@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;700&display=swap');
+
+body,html{
+    /* background: black; */
+   
+    /* background-image: url("C:\Interns React\fyp-portal\src\unnamed.jpg"); */
+    
+    /* background-image: url("C:\Interns React\fyp-portal\src\convo2.jpg"); */
+
+    /* background-image: url("C:\Interns React\fyp-portal\src\table.jpeg");  */
+    /* background: linear-gradient(90deg, rgb(124, 214, 214) 0%, rgb(113, 113, 187) 100%); */
+    /* background: linear-gradient(90deg, rgba(108, 153, 184, 0.897) 0%, rgb(55, 89, 192) 100%); */
+    background-color:rgba(219, 225, 236, 0.507);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  /* opacity: 0.9; */
+    color: white;
+    font-family: 'Nunito' ,sans-serif;
+}
+/* *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+     } */
+
+
+/* h2.Mainheading {
+    text-align: center;
+    margin-top: 14%;
+    position: relative;
+    font-size: 50px;
+    color:white; 
+    margin-right: 10%;
+    margin-left: 10%;
+    
+} */
+
+    
+/* .TopHeader.row {
+    background: #bd2020;
+    margin-bottom: 0;
+    padding: 10px 15px;
+    font-size: 60px;
+    text-align: left;
+    font-weight: bold;
+} */
+/* .NavigationBar.row {
+    background: #2a2a2a;
+    margin-bottom: 19px;
+    padding: 10px 15px;
+    font-size: 24px;
+    text-align: left;
+    font-weight: bold;
+} */

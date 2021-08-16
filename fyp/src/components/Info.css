@@ -1,0 +1,27 @@
+#table-div1{
+    /* background-color: rgb(73, 88, 131); */
+  color:black;
+  /* margin-top: 4%; */
+  /* margin-right: 5%;
+  margin-left: 5%; */
+  
+}
+
+tbody{
+    text-align:center;
+    
+}
+#inf_thead{
+    text-align: center;
+    text-transform: capitalize;
+    color: rgb(69, 73, 73);
+}
+.info_heading{
+    color: rgb(98, 100, 100);
+    text-decoration:  underline;
+    text-decoration-color: rgb(74, 55, 238);
+    text-decoration-thickness: 4px;
+    text-align:left;
+    margin-left: 5%;
+    margin-bottom: 2%;
+}

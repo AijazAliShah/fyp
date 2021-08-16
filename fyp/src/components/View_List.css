@@ -1,0 +1,21 @@
+#table-div{
+    background-color: rgb(240, 242, 245);
+    color: black;
+
+}
+#view_thead,tbody{
+    text-align: center;
+}
+#view_thead{
+    background-color: rgb(26, 37, 63);
+    text-transform: uppercase;
+    color: white;
+}
+a{
+    text-align: center;
+}
+td{
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
