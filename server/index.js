@@ -212,7 +212,7 @@ app.post("/api/reset/password", async (req, res) => {
         bcrypt.compare(
           cpassword,
           result[0].password,
-          (err, passwordNatched) => {
+          (err, passwordNatched) => { 
             if (passwordNatched) {
               bcrypt.hash(password, saltRounds, (err, hash) => {
                 if (err) {
