@@ -11,6 +11,7 @@ function Project() {
   const [title, setTitle] = useState("");
   const [Internal, setInternal] = useState("");
   const [External, setExternal] = useState("");
+  const [batch, setBatch] = useState("");
   // const [Full , setTitle] = useState('');
   // const [title, setTitle] = useState('');
   // const [title, setTitle] = useState('');
@@ -47,6 +48,7 @@ function Project() {
     axios
       .post("http://localhost:3001/api/project", {
         title,
+        batch,
         internal: Internal,
         external: External,
       })
@@ -82,7 +84,7 @@ function Project() {
         <table>
           <tr>
             <td>
-              <label>Project Title</label>
+              <label>Project Title:</label>
               <input
                 type="text"
                 name="projectTitle"
@@ -96,7 +98,7 @@ function Project() {
               />
             </td>
             <td>
-              <label>Internal Supervisor</label>
+              <label>Internal Supervisor:</label>
 
               <input
                 type="text"
@@ -109,7 +111,7 @@ function Project() {
               />
             </td>
             <td>
-              <label>External Supervisor</label>
+              <label>External Supervisor:</label>
 
               <input
                 type="text"
@@ -119,6 +121,19 @@ function Project() {
                 required
                 // value={x.external}
                 onChange={(e) => setExternal(e.target.value)}
+              />
+            </td>
+            <td>
+              <label>Batch:</label>
+
+              <input
+                type="text"
+                name="batch"
+                placeholder="Batch"
+                className="prj_inp"
+                required
+                // value={x.external}
+                onChange={(e) => setBatch(e.target.value)}
               />
             </td>
           </tr>

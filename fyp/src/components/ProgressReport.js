@@ -48,6 +48,8 @@ export class Mid extends Component {
                   }}
                 >
                   <th>No</th>
+                  <th>User Name</th>
+                  <th>User Email</th>
                   <th>Project Name</th>
                   <th>Supervisor Email</th>
                   <th>Report</th>
@@ -55,6 +57,8 @@ export class Mid extends Component {
                 {this.state.reports.map((rep) => (
                   <tr>
                     <td>{rep.id}</td>
+                    <td>{rep.userName}</td>
+                    <td>{rep.userEmail}</td>
                     <td>{rep.Title}</td>
                     <td>{rep.supEmail}</td>
                     <td style={{display:"flex", justifyContent:"center"}}>

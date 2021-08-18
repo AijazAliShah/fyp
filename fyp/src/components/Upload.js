@@ -18,9 +18,12 @@ class Upload extends Component {
       doc: "",
       cols: "",
       isStd: {},
+      userName:"",
+      userEmail:"",
       fileName: "FYPProposal",
       supEmail: "",
       title: "",
+     
     };
   }
 
@@ -63,8 +66,11 @@ class Upload extends Component {
     } else if (this.state.isStd.result[0].type === "student") {
       axios
         .post("http://localhost:3001/api/progress", {
+          userName: this.state.userName,
+          userEmail: this.state.userEmail,
           supEmail: this.state.supEmail,
           title: this.state.title,
+         
         })
         .then((resp) => {
           console.log(resp.data.result.insertId);
@@ -113,6 +119,30 @@ class Upload extends Component {
             <h1 id="upload">Upload File here</h1>
             {this.state.isStd.result[0].type === "student" ? (
               <>
+                   <label className="lab">User Name: </label>
+                {/* <ErrorMessage className="error" name="email" component="span" /> */}
+                <br></br>
+                <input
+                  style={{ width: "98%" }}
+                  autocomplete="off"
+                  id="inputCreatePost"
+                  name="userName"
+                  type="text"
+                  placeholder="Enter User Name"
+                  onChange={(e) => this.setState({ userName: e.target.value })}
+                />
+                     <label className="lab">User Email: </label>
+                {/* <ErrorMessage className="error" name="email" component="span" /> */}
+                <br></br>
+                <input
+                  style={{ width: "98%" }}
+                  autocomplete="off"
+                  id="inputCreatePost"
+                  name=" userEmail"
+                  type="email"
+                  placeholder="Enter User Email"
+                  onChange={(e) => this.setState({ userEmail: e.target.value })}
+                />
                 <label className="lab">Project Name: </label>
                 {/* <ErrorMessage className="error" name="email" component="span" /> */}
                 <br></br>

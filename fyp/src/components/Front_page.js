@@ -20,6 +20,7 @@ import Forgetpassword from "./Forgetpassword";
 import Forgetpassemail from "./Forgetpassemail";
 import ProgressReport from "./ProgressReport";
 import Edit from "./Edit";
+import Rubric2 from "./Rubric2";
 
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
@@ -71,6 +72,7 @@ function Front_page() {
           <Route path="/info" component={Info} />
           <Route path="/announcement" component={Announcement} />
           <Route path="/changepassword" component={Dept} />
+          <Route path="/rubric2" component={Rubric2} />
 
           {/* <Route path='/login' exact component={Login} />
         <Route path='/Profile' exact component={Student} />

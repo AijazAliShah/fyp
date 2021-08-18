@@ -39,6 +39,8 @@ CREATE TABLE `progress` (
   `Title` varchar(45) DEFAULT NULL,
   `supEmail` varchar(200) DEFAULT NULL,
   `reportUrl` varchar(500) DEFAULT NULL,
+  `userName` varchar(500) DEFAULT NULL,
+  `userEmail` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 --
@@ -51,6 +53,7 @@ CREATE TABLE `project` (
   `title` varchar(45) DEFAULT NULL,
   `internal` varchar(45) DEFAULT NULL,
   `external` varchar(45) DEFAULT NULL,
+  `batch` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`project_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

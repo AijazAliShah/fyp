@@ -149,6 +149,17 @@ const [description, setDescription] = useState("");*/
             >
               External
             </th>
+
+            <th
+              style={{
+                textTransform: "uppercase",
+                fontSize: "20px",
+                color: "white",
+                fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+              }}
+            >
+              Batch
+            </th>
             <th
               style={{
                 textTransform: "uppercase",
@@ -218,6 +229,10 @@ const [description, setDescription] = useState("");*/
                 val.project.external.toLowerCase().includes(searchTerm.toLowerCase())
               ) {
                 return val;
+              } else if(
+                val.project.batch.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+              ){
+                return val;
               }
             })
             .map((val) => {
@@ -227,6 +242,8 @@ const [description, setDescription] = useState("");*/
                   <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.title}</td>
                   <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.internal}</td>
                   <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.external}</td>
+                  <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.batch}</td>
+
                   <td style={{border: '2px solid black', textAlign: 'center'}}>
                     {val.stds.result.map(v => (
                       <tr style={{display: 'flex', justifyContent: 'center'}}>

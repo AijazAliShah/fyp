@@ -300,11 +300,13 @@ app.post("/api/insert_project", (req, res) => {
 app.post("/api/progress", async (req, res) => {
   const Title = req.body.title;
   const supEmail = req.body.supEmail;
+  const userName = req.body.userName;
+  const userEmail = req.body.userEmail;
   console.log(req.body);
   res.send(
     await new Promise(function (resolve, reject) {
-      const sqlInsert = "INSERT INTO progress (Title, supEmail) VALUES (?,?);";
-      db.query(sqlInsert, [Title, supEmail], (err, result) => {
+      const sqlInsert = "INSERT INTO progress (Title, supEmail, userName, userEmail) VALUES (?,?,?,?);";
+      db.query(sqlInsert, [Title, supEmail, userName, userEmail], (err, result) => {
         console.log(err);
         if (err) {
           resolve({ message: "wsomething wend wrong" });
@@ -349,12 +351,13 @@ app.post("/api/project", async (req, res) => {
   const title = req.body.title;
   const internal = req.body.internal;
   const external = req.body.external;
+  const batch = req.body.batch;
   console.log(req.body);
   res.send(
     await new Promise(function (resolve, reject) {
       const sqlInsert =
-        "INSERT INTO project (title, internal, external) VALUES (?,?,?);";
-      db.query(sqlInsert, [title, internal, external], (err, result) => {
+        "INSERT INTO project (title, internal, external, batch) VALUES (?,?,?,?);";
+      db.query(sqlInsert, [title, internal, external, batch], (err, result) => {
         console.log(err);
         if (err) {
           resolve({ message: "wsomething wend wrong" });
@@ -443,7 +446,7 @@ app.post("/api/project/edit/:id", async (req, res) => {
 
   res.json(
     await new Promise(function (resolve, reject) {
-      const SqlUpdate = `UPDATE project SET title = '${data.title}', internal= '${data.internal}', external= '${data.external}'  WHERE project_id = ${id}`;
+      const SqlUpdate = `UPDATE project SET title = '${data.title}', internal= '${data.internal}', external= '${data.external}', batch= '${data.batch}'  WHERE project_id = ${id}`;
       db.query(SqlUpdate, (err, result) => {
         if (err) resolve({ auth: false, message: err });
         resolve({ auth: true, message: "progress updated successfully" });
