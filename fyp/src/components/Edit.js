@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
-
+import { useParams, useHistory } from "react-router-dom";
 import "./Project.css";
 // import React, { useState, useEffect } from "react";
+
+function useForceUpdate() {
+  let [value, setState] = useState(true);
+  return () => setState(!value);
+}
+
 function Project() {
   // This use state was already defined in the code in video  so change according to our input fields i.e email etc
   const [inputList, setInputList] = useState([{ firstName: "", lastName: "" }]);
@@ -11,9 +17,26 @@ function Project() {
   const [title, setTitle] = useState("");
   const [Internal, setInternal] = useState("");
   const [External, setExternal] = useState("");
+  const [project, setProject] = useState({});
+  let forceUpdate = useForceUpdate();
+  let history = useHistory();
+
   // const [Full , setTitle] = useState('');
   // const [title, setTitle] = useState('');
   // const [title, setTitle] = useState('');
+  let { id } = useParams();
+
+  const getData = async () => {
+    await axios
+      .get("http://localhost:3001/api/project/one/" + id)
+      .then((response) => {
+        console.log(response.data.result);
+        setProject(response.data.result[0]);
+      });
+  };
+  useEffect(async () => {
+    await getData();
+  }, []);
 
   // handle input change
   const handleInputChange = (e, index) => {
@@ -32,12 +55,52 @@ function Project() {
     list.splice(index, 1);
     setInputList(list);
   };
+  function isEmpty(obj) {
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        return false;
+      }
+    }
 
+    return JSON.stringify(obj) === JSON.stringify({});
+  }
   // handle click event of the Add button
   const handleAddClick = () => {
     setInputList([...inputList, { firstName: "", lastName: "" }]);
   };
 
+  const editData = (type, ind, data) => {
+    console.log(type, ind, data);
+
+    if (type === "title") {
+      const temp = project;
+      temp.project.title = data;
+      setProject(temp);
+    } else if (type === "internal") {
+      const temp = project;
+      temp.project.internal = data;
+      setProject(temp);
+    } else if (type === "external") {
+      const temp = project;
+      temp.project.external = data;
+      setProject(temp);
+    } else if (type === "fullName") {
+      const temp = project;
+      temp.stds.result[ind].fullName = data;
+      setProject(temp);
+    } else if (type === "rollNo") {
+      const temp = project;
+      temp.stds.result[ind].rollNo = data;
+      setProject(temp);
+    } else if (type === "email") {
+      const temp = project;
+      temp.stds.result[ind].email = data;
+      setProject(temp);
+    }
+    forceUpdate()
+    console.log("project");
+    console.log(project);
+  };
   const addProject = () => {
     console.log(inputList);
     console.log(title);
@@ -45,27 +108,27 @@ function Project() {
     console.log(External);
 
     axios
-      .post("http://localhost:3001/api/project", {
-        title,
-        internal: Internal,
-        external: External,
+      .post("http://localhost:3001/api/project/edit/"+project.project.project_id, {
+        title: project.project.title,
+        internal: project.project.internal,
+        external: project.project.external,
       })
       .then(async (resp) => {
         console.log(resp.data);
-        for (let i = 0; i < inputList.length; i++) {
-          axios
-            .post("http://localhost:3001/api/projectStd", {
-              fullName: inputList[i].firstName,
-              rollNo: inputList[i].roll_no,
-              email: inputList[i].email,
-              project_id: resp.data.result.insertId,
+        for (let i = 0; i < project.stds.result.length; i++) {
+          await axios
+            .post("http://localhost:3001/api/projectStd/edit/"+project.stds.result[i].id, {
+              fullName: project.stds.result[i].fullName,
+              rollNo: project.stds.result[i].rollNo,
+              email: project.stds.result[i].email,
             })
             .then(async (resp1) => {
-              if (i === inputList.length - 1) {
-                await toast("Project Created successsfully!", {
+              if (i === project.stds.result.length - 1) {
+                await toast("Project updated successsfully!", {
                   position: "top-center",
                   type: "success",
                 });
+                history.push('/assignment')
               }
             })
             .catch((err) => console.log(err));
@@ -73,11 +136,12 @@ function Project() {
       })
       .catch((err) => console.log(err));
   };
-  return (
+
+  return !isEmpty(project) ? (
     <div className="prj_div">
       <ToastContainer />
       <div className="container1">
-        <h1 id="prj_heading">FYP PROJECT DETAILS</h1>
+        <h1 id="prj_heading">EDIT PROJECT DETAILS</h1>
 
         <table>
           <tr>
@@ -91,8 +155,8 @@ function Project() {
                 required
                 autoFocus
                 // className="form-control"
-                // value={x.projectTitle}
-                onChange={(e) => setTitle(e.target.value)}
+                value={project.project.title}
+                onChange={(e) => editData("title", 0, e.target.value)}
               />
             </td>
             <td>
@@ -104,8 +168,8 @@ function Project() {
                 placeholder="Internal Supervisor"
                 className="prj_inp"
                 required
-                // value={x.internal}
-                onChange={(e) => setInternal(e.target.value)}
+                value={project.project.internal}
+                onChange={(e) => editData("internal", 0, e.target.value)}
               />
             </td>
             <td>
@@ -117,8 +181,8 @@ function Project() {
                 placeholder="External Supervisor"
                 className="prj_inp"
                 required
-                // value={x.external}
-                onChange={(e) => setExternal(e.target.value)}
+                value={project.project.external}
+                onChange={(e) => editData("external", 0, e.target.value)}
               />
             </td>
           </tr>
@@ -126,7 +190,7 @@ function Project() {
 
         {/* Logic for Dynamically Add input field */}
 
-        {inputList.map((x, i) => {
+        {project.stds.result.map((x, i) => {
           return (
             <div className="box">
               <table>
@@ -139,8 +203,8 @@ function Project() {
                       placeholder="Full Name"
                       className="prj_inp"
                       required
-                      value={x.firstName}
-                      onChange={(e) => handleInputChange(e, i)}
+                      value={x.fullName}
+                      onChange={(e) => editData("fullName", i, e.target.value)}
                     />
                   </td>
                   <td>
@@ -152,8 +216,8 @@ function Project() {
                       className="prj_inp"
                       // style={{ width: "22%" }}
                       required
-                      value={x.rollno}
-                      onChange={(e) => handleInputChange(e, i)}
+                      value={x.rollNo}
+                      onChange={(e) => editData("rollNo", i, e.target.value)}
                     />
                   </td>
                   <td>
@@ -167,42 +231,11 @@ function Project() {
                       style={{ textTransform: "lowercase" }}
                       required
                       value={x.email}
-                      onChange={(e) => handleInputChange(e, i)}
+                      onChange={(e) => editData("email", i, e.target.value)}
                     />
                   </td>
                 </tr>
               </table>
-              {/* Add and Remove button dynamically */}
-              {inputList.length !== 1 && (
-                <button
-                  className="add_rem_btn"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    color: "grey",
-                    fontSize: "40px",
-                    fontWeight: "bold",
-                  }}
-                  onClick={() => handleRemoveClick(i)}
-                >
-                  -
-                </button>
-              )}
-              {inputList.length - 1 === i && (
-                <button
-                  className="add_rem_btn"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: "none",
-                    color: "grey",
-                    fontSize: "30px",
-                    fontWeight: "bold",
-                  }}
-                  onClick={handleAddClick}
-                >
-                  +
-                </button>
-              )}
             </div>
           );
         })}
@@ -219,12 +252,12 @@ function Project() {
           }}
           onClick={() => addProject()}
         >
-          Insert
+          Save
         </button>
         {/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
       </div>
     </div>
-  );
+  ) : null;
 }
 
 export default Project;

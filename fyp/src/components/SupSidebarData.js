@@ -18,12 +18,6 @@ export const SupSidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Upload files',
-    path: '/upload',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },
-  {
     title: 'Insert Marks',
     path: '/rubric',
     icon: <AiIcons.AiOutlineInsertRowBelow />,
@@ -47,6 +41,13 @@ export const SupSidebarData = [
     icon: <CgIcons.CgViewList />,
     cName: 'nav-text'
   },
+  {
+    title: 'Progress Report',
+    path: '/progressreport',
+    icon: <CgIcons.CgViewList />,
+    cName: 'nav-text'
+  },
+  
   {
     title: "Change Password",
     path: '/changepassword',

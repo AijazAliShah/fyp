@@ -34,9 +34,35 @@ CREATE TABLE `project` (
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
+CREATE TABLE `progress` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `Title` varchar(45) DEFAULT NULL,
+  `supEmail` varchar(200) DEFAULT NULL,
+  `reportUrl` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 --
 -- Dumping data for table `project`
 --
+
+
+CREATE TABLE `project` (
+  `project_id` int NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) DEFAULT NULL,
+  `internal` varchar(45) DEFAULT NULL,
+  `external` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`project_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `projectStd` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `project_id` varchar(45) DEFAULT NULL,
+  `fullName` varchar(100) DEFAULT NULL,
+  `rollNo` varchar(45) DEFAULT NULL,
+  `email` varchar(65) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;

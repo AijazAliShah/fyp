@@ -212,7 +212,7 @@ app.post("/api/reset/password", async (req, res) => {
         bcrypt.compare(
           cpassword,
           result[0].password,
-          (err, passwordNatched) => { 
+          (err, passwordNatched) => {
             if (passwordNatched) {
               bcrypt.hash(password, saltRounds, (err, hash) => {
                 if (err) {
@@ -296,6 +296,239 @@ app.post("/api/insert_project", (req, res) => {
   });
 });
 
+//Inserting data into Announcement table (Add an announcement)
+app.post("/api/progress", async (req, res) => {
+  const Title = req.body.title;
+  const supEmail = req.body.supEmail;
+  console.log(req.body);
+  res.send(
+    await new Promise(function (resolve, reject) {
+      const sqlInsert = "INSERT INTO progress (Title, supEmail) VALUES (?,?);";
+      db.query(sqlInsert, [Title, supEmail], (err, result) => {
+        console.log(err);
+        if (err) {
+          resolve({ message: "wsomething wend wrong" });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
+app.get("/api/progress", async (req, res) => {
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query("SELECT * FROM progress;", (err, result) => {
+        if (err) {
+          res.send({ err: errr });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
+app.post("/api/progress/edit/:id", async (req, res) => {
+  console.log(req.body);
+  const reportUrl = req.body.reportUrl;
+  const id = req.params.id;
+
+  res.json(
+    await new Promise(function (resolve, reject) {
+      const SqlUpdate = "UPDATE progress SET reportUrl = ? WHERE id = ?";
+      db.query(SqlUpdate, [reportUrl, id], (err, result) => {
+        if (err) resolve({ auth: false, message: "something went wrong" });
+        resolve({ auth: true, message: "progress updated successfully" });
+      });
+    })
+  );
+});
+
+//Inserting data into Announcement table (Add an announcement)
+app.post("/api/project", async (req, res) => {
+  const title = req.body.title;
+  const internal = req.body.internal;
+  const external = req.body.external;
+  console.log(req.body);
+  res.send(
+    await new Promise(function (resolve, reject) {
+      const sqlInsert =
+        "INSERT INTO project (title, internal, external) VALUES (?,?,?);";
+      db.query(sqlInsert, [title, internal, external], (err, result) => {
+        console.log(err);
+        if (err) {
+          resolve({ message: "wsomething wend wrong" });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
+app.get("/api/project", async (req, res) => {
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query("SELECT * FROM project;", async (err, result) => {
+        if (err) {
+          res.send({ err: errr });
+        }
+        const response = [];
+        for (let i = 0; i < result.length; i++) {
+          const std = await new Promise(function (resolve, reject) {
+            db.query(
+              "SELECT * FROM projectStd WHERE project_id = ?;",
+              result[i].project_id,
+              (err, result) => {
+                if (err) {
+                  res.send({ err: errr });
+                }
+                resolve({ result });
+              }
+            );
+          });
+          response.push({
+            project: result[i],
+            stds: std,
+          });
+        }
+
+        resolve({ result: response });
+      });
+    })
+  );
+});
+
+app.get("/api/project/one/:id", async (req, res) => {
+  const id = req.params.id;
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query(
+        "SELECT * FROM project WHERE project_id = ?;",
+        id,
+        async (err, result) => {
+          if (err) {
+            res.send({ err: errr });
+          }
+          const response = [];
+          for (let i = 0; i < result.length; i++) {
+            const std = await new Promise(function (resolve, reject) {
+              db.query(
+                "SELECT * FROM projectStd WHERE project_id = ?;",
+                result[i].project_id,
+                (err, result) => {
+                  if (err) {
+                    res.send({ err: errr });
+                  }
+                  resolve({ result });
+                }
+              );
+            });
+            response.push({
+              project: result[i],
+              stds: std,
+            });
+          }
+
+          resolve({ result: response });
+        }
+      );
+    })
+  );
+});
+
+app.post("/api/project/edit/:id", async (req, res) => {
+  console.log(req.body);
+  const data = req.body;
+  const id = req.params.id;
+
+  res.json(
+    await new Promise(function (resolve, reject) {
+      const SqlUpdate = `UPDATE project SET title = '${data.title}', internal= '${data.internal}', external= '${data.external}'  WHERE project_id = ${id}`;
+      db.query(SqlUpdate, (err, result) => {
+        if (err) resolve({ auth: false, message: err });
+        resolve({ auth: true, message: "progress updated successfully" });
+      });
+    })
+  );
+});
+
+app.post("/api/project/delete/:id", async (req, res) => {
+  const id = req.params.id;
+
+  res.json(
+    await new Promise(function (resolve, reject) {
+      db.query(
+        "DELETE FROM project WHERE project_id = ?;",
+        id,
+        (err, result) => {
+          if (err) {
+            res.send({ err: errr });
+          }
+          resolve({ result });
+        }
+      );
+    })
+  );
+});
+
+//Inserting data into Announcement table (Add an announcement)
+app.post("/api/projectStd", async (req, res) => {
+  const fullName = req.body.fullName;
+  const rollNo = req.body.rollNo;
+  const email = req.body.email;
+  const project_id = req.body.project_id;
+
+  console.log(req.body);
+  res.send(
+    await new Promise(function (resolve, reject) {
+      const sqlInsert =
+        "INSERT INTO projectStd (fullName, rollNo, email, project_id) VALUES (?,?,?,?);";
+      db.query(
+        sqlInsert,
+        [fullName, rollNo, email, project_id],
+        (err, result) => {
+          console.log(err);
+          if (err) {
+            resolve({ message: "wsomething wend wrong" });
+          }
+          resolve({ result });
+        }
+      );
+    })
+  );
+});
+
+app.get("/api/projectStd", async (req, res) => {
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query("SELECT * FROM projectStd;", (err, result) => {
+        if (err) {
+          res.send({ err: errr });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
+app.post("/api/projectStd/edit/:id", async (req, res) => {
+  console.log(req.body);
+  const data = req.body;
+  const id = req.params.id;
+
+  res.json(
+    await new Promise(function (resolve, reject) {
+      const SqlUpdate = `UPDATE projectStd SET fullName = '${data.fullName}', rollNo= '${data.rollNo}', email= '${data.email}'  WHERE id = ${id}`;
+      db.query(
+        SqlUpdate,
+        (err, result) => {
+          if (err) resolve({ auth: false, message: "something went wrong" });
+          resolve({ auth: true, message: "progress updated successfully" });
+        }
+      );
+    })
+  );
+});
 //Inserting data into Announcement table (Add an announcement)
 app.post("/api/announcement", (req, res) => {
   const activity = req.body.activity;
