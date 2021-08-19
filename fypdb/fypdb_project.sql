@@ -67,6 +67,49 @@ CREATE TABLE `projectStd` (
 ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
+
+CREATE TABLE `grades` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `projectTitle` varchar(45) DEFAULT NULL,
+  `project_id` varchar(200) DEFAULT NULL,
+  `batch` varchar(200) DEFAULT NULL,
+  `group_id` varchar(200) DEFAULT NULL,
+  `date` varchar(45) DEFAULT NULL,
+  `evlP` varchar(45) DEFAULT NULL,
+  `evlName1` varchar(45) DEFAULT NULL,
+  `evlName2` varchar(45) DEFAULT NULL,
+  `evlName3` varchar(45) DEFAULT NULL,
+  `designation1` varchar(45) DEFAULT NULL,
+  `designation2` varchar(45) DEFAULT NULL,
+  `designation3` varchar(45) DEFAULT NULL,
+  `stdRoll1` varchar(45) DEFAULT NULL,
+  `stdRoll2` varchar(45) DEFAULT NULL,
+  `stdRoll3` varchar(45) DEFAULT NULL,
+  `stdName1` varchar(45) DEFAULT NULL,
+  `stdName2` varchar(45) DEFAULT NULL,
+  `stdName3` varchar(45) DEFAULT NULL,
+  `groupP1` varchar(45) DEFAULT NULL,
+  `groupP2` varchar(45) DEFAULT NULL,
+  `groupP3` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE `criteria` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `grade_id` varchar(45) DEFAULT NULL,
+  `marks1` varchar(200) DEFAULT NULL,
+  `marks2` varchar(200) DEFAULT NULL,
+  `marks3` varchar(200) DEFAULT NULL,
+  `reMarks1` varchar(45) DEFAULT NULL,
+  `reMarks2` varchar(45) DEFAULT NULL,
+  `reMarks3` varchar(45) DEFAULT NULL,
+  `criteriaNo` varchar(45) DEFAULT NULL,
+  `evalNo` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
 INSERT INTO `project` VALUES (1,'OBE based FYP management system','FYP portal based on OBE system','Zoha Khattak','khattak4001679@cloud.neduet.edu.pk','Dr Shehnila Zardari','Dr Wasif'),(18,'TexChain',NULL,'ainny','abcc','jone','beck'),(19,'Medius',NULL,'saira','asndj','charlie','joe'),(20,'Sensor based IOT System',NULL,'asma','djdjh','mathew','anna'),(21,'AI based Skin Care App',NULL,'sana','ddjjd','james','anastasia');

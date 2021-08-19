@@ -3468,7 +3468,7 @@ export class Mid extends Component {
           {/* <h3 style={{color:"black"}}>Criteria1</h3> */}
 
           <br></br>
-          <Link to={"/rubric3"}>
+          <Link to={"/rubric4"}>
           <button type="submit" class="btn btn-primary" id="marks_submit_btn">
             
             Save and Next{" "}
