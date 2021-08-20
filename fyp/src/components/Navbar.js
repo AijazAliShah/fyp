@@ -11,7 +11,7 @@ import "./Navbar.css";
 import { IconContext } from "react-icons";
 import { reactLocalStorage } from "reactjs-localstorage";
 import { Button } from "./Button";
-
+import logo from './NEDUET.png'
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
   function isEmpty(obj) {
@@ -47,7 +47,7 @@ function Navbar() {
               <Link to="#" className="menu-bars">
                 <FaIcons.FaBars onClick={showSidebar} />
               </Link>
-
+              <img src={logo} style={{width: '60px', height: '60px'}}/>
               <h1>NEDUET</h1>
               {isNav.result[0].type !== "student" ? (
                 <button

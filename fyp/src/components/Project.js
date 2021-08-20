@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import background from "./img.png";
 
 import "./Project.css";
 // import React, { useState, useEffect } from "react";
@@ -76,9 +77,13 @@ function Project() {
       .catch((err) => console.log(err));
   };
   return (
+    <div>
+      <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
+
     <div className="prj_div">
+
       <ToastContainer />
-      <div className="container1">
+      <div className="container1" style={{opacity:"0.8", backgroundColor:"#fff"}}>
         <h1 id="prj_heading">FYP PROJECT DETAILS</h1>
 
         <table>
@@ -238,6 +243,7 @@ function Project() {
         </button>
         {/* <div style={{ marginTop: 20 }}>{JSON.stringify(inputList)}</div> */}
       </div>
+    </div>
     </div>
   );
 }

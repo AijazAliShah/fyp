@@ -4,6 +4,8 @@ import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import emailExistence from "email-existence";
 import { emailheck } from "email-check";
+import background from "./img.png";
+
 
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -60,10 +62,12 @@ function Registration() {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor:"#fff"}}>
+      <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
+
       <ToastContainer />
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
-        <Form className="container">
+      <Formik initialValues={initialValues} onSubmit={onSubmit} >
+        <Form className="container" >
           <h1 id="signUp">Change Password</h1>
 
           <label className="lab">Email: </label>

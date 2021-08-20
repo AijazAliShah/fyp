@@ -241,10 +241,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criterion 1</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criterion 1</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -396,10 +400,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 2</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 2</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -550,10 +558,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 3</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 3</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -699,10 +711,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 4</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 4</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -851,10 +867,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 5</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 5</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -1001,10 +1021,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 6</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 6</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -1151,10 +1175,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 7</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 7</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -1301,10 +1329,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 8</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 8</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -1451,10 +1483,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 9</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 9</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -1598,10 +1634,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 10</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 10</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -1748,10 +1788,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 11</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 11</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -1898,10 +1942,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 12</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 12</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -2046,10 +2094,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criterion 1</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criterion 1</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -2200,10 +2252,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 2</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 2</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -2354,10 +2410,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 3</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 3</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -2510,10 +2570,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 4</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 4</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -2664,10 +2728,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 5</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 5</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -2814,10 +2882,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 6</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 6</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -2967,10 +3039,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 7</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 7</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -3117,10 +3193,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 8</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 8</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>
@@ -3264,10 +3344,14 @@ export class Mid extends Component {
                       border: "1px solid black",
                     }}
                   >
-                    <td>Criteria 9</td>
-                    <td>PLO</td>
-                    <td>Weighing Factor</td>
-                    <td style={{ width: "40%" }}>Guidelines</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Criteria 9</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>PLO</td>
+                    <td  style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
+                    <td style={{backgroundColor:"#0b1442", textAlign: "center",
+            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
                   </tr>
 
                   <tr>

@@ -1,7 +1,7 @@
 
 .container{
 
-
+     /* background-image: url(${background}) ; */
     position: absolute;
     top: 55%;
     left: 50%;
@@ -12,7 +12,6 @@
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 7px 7px 60px rgba(2, 2, 26, 0.411);
-    
 }
 
 h1.Log_In{

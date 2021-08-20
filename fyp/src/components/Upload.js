@@ -9,6 +9,8 @@ import { reactLocalStorage } from "reactjs-localstorage";
 import fire from "./firebase";
 import { ToastContainer, toast } from "react-toastify";
 import "react-tabs/style/react-tabs.css";
+import background from "./img.png";
+
 import axios from "axios";
 
 class Upload extends Component {
@@ -113,8 +115,9 @@ class Upload extends Component {
     console.log(this.state);
     return !this.isEmpty(this.state.isStd) ? (
       <div>
+         <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
         <ToastContainer />
-        <div class="container" enctype="multipart/form-data">
+        <div class="container" enctype="multipart/form-data" style={{opacity:"0.8", backgroundColor:"#fff"}}>
           <div class="form-group">
             <h1 id="upload">Upload File here</h1>
             {this.state.isStd.result[0].type === "student" ? (
@@ -196,7 +199,10 @@ class Upload extends Component {
               onChange={(e) => this.setState({ doc: e.target.files[0] })}
             />
           </div>
+          <br></br>
           <button
+          style={{  backgroundColor: "rgb(43, 43, 148)",
+        }}
             type="submit"
             class="btn btn-primary"
             id="prj_submit"

@@ -59,7 +59,7 @@ export class Mid extends Component {
                   <th>User Name</th>
                   <th>User Email</th>
                   <th>Project Name</th>
-                  <th>Supervisor Email</th>
+                  
                   <th>Report</th>
                 </tr>
                 {this.state.reports.map((rep) => (
@@ -68,7 +68,7 @@ export class Mid extends Component {
                     <td>{rep.userName}</td>
                     <td>{rep.userEmail}</td>
                     <td>{rep.Title}</td>
-                    <td>{rep.supEmail}</td>
+                
                     <td style={{ display: "flex", justifyContent: "center" }}>
                       <a target="_blank" href={rep.reportUrl}>
                         <button

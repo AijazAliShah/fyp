@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
+import background from "./img.png";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "./helpers/AuthContext";
 import { ToastContainer, toast } from "react-toastify";
@@ -48,10 +49,12 @@ function Login() {
   };
 
   return (
-    <div>
+    <div >
+      <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
       <ToastContainer />
-      <div className="container">
-        <div class="form-group">
+      <div className="container" style={{opacity:"0.8", backgroundColor:"#fff"}}>
+
+        <div class="form-group"  >
           <h1 id="Login">Log In</h1>
           <br></br>
           <label for="exampleInputEmail1" className="lab">
@@ -112,7 +115,7 @@ function Login() {
           Login{" "}
         </button>
 
-        <a href="/forgetpassword"> Forrgot Password?</a>
+        <a href="/forgetpassword"> Forgot Password?</a>
       </div>
     </div>
   );
