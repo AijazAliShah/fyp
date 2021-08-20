@@ -53,12 +53,6 @@ export const CodSidebarData = [
     icon: <CgIcons.CgViewList />,
     cName: 'nav-text'
   },
-  {
-    title: 'Progress Report',
-    path: '/progressreport',
-    icon: <CgIcons.CgViewList />,
-    cName: 'nav-text'
-  },
   
   {
     title: "Change Password",

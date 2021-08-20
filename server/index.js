@@ -620,14 +620,34 @@ app.post("/api/grade", async (req, res) => {
   );
 });
 
+function search(nameKey, prop, myArray){
+  for (var i=0; i < myArray.length; i++) {
+      if (myArray[i][prop]=== nameKey) {
+          return myArray[i];
+      }
+  }
+}
+
 app.get("/api/grade", async (req, res) => {
   res.send(
     await new Promise(function (resolve, reject) {
       db.query("SELECT * FROM grades;", (err, result) => {
+
+        let response = []
+        for(var i=0; i< result.length; i++){
+          // console.log(result[i].project_id,project_id, response)
+
+          var resultObject = search(result[i].project_id,'project_id', response);
+          console.log(!resultObject)
+          if(!resultObject){
+            response.push(result[i])
+          }
+        }
+        console.log(response)
         if (err) {
           res.send({ err: errr });
         }
-        resolve({ result });
+        resolve({ result: response });
       });
     })
   );
@@ -769,8 +789,8 @@ app.get("/forgot/password/:email", async (req, res) => {
   var transport = {
     host: "smtp.gmail.com",
     auth: {
-      user: "aijazalishah333@gmail.com",
-      pass: "google_aijaz",
+      user: "saz.fyp@gmail.com",
+      pass: "fypneduet",
       port: "587",
       domain: "gmail.com",
       authentication: "plain",

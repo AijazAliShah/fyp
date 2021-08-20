@@ -304,7 +304,6 @@ export class Mid extends Component {
                 Number(evl.marks2) +
                 Number(evl.marks3);
             });
-            console.log("ooooooooooooooooooooooooooooooooooooooooo");
             console.log(p4marks);
             this.setState({
               p4perc: (p4marks / 720) * 100,

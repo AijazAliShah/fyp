@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { reactLocalStorage } from "reactjs-localstorage";
 
 export class Mid extends Component {
   constructor(props) {
@@ -10,16 +11,23 @@ export class Mid extends Component {
   }
 
   componentDidMount() {
+    const isNav = reactLocalStorage.getObject("accessToken");
+    console.log("isnva");
+    console.log(isNav);
+
     axios
       .get("http://localhost:3001/api/progress")
       .then((resp) => {
-          console.log(resp.data)
-        this.setState({ reports: resp.data.result });
+        console.log(resp.data, isNav.result[0].email);
+        const temp = resp.data.result.filter(
+          (data) => data.supEmail === isNav.result[0].email
+        );
+        this.setState({ reports: temp });
       })
       .catch((err) => console.log(err));
   }
   render() {
-      console.log(this.state)
+    console.log(this.state);
     return (
       <div id="c_table">
         <div>
@@ -61,16 +69,15 @@ export class Mid extends Component {
                     <td>{rep.userEmail}</td>
                     <td>{rep.Title}</td>
                     <td>{rep.supEmail}</td>
-                    <td style={{display:"flex", justifyContent:"center"}}>
-                        <a target='_blank' href={rep.reportUrl}>
-                      <button
-                      
-                        type="submit"
-                        class="btn btn-primary"
-                        id="marks_submit_btn"
-                      >
-                        Download{" "}
-                      </button>
+                    <td style={{ display: "flex", justifyContent: "center" }}>
+                      <a target="_blank" href={rep.reportUrl}>
+                        <button
+                          type="submit"
+                          class="btn btn-primary"
+                          id="marks_submit_btn"
+                        >
+                          Download{" "}
+                        </button>
                       </a>
                     </td>
                   </tr>

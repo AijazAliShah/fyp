@@ -604,27 +604,53 @@ export class Mid extends Component {
         </div>
 
         <br></br>
-        {this.state.eval4Criterias.length ? (
+
         <Tabs style={{ color: "#000" }}>
           <TabList>
-            <Tab>Evaluation 1</Tab>
-            <Tab style={{ marginLeft: "20%" }}>Evaluation 2</Tab>
-            <Tab style={{ marginLeft: "20%" }}>Evaluation 3</Tab>
-            <Tab style={{ marginLeft: "20%" }}>Evaluation 4</Tab>
+            {this.state.eval1Criterias.length ? <Tab>Evaluation 1</Tab> : null}
+            {this.state.eval2Criterias.length ? (
+              <Tab style={{ marginLeft: "20%" }}>Evaluation 2</Tab>
+            ) : null}
+            {this.state.eval3Criterias.length ? (
+              <Tab style={{ marginLeft: "20%" }}>Evaluation 3</Tab>
+            ) : null}
+            {this.state.eval4Criterias.length ? (
+              <Tab style={{ marginLeft: "20%" }}>Evaluation 4</Tab>
+            ) : null}
           </TabList>
-          <TabPanel>
-            <Evaluation1 eval1Criterias={this.state.eval1Criterias} data={this.state.gradeData} />
-          </TabPanel>
-          <TabPanel>
-            <Evaluation2 eval1Criterias={this.state.eval2Criterias} data={this.state.gradeData} />
-          </TabPanel>
-          <TabPanel>
-            <Evaluation3 eval1Criterias={this.state.eval3Criterias} data={this.state.gradeData} />
-          </TabPanel>
-          <TabPanel>
-            <Evaluation4 eval1Criterias={this.state.eval4Criterias} data={this.state.gradeData} />
-          </TabPanel>
-        </Tabs>): null}
+          {this.state.eval1Criterias.length ? (
+            <TabPanel>
+              <Evaluation1
+                eval1Criterias={this.state.eval1Criterias}
+                data={this.state.gradeData}
+              />
+            </TabPanel>
+          ) : null}
+          {this.state.eval2Criterias.length ? (
+            <TabPanel>
+              <Evaluation2
+                eval1Criterias={this.state.eval2Criterias}
+                data={this.state.gradeData}
+              />
+            </TabPanel>
+          ) : null}
+          {this.state.eval3Criterias.length ? (
+            <TabPanel>
+              <Evaluation3
+                eval1Criterias={this.state.eval3Criterias}
+                data={this.state.gradeData}
+              />
+            </TabPanel>
+          ) : null}
+          {this.state.eval4Criterias.length ? (
+            <TabPanel>
+              <Evaluation4
+                eval1Criterias={this.state.eval4Criterias}
+                data={this.state.gradeData}
+              />
+            </TabPanel>
+          ) : null}
+        </Tabs>
       </div>
     );
   }

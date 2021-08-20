@@ -117,7 +117,7 @@ export class Mid extends Component {
               .then((resp1) => {
                 console.log(resp1.data);
                 if (i === 17) {
-                  // window.location.href = `/rubric2/${resp.data.result.insertId}/${this.state.eval_no}`;
+                  window.location.href = `/rubric2/${resp.data.result.insertId}/${this.state.eval_no}`;
                 }
               })
               .catch((err) => console.log(err));

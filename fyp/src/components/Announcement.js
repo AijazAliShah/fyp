@@ -38,7 +38,7 @@ function AddAnnouncement() {
   };
 
   return (
-    <div style={{ marginLeft: "30%" }}>
+    <div style={{ marginLeft: "20%" }}>
       <Tabs style={{ color: "#000" }}>
         <TabList>
           {isNav.result[0].type !== "student" ? (
