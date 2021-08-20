@@ -604,6 +604,7 @@ export class Mid extends Component {
         </div>
 
         <br></br>
+        {this.state.eval4Criterias.length ? (
         <Tabs style={{ color: "#000" }}>
           <TabList>
             <Tab>Evaluation 1</Tab>
@@ -612,18 +613,18 @@ export class Mid extends Component {
             <Tab style={{ marginLeft: "20%" }}>Evaluation 4</Tab>
           </TabList>
           <TabPanel>
-            <Evaluation1 eval1Criterias={this.state.eval1Criterias} />
+            <Evaluation1 eval1Criterias={this.state.eval1Criterias} data={this.state.gradeData} />
           </TabPanel>
           <TabPanel>
-            <Evaluation2 eval2Criterias={this.state.eval2Criterias} />
+            <Evaluation2 eval1Criterias={this.state.eval2Criterias} data={this.state.gradeData} />
           </TabPanel>
           <TabPanel>
-            <Evaluation3 eval3Criterias={this.state.eval3Criterias} />
+            <Evaluation3 eval1Criterias={this.state.eval3Criterias} data={this.state.gradeData} />
           </TabPanel>
           <TabPanel>
-            <Evaluation4 eval4Criterias={this.state.eval4Criterias} />
+            <Evaluation4 eval1Criterias={this.state.eval4Criterias} data={this.state.gradeData} />
           </TabPanel>
-        </Tabs>
+        </Tabs>): null}
       </div>
     );
   }

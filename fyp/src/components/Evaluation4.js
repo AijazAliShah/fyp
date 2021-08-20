@@ -1,840 +1,2856 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Criteria_table from "./Criteria_table";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 export class Mid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      projectTitle: "",
-      projectId: "",
-      batch: "",
-      groupId: "",
-      eval_no: "",
-      date: "",
-      des1: "",
-      des2: "",
-      des3: "",
-      evl1: "",
-      evl2: "",
-      evl3: "",
-
-      rollNo1: "",
-      rollNo2: "",
-      rollNo3: "",
-      stdName1: "",
-      stdName2: "",
-      stdName3: "",
-      stdG1: "",
-      stdG2: "",
-      stdG3: "",
-      criteria13: {
-        marks1: "",
-        marks2: "",
-        marks3: "",
-        remarks1: "",
-        remarks2: "",
-        remarks3: "",
-      },
-      criteria14: {
-        marks1: "",
-        marks2: "",
-        marks3: "",
-        remarks1: "",
-        remarks2: "",
-        remarks3: "",
-      },
-      criteria15: {
-        marks1: "",
-        marks2: "",
-        marks3: "",
-        remarks1: "",
-        remarks2: "",
-        remarks3: "",
-      },
-      criteria16: {
-        marks1: "",
-        marks2: "",
-        marks3: "",
-        remarks1: "",
-        remarks2: "",
-        remarks3: "",
-      },
-      criteria17: {
-        marks1: "",
-        marks2: "",
-        marks3: "",
-        remarks1: "",
-        remarks2: "",
-        remarks3: "",
-      },
+      group: [],
+      member1: [],
+      member2: [],
+      member3: [],
     };
   }
 
+  componentDidMount() {
+    const group = this.props.eval1Criterias.filter(
+      (elv) => elv.stdRollNo === "group"
+    );
+    const member1 = this.props.eval1Criterias.filter(
+      (elv) => elv.stdRollNo === this.props.data.stdRoll1
+    );
+    const member2 = this.props.eval1Criterias.filter(
+      (elv) => elv.stdRollNo === this.props.data.stdRoll2
+    );
+    const member3 = this.props.eval1Criterias.filter(
+      (elv) => elv.stdRollNo === this.props.data.stdRoll3
+    );
+    console.log("sssssssssssssssssssssssssssssss");
+    console.log(group, member1, member2, member3);
+    this.setState({ group, member1, member2, member3 });
+    console.log("saaaaaaaaaaaaaa");
+    console.log(group.filter((crit) => crit.criteriaNo === "13")[0]);
+  }
+
   render() {
-    console.log("data", this.state);
+    console.log("data123", this.state, this.props);
 
     return (
-      <div id="c_table">
-        <form>
-          <h1
-            style={{
-              color: "black",
-              color: "#0b1442",
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: "50PX",
-            }}
-          >
-            Evaluation 4
-          </h1>
-         
-        
-          <div>
-            {/* Individual Assesment */}
-            <br></br>
+      <Tabs style={{ color: "#000" }}>
+        <TabList>
+          <Tab style={{ marginLeft: "20%" }}>Indivisual 1</Tab>
+          <Tab style={{ marginLeft: "20%" }}>Indivisual 2</Tab>
+          <Tab style={{ marginLeft: "20%" }}>Indivisual 3</Tab>
+        </TabList>
 
-            <h3>Group Based Assessment </h3>
-            <table style={{ border: "1px solid black" }} className="detail">
-              <tr
+        <TabPanel>
+          <>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+              <br></br>
+              <div
                 style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
                 }}
               >
-                <td>Criterion 13</td>
-                <td>PLO</td>
-                <td>Weighing Factor</td>
-                <td style={{ width: "40%" }}>Guidelines</td>
-              </tr>
-
-              <tr>
-                <td>How well have the tasks been distributed among members?</td>
-                <td>PLO-11 Project Management</td>
-                <td>1-10</td>
-                <td rowSpan="5">
-                  Are the project roles and responsibilities were evenly divided
-                  among team members?
-                </td>
-              </tr>
-
-              <tr
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
-                }}
-              >
-                <td>Evaluator</td>
-                <td>Factor Awarded</td>
-                <td>Remarks</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>
-                  <select
-                    name="fact"
-                    id="fact"
-                    onChange={(e) => {
-                      var temp = this.state.criteria13;
-                      temp.marks1 = e.target.value;
-                      this.setState({ criteria13: temp });
-                    }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                  <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria13;
-                      temp.remarks1 = e.target.value;
-                      this.setState({ criteria13: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>
-                  {" "}
-                  <select name="fact" id="fact"   onChange={(e) => {
-                      var temp = this.state.criteria13;
-                      temp.marks2 = e.target.value;
-                      this.setState({ criteria13: temp });
-                    }}>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria13;
-                      temp.remarks2 = e.target.value;
-                      this.setState({ criteria13: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>
-                  {" "}
-                  <select name="fact" id="fact"
-                    onChange={(e) => {
-                        var temp = this.state.criteria13;
-                        temp.marks3 = e.target.value;
-                        this.setState({ criteria13: temp });
-                      }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria13;
-                      temp.remarks3 = e.target.value;
-                      this.setState({ criteria13: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div>
-            {/* Individual Assesment */}
-            <br></br>
-
-            <br></br>
-            <table style={{ border: "1px solid black" }} className="detail">
-              <tr
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
-                }}
-              >
-                <td>Criteria 14</td>
-                <td>PLO</td>
-                <td>Weighing Factor</td>
-                <td style={{ width: "40%" }}>Guidelines</td>
-              </tr>
-
-              <tr>
-                <td>How do you rate the project's progress?</td>
-                <td>PLO-11 Project Management</td>
-                <td>1-10</td>
-                <td rowSpan="5">
-                  Students provided accurate, complete report of project
-                  progress
-                </td>
-              </tr>
-
-              <tr
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
-                }}
-              >
-                <td>Evaluator</td>
-                <td>Factor Awarded</td>
-                <td>Remarks</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>
-                <select
-                    name="fact"
-                    id="fact"
-                    onChange={(e) => {
-                      var temp = this.state.criteria14;
-                      temp.marks1 = e.target.value;
-                      this.setState({ criteria14: temp });
-                    }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria14;
-                      temp.remarks1 = e.target.value;
-                      this.setState({ criteria14: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>
-                  {" "}
-                  <select
-                    name="fact"
-                    id="fact"
-                    onChange={(e) => {
-                      var temp = this.state.criteria14;
-                      temp.marks2 = e.target.value;
-                      this.setState({ criteria14: temp });
-                    }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria14;
-                      temp.remarks2 = e.target.value;
-                      this.setState({ criteria14: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>
-                  {" "}
-                  <select
-                    name="fact"
-                    id="fact"
-                    onChange={(e) => {
-                      var temp = this.state.criteria14;
-                      temp.marks3 = e.target.value;
-                      this.setState({ criteria14: temp });
-                    }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria14;
-                      temp.remarks3 = e.target.value;
-                      this.setState({ criteria14: temp });
-                    }}
-                  ></textarea>                </td>
-              </tr>
-            </table>
-          </div>
-          <div>
-            {/* Individual Assesment */}
-            <br></br>
-
-            <br></br>
-            <table style={{ border: "1px solid black" }} className="detail">
-              <tr
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
-                }}
-              >
-                <td>Criteria 15</td>
-                <td>PLO</td>
-                <td>Weighing Factor</td>
-                <td style={{ width: "40%" }}>Guidelines</td>
-              </tr>
-
-              <tr>
-                <td>How well was the Project scheduled?</td>
-                <td>PLO-11 Project Management</td>
-                <td>1-10</td>
-                <td rowSpan="5">
-                  Students developed a comprehensive schedule of project
-                  activities/tasks with realistic due dates.
-                </td>
-              </tr>
-
-              <tr
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
-                }}
-              >
-                <td>Evaluator</td>
-                <td>Factor Awarded</td>
-                <td>Remarks</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>
-                  <select name="fact" id="fact"
-                   onChange={(e) => {
-                    var temp = this.state.criteria15;
-                    temp.marks1 = e.target.value;
-                    this.setState({ criteria15: temp });
+                <h2>
+                  Name: <b>{this.props.data.stdName1}</b>
+                </h2>
+                <h2>
+                  Roll Number: <b>{this.props.data.stdRoll1}</b>
+                </h2>
+                <h2>
+                  Position: <b>{this.props.data.groupP1}</b>
+                </h2>
+              </div>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
                   }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria15;
-                      temp.remarks1 = e.target.value;
-                      this.setState({ criteria15: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>
-                  {" "}
-                  <select name="fact" id="fact"
-                   onChange={(e) => {
-                    var temp = this.state.criteria15;
-                    temp.marks2 = e.target.value;
-                    this.setState({ criteria15: temp });
-                  }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria15;
-                      temp.remarks2 = e.target.value;
-                      this.setState({ criteria15: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>
-                  {" "}
-                  <select name="fact" id="fact"
-                   onChange={(e) => {
-                    var temp = this.state.criteria15;
-                    temp.marks3 = e.target.value;
-                    this.setState({ criteria15: temp });
-                  }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria15;
-                      temp.remarks3 = e.target.value;
-                      this.setState({ criteria15: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div>
-            {/* Individual Assesment */}
-            <br></br>
+                >
+                  <td>Criterion 1</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
 
-            <br></br>
-            <table style={{ border: "1px solid black" }} className="detail">
-              <tr
+                <tr>
+                  <td>
+                    How clearly has the student identified issues & explained
+                    project?
+                  </td>
+                  <td>PLO-4 Investigation</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How clearly student identifies and summarizes main issues
+                    and successfully explains why/how they are problems or
+                    questions; and identifies embedded or implicit issues,
+                    addressing their relationships to each other?
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 2</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    To what extent does the student realize the societal impacts
+                    of design and implementation of the project?
+                  </td>
+                  <td>PLO-6 The Engineer and Society</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How correctly the student realizes the societal impact of
+                    the proposed design and implementation and has made
+                    sufficient efforts to address these effects?
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 3</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    What level of importance does the student assign to
+                    sustainable design and implementation of a project?
+                  </td>
+                  <td>PLO-7 Environment and Sustainability</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How the student realizes the need for sustainable design and
+                    implementation of a project and gives clear answers w h e n
+                    a s k e d how sustainability would be incorporated in the
+                    project. Also, whether the project incorporates
+                    sustainability
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 4</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Does the student have an idea of professional ethics and
+                    legal responsibilities relevant to the project?
+                  </td>
+                  <td>PLO-8 Ethics</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How well the student explains professional ethics
+                    satisfactorily and understands the legal responsibilities
+                    relevant to the project.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 5</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    How do you grade the student’s performance as an individual
+                    and as a team member?
+                  </td>
+                  <td>PLO-9 Individual and Team Work</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The student worked on the assigned task, and accomplished
+                    goals beyond expectations.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 6</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    During the presentation, how do you grade the conversational
+                    abilities of the student and how well has the student
+                    responded to the questions?{" "}
+                  </td>
+                  <td>PLO-10 Communication</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The student’s conversational abilities are good. Student
+                    assesses information in a meaningful way and clearly answers
+                    the question with accuracy, detail and understanding
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 7</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    How well were the project scheduling, planning and progress?
+                  </td>
+                  <td>PLO-11 Project Management</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    Students developed a comprehensive schedule of project
+                    activities/tasks with realistic due dates. The planning was
+                    efficient and complete reports of project progress were
+                    provided
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 8</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>How do you visualize the student’s learning curve?</td>
+                  <td>PLO-12 Life Long Learning</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    Both previous and current attempts for improvement are good.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 9</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Does the demonstration of project indicate that the student
+                    has selected and applied suitable techniques, resources, and
+                    modern engineering and IT tools?
+                  </td>
+                  <td>PLO-5 Modern Tool Usage</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The demonstration indicates that the student has selected
+                    the most appropriate resources and tools in wherever needed
+                    is proficient with the relevant tools
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member1.length
+                      ? this.state.member1.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+            </div>
+          </>
+        </TabPanel>
+        <TabPanel>
+        <>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+              <br></br>
+              <div
                 style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
                 }}
               >
-                <td>Criteria 16</td>
-                <td>PLO</td>
-                <td>Weighing Factor</td>
-                <td style={{ width: "40%" }}>Guidelines</td>
-              </tr>
+                <h2>
+                  Name: <b>{this.props.data.stdName1}</b>
+                </h2>
+                <h2>
+                  Roll Number: <b>{this.props.data.stdRoll1}</b>
+                </h2>
+                <h2>
+                  Position: <b>{this.props.data.groupP1}</b>
+                </h2>
+              </div>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criterion 1</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
 
-              <tr>
-                <td>
-                  How has the student planned to carry out rest of the Project?
-                </td>
-                <td>PLO-11 Project Management</td>
-                <td>1-10</td>
-                <td rowSpan="5">
-                  Has the student provided a detailed description of future work
-                  related to the project?
-                </td>
-              </tr>
+                <tr>
+                  <td>
+                    How clearly has the student identified issues & explained
+                    project?
+                  </td>
+                  <td>PLO-4 Investigation</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How clearly student identifies and summarizes main issues
+                    and successfully explains why/how they are problems or
+                    questions; and identifies embedded or implicit issues,
+                    addressing their relationships to each other?
+                  </td>
+                </tr>
 
-              <tr
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 2</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    To what extent does the student realize the societal impacts
+                    of design and implementation of the project?
+                  </td>
+                  <td>PLO-6 The Engineer and Society</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How correctly the student realizes the societal impact of
+                    the proposed design and implementation and has made
+                    sufficient efforts to address these effects?
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 3</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    What level of importance does the student assign to
+                    sustainable design and implementation of a project?
+                  </td>
+                  <td>PLO-7 Environment and Sustainability</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How the student realizes the need for sustainable design and
+                    implementation of a project and gives clear answers w h e n
+                    a s k e d how sustainability would be incorporated in the
+                    project. Also, whether the project incorporates
+                    sustainability
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 4</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Does the student have an idea of professional ethics and
+                    legal responsibilities relevant to the project?
+                  </td>
+                  <td>PLO-8 Ethics</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How well the student explains professional ethics
+                    satisfactorily and understands the legal responsibilities
+                    relevant to the project.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 5</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    How do you grade the student’s performance as an individual
+                    and as a team member?
+                  </td>
+                  <td>PLO-9 Individual and Team Work</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The student worked on the assigned task, and accomplished
+                    goals beyond expectations.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 6</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    During the presentation, how do you grade the conversational
+                    abilities of the student and how well has the student
+                    responded to the questions?{" "}
+                  </td>
+                  <td>PLO-10 Communication</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The student’s conversational abilities are good. Student
+                    assesses information in a meaningful way and clearly answers
+                    the question with accuracy, detail and understanding
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 7</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    How well were the project scheduling, planning and progress?
+                  </td>
+                  <td>PLO-11 Project Management</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    Students developed a comprehensive schedule of project
+                    activities/tasks with realistic due dates. The planning was
+                    efficient and complete reports of project progress were
+                    provided
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 8</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>How do you visualize the student’s learning curve?</td>
+                  <td>PLO-12 Life Long Learning</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    Both previous and current attempts for improvement are good.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 9</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Does the demonstration of project indicate that the student
+                    has selected and applied suitable techniques, resources, and
+                    modern engineering and IT tools?
+                  </td>
+                  <td>PLO-5 Modern Tool Usage</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The demonstration indicates that the student has selected
+                    the most appropriate resources and tools in wherever needed
+                    is proficient with the relevant tools
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member2.length
+                      ? this.state.member2.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+            </div>
+          </>
+        </TabPanel>
+        <TabPanel>
+        <>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+              <br></br>
+              <div
                 style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
                 }}
               >
-                <td>Evaluator</td>
-                <td>Factor Awarded</td>
-                <td>Remarks</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>
-                  <select name="fact" id="fact"
-                     onChange={(e) => {
-                        var temp = this.state.criteria16;
-                        temp.marks1 = e.target.value;
-                        this.setState({ criteria16: temp });
-                      }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria16;
-                      temp.remarks1 = e.target.value;
-                      this.setState({ criteria16: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>
-                  {" "}
-                  <select name="fact" id="fact"
-                     onChange={(e) => {
-                        var temp = this.state.criteria16;
-                        temp.marks2 = e.target.value;
-                        this.setState({ criteria16: temp });
-                      }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria16;
-                      temp.remarks2 = e.target.value;
-                      this.setState({ criteria16: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>
-                  {" "}
-                  <select name="fact" id="fact"
-                     onChange={(e) => {
-                        var temp = this.state.criteria16;
-                        temp.marks3 = e.target.value;
-                        this.setState({ criteria16: temp });
-                      }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria16;
-                      temp.remarks3 = e.target.value;
-                      this.setState({ criteria16: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-            </table>
-          </div>
-          <div>
-            {/* Individual Assesment */}
-            <br></br>
-
-            <br></br>
-            <table style={{ border: "1px solid black" }} className="detail">
-              <tr
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
-                }}
-              >
-                <td>Criteria 17</td>
-                <td>PLO</td>
-                <td>Weighing Factor</td>
-                <td style={{ width: "40%" }}>Guidelines</td>
-              </tr>
-
-              <tr>
-                <td>Demonstration of Project? </td>
-                <td>PLO-11 Project Management</td>
-                <td>1-10</td>
-                <td rowSpan="5">
-                  Either the demonstration of the project is poor, average,
-                  good, very good or ?
-                </td>
-              </tr>
-
-              <tr
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "18px",
-                  border: "1px solid black",
-                }}
-              >
-                <td>Evaluator</td>
-                <td>Factor Awarded</td>
-                <td>Remarks</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>
-                  <select name="fact" id="fact"
-                   onChange={(e) => {
-                    var temp = this.state.criteria17;
-                    temp.marks1 = e.target.value;
-                    this.setState({ criteria17: temp });
+                <h2>
+                  Name: <b>{this.props.data.stdName1}</b>
+                </h2>
+                <h2>
+                  Roll Number: <b>{this.props.data.stdRoll1}</b>
+                </h2>
+                <h2>
+                  Position: <b>{this.props.data.groupP1}</b>
+                </h2>
+              </div>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
                   }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria17;
-                      temp.remarks1 = e.target.value;
-                      this.setState({ criteria17: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>
-                  {" "}
-                  <select name="fact" id="fact"
-                   onChange={(e) => {
-                    var temp = this.state.criteria17;
-                    temp.marks2 = e.target.value;
-                    this.setState({ criteria17: temp });
-                  }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria17;
-                      temp.remarks2 = e.target.value;
-                      this.setState({ criteria17: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>
-                  {" "}
-                  <select name="fact" id="fact"
-                   onChange={(e) => {
-                    var temp = this.state.criteria17;
-                    temp.marks3 = e.target.value;
-                    this.setState({ criteria17: temp });
-                  }}
-                  >
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </td>
-                <td>
-                <textarea
-                    onChange={(e) => {
-                      var temp = this.state.criteria17;
-                      temp.remarks3 = e.target.value;
-                      this.setState({ criteria17: temp });
-                    }}
-                  ></textarea>
-                </td>
-              </tr>
-            </table>
-          </div>
-          {/* <h3 className="main_heading2" style={{textTransform:"uppercase",fontSize:"30px",color:"#0b1442",fontFamily:"'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"}}>GROUP ASSESSMENT</h3>
-               <Criteria_table c_no="13" PLO="11"/>
-               <Criteria_table c_no="14" PLO="11"/>
-               <Criteria_table c_no="15" PLO="11"/> 
-               <Criteria_table c_no="16" PLO="11"/> 
-               <Criteria_table c_no="17" PLO="5"/>  */}
+                >
+                  <td>Criterion 1</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
 
-          {/* <h3 style={{color:"black"}}>Criteria1</h3> */}
+                <tr>
+                  <td>
+                    How clearly has the student identified issues & explained
+                    project?
+                  </td>
+                  <td>PLO-4 Investigation</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How clearly student identifies and summarizes main issues
+                    and successfully explains why/how they are problems or
+                    questions; and identifies embedded or implicit issues,
+                    addressing their relationships to each other?
+                  </td>
+                </tr>
 
-          <br></br>
-          <Link to={"/rubric2"}>
-          <button type="submit" class="btn btn-primary" id="marks_submit_btn">
-            
-            Save and Next{" "}
-          </button>
-          </Link>
-        </form>
-      </div>
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "1"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 2</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    To what extent does the student realize the societal impacts
+                    of design and implementation of the project?
+                  </td>
+                  <td>PLO-6 The Engineer and Society</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How correctly the student realizes the societal impact of
+                    the proposed design and implementation and has made
+                    sufficient efforts to address these effects?
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "2"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 3</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    What level of importance does the student assign to
+                    sustainable design and implementation of a project?
+                  </td>
+                  <td>PLO-7 Environment and Sustainability</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How the student realizes the need for sustainable design and
+                    implementation of a project and gives clear answers w h e n
+                    a s k e d how sustainability would be incorporated in the
+                    project. Also, whether the project incorporates
+                    sustainability
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "3"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              {/* Individual Assesment */}
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 4</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Does the student have an idea of professional ethics and
+                    legal responsibilities relevant to the project?
+                  </td>
+                  <td>PLO-8 Ethics</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    How well the student explains professional ethics
+                    satisfactorily and understands the legal responsibilities
+                    relevant to the project.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "4"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 5</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    How do you grade the student’s performance as an individual
+                    and as a team member?
+                  </td>
+                  <td>PLO-9 Individual and Team Work</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The student worked on the assigned task, and accomplished
+                    goals beyond expectations.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "5"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 6</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    During the presentation, how do you grade the conversational
+                    abilities of the student and how well has the student
+                    responded to the questions?{" "}
+                  </td>
+                  <td>PLO-10 Communication</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The student’s conversational abilities are good. Student
+                    assesses information in a meaningful way and clearly answers
+                    the question with accuracy, detail and understanding
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "6"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 7</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    How well were the project scheduling, planning and progress?
+                  </td>
+                  <td>PLO-11 Project Management</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    Students developed a comprehensive schedule of project
+                    activities/tasks with realistic due dates. The planning was
+                    efficient and complete reports of project progress were
+                    provided
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "7"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 8</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>How do you visualize the student’s learning curve?</td>
+                  <td>PLO-12 Life Long Learning</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    Both previous and current attempts for improvement are good.
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "8"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Criteria 9</td>
+                  <td>PLO</td>
+                  <td>Weighing Factor</td>
+                  <td style={{ width: "40%" }}>Guidelines</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    Does the demonstration of project indicate that the student
+                    has selected and applied suitable techniques, resources, and
+                    modern engineering and IT tools?
+                  </td>
+                  <td>PLO-5 Modern Tool Usage</td>
+                  <td>1-10</td>
+                  <td rowSpan="5">
+                    The demonstration indicates that the student has selected
+                    the most appropriate resources and tools in wherever needed
+                    is proficient with the relevant tools
+                  </td>
+                </tr>
+
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "18px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <td>Evaluator</td>
+                  <td>Factor Awarded</td>
+                  <td>ReMarks</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks1
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks1
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks2
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks2
+                      : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>
+                    {" "}
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].marks3
+                      : null}
+                  </td>
+                  <td>
+                    {this.state.member3.length
+                      ? this.state.member3.filter(
+                          (crit) => crit.criteriaNo === "9"
+                        )[0].reMarks3
+                      : null}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+            </div>
+          </>
+        </TabPanel>
+      </Tabs>
     );
   }
 }
