@@ -30,6 +30,7 @@ import Evaluation1 from "./Evaluation1";
 import Evaluation2 from "./Evaluation2";
 import Evaluation3 from "./Evaluation3";
 import Evaluation4 from "./Evaluation4";
+import InsertMakrs from "./insertMakrs";
 import { AuthContext } from "./helpers/AuthContext";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -80,16 +81,18 @@ function Front_page() {
           <Route path="/info" component={Info} />
           <Route path="/announcement" component={Announcement} />
           <Route path="/changepassword" component={Dept} />
-          <Route path="/rubric2" component={Rubric2} />
-          <Route path="/rubric3" component={Rubric3} />
-          <Route path="/rubric4" component={Rubric4} />
-          <Route path="/result" component={Result} />
+          <Route path="/rubric2/:id/:evel" component={Rubric2} />
+          <Route path="/rubric3/:id/:evel" component={Rubric3} />
+          <Route path="/rubric4/:id/:evel" component={Rubric4} />
+          <Route path="/result/:id" component={Result} />
           <Route path="/detail" component={Detail} />
           <Route path="/showGrades" component={showGrades} />
           <Route path="/evaluation1" component={Evaluation1} />
           <Route path="/evaluation2" component={Evaluation2} />
           <Route path="/evaluation3" component={Evaluation3} />
-          <Route path="/evaluation4" component={Evaluation4} />23
+          <Route path="/evaluation4" component={Evaluation4} />
+          <Route path="/insertMakrs" component={InsertMakrs} />
+          
           {/* <Route path='/login'4exact component={Login}4/4
         <Route path='/Profile' exact component={Student} />
         <Route path='/Edit_profile' exact component={Edit_profile} />

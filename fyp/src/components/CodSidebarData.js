@@ -49,7 +49,7 @@ export const CodSidebarData = [
   },
   {
     title: 'View Grades',
-    path: '/grade',
+    path: '/showGrades',
     icon: <CgIcons.CgViewList />,
     cName: 'nav-text'
   },

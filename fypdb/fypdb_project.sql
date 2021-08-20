@@ -98,6 +98,7 @@ CREATE TABLE `grades` (
 CREATE TABLE `criteria` (
   `id` int NOT NULL AUTO_INCREMENT,
   `grade_id` varchar(45) DEFAULT NULL,
+  `project_id` varchar(45) DEFAULT NULL,
   `marks1` varchar(200) DEFAULT NULL,
   `marks2` varchar(200) DEFAULT NULL,
   `marks3` varchar(200) DEFAULT NULL,
@@ -106,8 +107,9 @@ CREATE TABLE `criteria` (
   `reMarks3` varchar(45) DEFAULT NULL,
   `criteriaNo` varchar(45) DEFAULT NULL,
   `evalNo` varchar(45) DEFAULT NULL,
+  `stdRollNo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 LOCK TABLES `project` WRITE;

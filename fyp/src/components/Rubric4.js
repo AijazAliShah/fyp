@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Criteria_table from "./Criteria_table";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export class Mid extends Component {
   constructor(props) {
@@ -111,15 +112,56 @@ export class Mid extends Component {
         remarks2: "",
         remarks3: "",
       },
+      gradeData: {}
     };
   }
+
+  componentDidMount(){
+    axios.get('http://localhost:3001/api/grade/'+this.props.match.params.id)
+    .then(resp => {
+      this.setState({gradeData: resp.data.result[0]})
+    })
+    .catch(err => console.log(err))
+  }
+
+  saveData() {
+        let end =1;
+        if(this.props.match.params.evel === '4'){
+          end=10
+        }else{
+          end=13
+        }
+        for (let i = 1; i < end; i++) {
+          axios.post("http://localhost:3001/api/criteria", {
+            grade_id: this.props.match.params.id,
+            marks1: this.state[`criteria${i}`].marks1,
+            marks2: this.state[`criteria${i}`].marks2,
+            marks3: this.state[`criteria${i}`].marks3,
+            reMarks1: this.state[`criteria${i}`].remarks1,
+            reMarks2: this.state[`criteria${i}`].remarks2,
+            reMarks3: this.state[`criteria${i}`].remarks3,
+            criteriaNo: i,
+            evalNo: this.props.match.params.evel,
+            stdRollNo: this.state.gradeData.stdRoll3,
+            project_id: this.state.gradeData.project_id.toLocaleLowerCase(),
+
+          })
+          .then(resp1 => {
+            console.log(resp1.data)
+            if(i === (end-1)){
+              window.location.href =`/result/${this.props.match.params.id}`;
+            }
+          })
+          .catch(err => console.log(err))
+        }
+  }
+
 
   render() {
     console.log("data", this.state);
 
     return (
       <div id="c_table">
-        <form>
           <h1
             style={{
               color: "black",
@@ -141,6 +183,8 @@ export class Mid extends Component {
                   placeholder="Roll No"
                   className="mid_inp"
                   required
+                  disabled={true}
+                  value={this.state.gradeData.stdRoll3}
                   onChange={(e) => this.setState({ rollNo: e.target.value })}
                 ></input>
               </td>
@@ -153,16 +197,20 @@ export class Mid extends Component {
                   className="mid_inp"
                   required
                   autofocus
+                  disabled={true}
+                  value={this.state.gradeData.stdName3}
                   onChange={(e) => this.setState({ name: e.target.value })}
                 ></input>
               </td>
               <td>
                 <input
-                  type="number"
+                  type="text"
                   name="groupPosition"
                   placeholder="Group Position"
                   className="mid_inp"
                   required
+                  disabled={true}
+                  value={this.state.gradeData.groupP3}
                   onChange={(e) =>
                     this.setState({ groupPosition: e.target.value })
                   }
@@ -170,111 +218,10 @@ export class Mid extends Component {
               </td>
             </tr>
           </table>
-          {/* <div id="eval_table">
-            <h3
-              className="main_heading2"
-              style={{
-                textTransform: "uppercase",
-                fontSize: "30px",
-                color: "#0b1442",
-                fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-              }}
-            >
-              Evaluator Details
-            </h3>
-            <br></br>
-            <table style={{ border: "1px solid black" }} className="detail">
-              <tr
-                style={{
-                  textAlign: "center",
-                  textTransform: "uppercase",
-                  fontWeight: "bold",
-                  fontSize: "16px",
-                  border: "1px solid black",
-                }}
-              >
-                <th>No</th>
-                <th>Name</th>
-                <th>Designation</th>
-              </tr>
-
-              <tr>
-                <td>1</td>
-                <td>
-                  <input
-                    style={{ width: "100%", height: "100%" }}
-                    name="evl1"
-                    type="text"
-                    placeholder="Name"
-                    required
-                    onChange={(e) => this.setState({ evl1: e.target.value })}
-                  ></input>
-                </td>
-                <td>
-                  <input
-                    style={{ width: "100%", height: "100%" }}
-                    name="des1"
-                    type="text"
-                    placeholder="Designation"
-                    required
-                    onChange={(e) => this.setState({ des1: e.target.value })}
-                  ></input>
-                </td>
-              </tr>
-
-              <tr>
-                <td>2</td>
-                <td>
-                  <input
-                    style={{ width: "100%", height: "100%" }}
-                    name="evl2"
-                    type="text"
-                    placeholder="Name"
-                    required
-                    onChange={(e) => this.setState({ evl2: e.target.value })}
-                  ></input>
-                </td>
-                <td>
-                  <input
-                    style={{ width: "100%", height: "100%" }}
-                    name="des2"
-                    type="text"
-                    placeholder="Designation"
-                    required
-                    onChange={(e) => this.setState({ des2: e.target.value })}
-                  ></input>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>
-                  <input
-                    style={{ width: "100%", height: "100%" }}
-                    name="evl3"
-                    type="text"
-                    placeholder="Name"
-                    required
-                    onChange={(e) => this.setState({ evl3: e.target.value })}
-                  ></input>
-                </td>
-                <td>
-                  <input
-                    style={{ width: "100%", height: "100%" }}
-                    name="des3"
-                    type="text"
-                    placeholder="Designation"
-                    required
-                    onChange={(e) => this.setState({ des3: e.target.value })}
-                  ></input>
-                </td>
-              </tr>
-            </table>
-            <br></br>
-            <br></br> 
-          </div> */}
+         
           <h3>Individual Assessment </h3>
 
-          {false ? (
+          {this.props.match.params.evel !== '4' ? (
             <>
               <div>
                 {/* Individual Assesment */}
@@ -3468,13 +3415,14 @@ export class Mid extends Component {
           {/* <h3 style={{color:"black"}}>Criteria1</h3> */}
 
           <br></br>
-          <Link to={"/#"}>
-          <button type="submit" class="btn btn-primary" id="marks_submit_btn">
-            
-            Save and Next{" "}
-          </button>
-          </Link>
-        </form>
+          <button
+          type="submit"
+          class="btn btn-primary"
+          id="marks_submit_btn"
+          onClick={() => this.saveData()}
+        >
+          Save and Next{" "}
+        </button>
       </div>
     );
   }

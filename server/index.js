@@ -532,6 +532,140 @@ app.post("/api/projectStd/edit/:id", async (req, res) => {
     })
   );
 });
+
+
+//Inserting data into Announcement table (Add an announcement)
+app.post("/api/grade", async (req, res) => {
+  const projectTitle = req.body.projectTitle;
+  const project_id = req.body.project_id;
+  const batch = req.body.batch;
+  const group_id = req.body.group_id;
+  const date = req.body.date;
+  const evlP = req.body.evlP;
+  const evlName1 = req.body.evlName1;
+  const evlName2 = req.body.evlName2;
+  const evlName3 = req.body.evlName3;
+  const designation1 = req.body.designation1;
+  const designation2 = req.body.designation2;
+  const designation3 = req.body.designation3;
+  const stdRoll1 = req.body.stdRoll1;
+  const stdRoll2 = req.body.stdRoll2;
+  const stdRoll3 = req.body.stdRoll3;
+  const stdName1 = req.body.stdName1;
+  const stdName2 = req.body.stdName2;
+  const stdName3 = req.body.stdName3;
+  const groupP1 = req.body.groupP1;
+  const groupP2 = req.body.groupP2;
+  const groupP3 = req.body.groupP3;
+
+  console.log(req.body);
+  res.send(
+    await new Promise(function (resolve, reject) {
+      const sqlInsert =
+        "INSERT INTO grades (projectTitle, project_id, batch, group_id, date, evlP, evlName1, evlName2, evlName3, designation1, designation2, designation3, stdRoll1, stdRoll2, stdRoll3, stdName1, stdName2, stdName3, groupP1, groupP2, groupP3 ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+      db.query(
+        sqlInsert,
+        [projectTitle, project_id, batch, group_id, date, evlP, evlName1, evlName2, evlName3, designation1, designation2, designation3, stdRoll1, stdRoll2, stdRoll3, stdName1, stdName2, stdName3, groupP1, groupP2, groupP3],
+        (err, result) => {
+          console.log(err);
+          if (err) {
+            resolve({ message: "wsomething wend wrong" });
+          }
+          resolve({ result });
+        }
+      );
+    })
+  );
+});
+
+app.get("/api/grade", async (req, res) => {
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query("SELECT * FROM grades;", (err, result) => {
+        if (err) {
+          res.send({ err: errr });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
+app.get("/api/grade/:id", async (req, res) => {
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query(`SELECT * FROM grades WHERE id='${req.params.id}';`, (err, result) => {
+        if (err) {
+          res.send({ err: errr });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
+
+//Inserting data into Announcement table (Add an announcement)
+app.post("/api/criteria", async (req, res) => {
+  const grade_id = req.body.grade_id;
+  const marks1 = req.body.marks1;
+  const marks2 = req.body.marks2;
+  const marks3 = req.body.marks3;
+  const reMarks1 = req.body.reMarks1;
+  const reMarks2 = req.body.reMarks2;
+  const reMarks3 = req.body.reMarks3;
+  const criteriaNo = req.body.criteriaNo;
+  const evalNo = req.body.evalNo;
+  const project_id = req.body.project_id;
+  const stdRollNo = req.body.stdRollNo;
+
+  console.log(req.body);
+  res.send(
+    await new Promise(function (resolve, reject) {
+      const sqlInsert =
+        "INSERT INTO criteria (grade_id, marks1, marks2, marks3, reMarks1, reMarks2, reMarks3, criteriaNo, evalNo, project_id, stdRollNo ) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+      db.query(
+        sqlInsert,
+        [grade_id, marks1, marks2, marks3, reMarks1, reMarks2, reMarks3, criteriaNo, evalNo, project_id, stdRollNo],
+        (err, result) => {
+          console.log(err);
+          if (err) {
+            resolve({ message: "wsomething wend wrong" });
+          }
+          resolve({ result });
+        }
+      );  
+    })
+  );
+});
+
+app.get("/api/criteria", async (req, res) => {
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query("SELECT * FROM criteria;", (err, result) => {
+        if (err) {
+          res.send({ err: err });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
+app.get("/api/criteria/:projectId", async (req, res) => {
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query(`SELECT * FROM criteria WHERE project_id='${req.params.projectId}';`, (err, result) => {
+        if (err) {
+          res.send({ err: err });
+        }
+        resolve({ result });
+      });
+    })
+  );   
+}); 
+
+
 //Inserting data into Announcement table (Add an announcement)
 app.post("/api/announcement", (req, res) => {
   const activity = req.body.activity;
