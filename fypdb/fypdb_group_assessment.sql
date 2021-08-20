@@ -35,7 +35,9 @@ CREATE TABLE `group_assessment` (
   PRIMARY KEY (`group_ass_id`),
   UNIQUE KEY `group_ass_id_UNIQUE` (`group_ass_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+
 
 --
 -- Dumping data for table `group_assessment`

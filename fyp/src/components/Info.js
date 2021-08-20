@@ -45,7 +45,7 @@ function Info() {
       </Table>
       <br></br>
       <h3 className="info_heading">Downloadable Forms/Templates</h3>
-      <Table style={{ paddingLeft: "50px", paddingRight: "100px" }}>
+      <Table style={{ paddingRight: "", paddingRight: "100px" }}>
         <tr>
           <td>FYP Proposal</td>
           <td>

@@ -521,15 +521,18 @@ app.post("/api/weightage", async (req, res) => {
   const weight2 = req.body.weight2;
   const weight3 = req.body.weight3;
   const weight4 = req.body.weight4;
+  const finalReport = req.body.finalReport;
+  const otherRepots = req.body.otherRepots;
+  const byChairman = req.body.byChairman;
 
   console.log(req.body);
   res.send(
     await new Promise(function (resolve, reject) {
       const sqlInsert =
-        "INSERT INTO weightage (project_id, weight1, weight2, weight3, weight4) VALUES (?,?,?,?,?);";
+        "INSERT INTO weightage (project_id, weight1, weight2, weight3, weight4, finalReport, otherRepots, byChairman) VALUES (?,?,?,?,?,?,?,?);";
       db.query(
         sqlInsert,
-        [project_id, weight1, weight2, weight3, weight4],
+        [project_id, weight1, weight2, weight3, weight4, finalReport, otherRepots, byChairman],
         (err, result) => {
           console.log(err);
           if (err) {

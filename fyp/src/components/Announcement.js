@@ -70,7 +70,7 @@ function AddAnnouncement() {
               <tr>
                 <td>
                   <input
-                  style={{border:"1px solid #000", width:"150%"}}
+                  style={{border:"1px solid #000", width:"140%"}}
                     type="date"
                     name="Tentative Date"
                     placeholder="Tentative Date"

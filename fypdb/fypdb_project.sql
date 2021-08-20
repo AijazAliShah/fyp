@@ -118,8 +118,26 @@ CREATE TABLE `weightage` (
   `weight2` varchar(200) DEFAULT NULL,
   `weight3` varchar(200) DEFAULT NULL,
   `weight4` varchar(45) DEFAULT NULL,
+  `finalReport` varchar(500) DEFAULT NULL,
+  `otherRepots` varchar(500) DEFAULT NULL,
+  `byChairman` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+CREATE TABLE `weightage` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `project_id` varchar(500) DEFAULT NULL,
+  `weight1` varchar(500) DEFAULT NULL,
+  `weight2` varchar(500) DEFAULT NULL,
+  `weight3` varchar(500) DEFAULT NULL,
+  `weight4` varchar(500) DEFAULT NULL,
+  
+  PRIMARY KEY (`id`),
+
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;

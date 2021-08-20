@@ -88,32 +88,99 @@ export class Mid extends Component {
       eval2Criterias: [],
       eval3Criterias: [],
       eval4Criterias: [],
-      eval1ObtainedMarks: 0,
-      eval2ObtainedMarks: 0,
-      eval3ObtainedMarks: 0,
-      eval4ObtainedMarks: 0,
-      eval1ObtainedPerc: 0,
-      eval2ObtainedPerc: 0,
-      eval3ObtainedPerc: 0,
-      eval4ObtainedPerc: 0,
-      p4: [],
-      p5: [],
-      p6: [],
-      p7: [],
-      p8: [],
-      p9: [],
-      p10: [],
-      p11: [],
-      p12: [],
-      p4perc: 0,
-      p5perc: 0,
-      p6perc: 0,
-      p7perc: 0,
-      p8perc: 0,
-      p9perc: 0,
-      p10perc: 0,
-      p11perc: 0,
-      p12perc: 0,
+      eval1Criterias1: [],
+      eval2Criterias1: [],
+      eval3Criterias1: [],
+      eval4Criterias1: [],
+      eval1Criterias2: [],
+      eval2Criterias2: [],
+      eval3Criterias2: [],
+      eval4Criterias2: [],
+      eval1Criterias3: [],
+      eval2Criterias3: [],
+      eval3Criterias3: [],
+      eval4Criterias3: [],
+      eval1ObtainedMarks1: 0,
+      eval2ObtainedMarks1: 0,
+      eval3ObtainedMarks1: 0,
+      eval4ObtainedMarks1: 0,
+      eval1ObtainedMarks2: 0,
+      eval2ObtainedMarks2: 0,
+      eval3ObtainedMarks2: 0,
+      eval4ObtainedMarks2: 0,
+      eval1ObtainedMarks3: 0,
+      eval2ObtainedMarks3: 0,
+      eval3ObtainedMarks3: 0,
+      eval4ObtainedMarks3: 0,
+      eval1ObtainedPerc1: 0,
+      eval2ObtainedPerc1: 0,
+      eval3ObtainedPerc1: 0,
+      eval4ObtainedPerc1: 0,
+      eval1ObtainedPerc2: 0,
+      eval2ObtainedPerc2: 0,
+      eval3ObtainedPerc2: 0,
+      eval4ObtainedPerc2: 0,
+      eval1ObtainedPerc3: 0,
+      eval2ObtainedPerc3: 0,
+      eval3ObtainedPerc3: 0,
+      eval4ObtainedPerc3: 0,
+      finalReport: "",
+      otherRepots: "",
+      byChairman: "",
+      p4m1: [],
+      p4m2: [],
+      p4m3: [],
+      p5m1: [],
+      p5m2: [],
+      p5m3: [],
+      p6m1: [],
+      p6m2: [],
+      p6m3: [],
+      p7m1: [],
+      p7m2: [],
+      p7m3: [],
+      p8m1: [],
+      p8m2: [],
+      p8m3: [],
+      p9m1: [],
+      p9m2: [],
+      p9m3: [],
+      p10m1: [],
+      p10m2: [],
+      p10m3: [],
+      p11m1: [],
+      p11m2: [],
+      p11m3: [],
+      p12m1: [],
+      p12m2: [],
+      p12m3: [],
+      p4perc1: 0,
+      p4perc2: 0,
+      p4perc3: 0,
+      p5perc1: 0,
+      p5perc2: 0,
+      p5perc3: 0,
+      p6perc1: 0,
+      p6perc2: 0,
+      p6perc3: 0,
+      p7perc1: 0,
+      p7perc2: 0,
+      p7perc3: 0,
+      p8perc1: 0,
+      p8perc2: 0,
+      p8perc3: 0,
+      p9perc1: 0,
+      p9perc2: 0,
+      p9perc3: 0,
+      p10perc1: 0,
+      p10perc2: 0,
+      p10perc3: 0,
+      p11perc1: 0,
+      p11perc2: 0,
+      p11perc3: 0,
+      p12perc1: 0,
+      p12perc2: 0,
+      p12perc3: 0,
     };
   }
 
@@ -135,6 +202,9 @@ export class Mid extends Component {
               weight2: Number(resp2.data.result[0].weight2),
               weight3: Number(resp2.data.result[0].weight3),
               weight4: Number(resp2.data.result[0].weight4),
+              finalReport: Number(resp2.data.result[0].finalReport),
+              otherRepots: Number(resp2.data.result[0].otherRepots),
+              byChairman: Number(resp2.data.result[0].byChairman),
             });
           })
           .catch((err) => console.log(err));
@@ -145,198 +215,718 @@ export class Mid extends Component {
           )
           .then((resp1) => {
             const eval1Criterias = resp1.data.result.filter(
-              (element) => element.evalNo === "1"
+              (element) =>
+                element.evalNo === "1"
             );
             const eval2Criterias = resp1.data.result.filter(
-              (element) => element.evalNo === "2"
+              (element) =>
+                element.evalNo === "2"
             );
             const eval3Criterias = resp1.data.result.filter(
-              (element) => element.evalNo === "3"
+              (element) =>
+                element.evalNo === "3"
             );
             const eval4Criterias = resp1.data.result.filter(
-              (element) => element.evalNo === "4"
+              (element) =>
+                element.evalNo === "4"
             );
+
+            const eval1Criterias1 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "1" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const eval1Criterias2 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "1" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const eval1Criterias3 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "1" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+
+            const eval2Criterias1 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "2" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const eval2Criterias2 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "2" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const eval2Criterias3 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "2" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+
+            const eval3Criterias1 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "3" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const eval3Criterias2 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "3" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const eval3Criterias3 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "3" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+
+            const eval4Criterias1 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "4" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const eval4Criterias2 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "4" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const eval4Criterias3 = resp1.data.result.filter(
+              (element) =>
+                element.evalNo === "4" &&
+                (element.stdRollNo === "group" ||
+                  element.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+
             this.setState({
               allCriterias: resp1.data.result,
               eval1Criterias,
               eval2Criterias,
               eval3Criterias,
               eval4Criterias,
+              eval1Criterias1,
+              eval2Criterias1,
+              eval3Criterias1,
+              eval4Criterias1,
+              eval1Criterias2,
+              eval2Criterias2,
+              eval3Criterias2,
+              eval4Criterias2,
+              eval1Criterias3,
+              eval2Criterias3,
+              eval3Criterias3,
+              eval4Criterias3,
             });
-            let eval1ObtainedMarks = 0;
-            let eval2ObtainedMarks = 0;
-            let eval3ObtainedMarks = 0;
-            let eval4ObtainedMarks = 0;
-            eval1Criterias.map((evl) => {
-              eval1ObtainedMarks =
-                eval1ObtainedMarks +
+            let eval1ObtainedMarks1 = 0;
+            let eval2ObtainedMarks1 = 0;
+            let eval3ObtainedMarks1 = 0;
+            let eval4ObtainedMarks1 = 0;
+            let eval1ObtainedMarks2 = 0;
+            let eval2ObtainedMarks2 = 0;
+            let eval3ObtainedMarks2 = 0;
+            let eval4ObtainedMarks2 = 0;
+            let eval1ObtainedMarks3 = 0;
+            let eval2ObtainedMarks3 = 0;
+            let eval3ObtainedMarks3 = 0;
+            let eval4ObtainedMarks3 = 0;
+
+            eval1Criterias1.map((evl) => {
+              eval1ObtainedMarks1 =
+                eval1ObtainedMarks1 +
                 Number(evl.marks1) +
                 Number(evl.marks2) +
                 Number(evl.marks3);
             });
-            eval2Criterias.map((evl) => {
-              eval2ObtainedMarks =
-                eval2ObtainedMarks +
+            eval1Criterias2.map((evl) => {
+              eval1ObtainedMarks2 =
+                eval1ObtainedMarks2 +
                 Number(evl.marks1) +
                 Number(evl.marks2) +
                 Number(evl.marks3);
             });
-            eval3Criterias.map((evl) => {
-              eval3ObtainedMarks =
-                eval3ObtainedMarks +
+            eval1Criterias3.map((evl) => {
+              eval1ObtainedMarks3 =
+                eval1ObtainedMarks3 +
                 Number(evl.marks1) +
                 Number(evl.marks2) +
                 Number(evl.marks3);
             });
-            eval4Criterias.map((evl) => {
-              eval4ObtainedMarks =
-                eval4ObtainedMarks +
+            eval2Criterias1.map((evl) => {
+              eval2ObtainedMarks1 =
+                eval2ObtainedMarks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            eval2Criterias2.map((evl) => {
+              eval2ObtainedMarks2 =
+                eval2ObtainedMarks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            eval2Criterias3.map((evl) => {
+              eval2ObtainedMarks3 =
+                eval2ObtainedMarks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            eval3Criterias1.map((evl) => {
+              eval3ObtainedMarks1 =
+                eval3ObtainedMarks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            eval3Criterias2.map((evl) => {
+              eval3ObtainedMarks2 =
+                eval3ObtainedMarks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            eval3Criterias3.map((evl) => {
+              eval3ObtainedMarks3 =
+                eval3ObtainedMarks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            eval4Criterias1.map((evl) => {
+              eval4ObtainedMarks1 =
+                eval4ObtainedMarks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            eval4Criterias2.map((evl) => {
+              eval4ObtainedMarks2 =
+                eval4ObtainedMarks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            eval4Criterias3.map((evl) => {
+              eval4ObtainedMarks3 =
+                eval4ObtainedMarks3 +
                 Number(evl.marks1) +
                 Number(evl.marks2) +
                 Number(evl.marks3);
             });
             this.setState({
-              eval1ObtainedMarks,
-              eval2ObtainedMarks,
-              eval3ObtainedMarks,
-              eval4ObtainedMarks,
-              eval1ObtainedPerc: eval1ObtainedMarks / 1230,
-              eval2ObtainedPerc: eval2ObtainedMarks / 1230,
-              eval3ObtainedPerc: eval3ObtainedMarks / 1230,
-              eval4ObtainedPerc: eval4ObtainedMarks / 810,
+              eval1ObtainedMarks1,
+              eval2ObtainedMarks1,
+              eval3ObtainedMarks1,
+              eval4ObtainedMarks1,
+              eval1ObtainedMarks2,
+              eval2ObtainedMarks2,
+              eval3ObtainedMarks2,
+              eval4ObtainedMarks2,
+              eval1ObtainedMarks3,
+              eval2ObtainedMarks3,
+              eval3ObtainedMarks3,
+              eval4ObtainedMarks3,
+              eval1ObtainedPerc1: eval1ObtainedMarks1 / 510,
+              eval2ObtainedPerc1: eval2ObtainedMarks1 / 510,
+              eval3ObtainedPerc1: eval3ObtainedMarks1 / 510,
+              eval4ObtainedPerc1: eval4ObtainedMarks1 / 270,
+              eval1ObtainedPerc2: eval1ObtainedMarks2 / 510,
+              eval2ObtainedPerc2: eval2ObtainedMarks2 / 510,
+              eval3ObtainedPerc2: eval3ObtainedMarks2 / 510,
+              eval4ObtainedPerc2: eval4ObtainedMarks2 / 270,
+              eval1ObtainedPerc3: eval1ObtainedMarks3 / 510,
+              eval2ObtainedPerc3: eval2ObtainedMarks3 / 510,
+              eval3ObtainedPerc3: eval3ObtainedMarks3 / 510,
+              eval4ObtainedPerc3: eval4ObtainedMarks3 / 270,
             });
 
-            const p4 = resp1.data.result.filter(
-              (crit) => crit.criteriaNo === "1" || crit.criteriaNo === "2"
-            );
-            const p5 = resp1.data.result.filter(
+            const p4m1 = resp1.data.result.filter(
               (crit) =>
-                crit.criteriaNo === "9" ||
-                crit.criteriaNo === "3" ||
-                crit.criteriaNo === "17"
+                (crit.criteriaNo === "1" || crit.criteriaNo === "2") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
-            const p6 = resp1.data.result.filter(
-              (crit) => crit.criteriaNo === "2"
-            );
-            const p7 = resp1.data.result.filter(
-              (crit) => crit.criteriaNo === "3"
-            );
-            const p8 = resp1.data.result.filter(
+            const p4m2 = resp1.data.result.filter(
               (crit) =>
-                crit.criteriaNo === "4" ||
-                crit.criteriaNo === "9" ||
-                crit.criteriaNo === "10" ||
-                crit.criteriaNo === "11" ||
-                crit.criteriaNo === "12"
+                (crit.criteriaNo === "1" || crit.criteriaNo === "2") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
-            const p9 = resp1.data.result.filter(
+            const p4m3 = resp1.data.result.filter(
               (crit) =>
-                crit.criteriaNo === "5" ||
-                crit.criteriaNo === "6" ||
-                crit.criteriaNo === "7"
+                (crit.criteriaNo === "1" || crit.criteriaNo === "2") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
-            const p10 = resp1.data.result.filter(
+            const p5m1 = resp1.data.result.filter(
               (crit) =>
-                crit.criteriaNo === "6" ||
-                crit.criteriaNo === "4" ||
-                crit.criteriaNo === "8"
+                (crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "3" ||
+                  crit.criteriaNo === "17") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
-            const p11 = resp1.data.result.filter(
+            const p5m2 = resp1.data.result.filter(
               (crit) =>
-                crit.criteriaNo === "7" ||
-                crit.criteriaNo === "13" ||
-                crit.criteriaNo === "14" ||
-                crit.criteriaNo === "15" ||
-                crit.criteriaNo === "16"
+                (crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "3" ||
+                  crit.criteriaNo === "17") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
-            const p12 = resp1.data.result.filter(
-              (crit) => crit.criteriaNo === "8"
+            const p5m3 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "3" ||
+                  crit.criteriaNo === "17") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
-            this.setState({ p4, p5, p6, p7, p8, p9, p10, p11, p12 });
-            let p4marks = 0;
-            let p5marks = 0;
-            let p6marks = 0;
-            let p7marks = 0;
-            let p8marks = 0;
-            let p9marks = 0;
-            let p10marks = 0;
-            let p11marks = 0;
-            let p12marks = 0;
-            p4.map((evl) => {
-              p4marks =
-                p4marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            p5.map((evl) => {
-              p5marks =
-                p5marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            p6.map((evl) => {
-              p6marks =
-                p6marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            p7.map((evl) => {
-              p7marks =
-                p7marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            p8.map((evl) => {
-              p8marks =
-                p8marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            p9.map((evl) => {
-              p9marks =
-                p9marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            p10.map((evl) => {
-              p10marks =
-                p10marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            p11.map((evl) => {
-              p11marks =
-                p11marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            p12.map((evl) => {
-              p12marks =
-                p12marks +
-                Number(evl.marks1) +
-                Number(evl.marks2) +
-                Number(evl.marks3);
-            });
-            console.log("ooooooooooooooooooooooooooooooooooooooooo");
-            console.log(p4marks);
+            const p6m1 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "2" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const p6m2 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "2" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const p6m3 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "2" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+            const p7m1 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "3" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const p7m2 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "3" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const p7m3 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "3" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+            const p8m1 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "10" ||
+                  crit.criteriaNo === "11" ||
+                  crit.criteriaNo === "12") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const p8m2 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "10" ||
+                  crit.criteriaNo === "11" ||
+                  crit.criteriaNo === "12") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const p8m3 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "10" ||
+                  crit.criteriaNo === "11" ||
+                  crit.criteriaNo === "12") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+            const p9m1 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "5" ||
+                  crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "7") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const p9m2 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "5" ||
+                  crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "7") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const p9m3 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "5" ||
+                  crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "7") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+            const p10m1 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "8") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const p10m2 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "8") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const p10m3 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "8") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+            const p11m1 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "7" ||
+                  crit.criteriaNo === "13" ||
+                  crit.criteriaNo === "14" ||
+                  crit.criteriaNo === "15" ||
+                  crit.criteriaNo === "16") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const p11m2 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "7" ||
+                  crit.criteriaNo === "13" ||
+                  crit.criteriaNo === "14" ||
+                  crit.criteriaNo === "15" ||
+                  crit.criteriaNo === "16") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const p11m3 = resp1.data.result.filter(
+              (crit) =>
+                (crit.criteriaNo === "7" ||
+                  crit.criteriaNo === "13" ||
+                  crit.criteriaNo === "14" ||
+                  crit.criteriaNo === "15" ||
+                  crit.criteriaNo === "16") &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
+            );
+            const p12m1 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "8" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll1)
+            );
+            const p12m2 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "8" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll2)
+            );
+            const p12m3 = resp1.data.result.filter(
+              (crit) =>
+                crit.criteriaNo === "8" &&
+                (crit.stdRollNo === "group" ||
+                  crit.stdRollNo === resp.data.result[0].stdRoll3)
+            );
             this.setState({
-              p4perc: (p4marks / 720) * 100,
-              p5perc: (p5marks / 990) * 100,
-              p6perc: (p6marks / 360) * 100,
-              p7perc: (p7marks / 360) * 100,
-              p8perc: (p8marks / 1530) * 100,
-              p9perc: (p9marks / 1080) * 100,
-              p10perc: (p10marks / 1080) * 100,
-              p11perc: (p11marks / 1440) * 100,
-              p12perc: (p12marks / 360) * 100,
+              p4m1,
+              p4m2,
+              p4m3,
+              p5m1,
+              p5m2,
+              p5m3,
+              p6m1,
+              p6m2,
+              p6m3,
+              p7m1,
+              p7m2,
+              p7m3,
+              p8m1,
+              p8m2,
+              p8m3,
+              p9m1,
+              p9m2,
+              p9m3,
+              p10m1,
+              p10m2,
+              p10m3,
+              p11m1,
+              p11m2,
+              p11m3,
+              p12m1,
+              p12m2,
+              p12m3,
+            });
+            let p4marks1 = 0;
+            let p4marks2 = 0;
+            let p4marks3 = 0;
+            let p5marks1 = 0;
+            let p5marks2 = 0;
+            let p5marks3 = 0;
+            let p6marks1 = 0;
+            let p6marks2 = 0;
+            let p6marks3 = 0;
+            let p7marks1 = 0;
+            let p7marks2 = 0;
+            let p7marks3 = 0;
+            let p8marks1 = 0;
+            let p8marks2 = 0;
+            let p8marks3 = 0;
+            let p9marks1 = 0;
+            let p9marks2 = 0;
+            let p9marks3 = 0;
+            let p10marks1 = 0;
+            let p10marks2 = 0;
+            let p10marks3 = 0;
+            let p11marks1 = 0;
+            let p11marks2 = 0;
+            let p11marks3 = 0;
+            let p12marks1 = 0;
+            let p12marks2 = 0;
+            let p12marks3 = 0;
+            p4m1.map((evl) => {
+              p4marks1 =
+                p4marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p4m2.map((evl) => {
+              p4marks2 =
+                p4marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p4m3.map((evl) => {
+              p4marks3 =
+                p4marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p5m1.map((evl) => {
+              p5marks1 =
+                p5marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p5m2.map((evl) => {
+              p5marks2 =
+                p5marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p5m3.map((evl) => {
+              p5marks3 =
+                p5marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p6m1.map((evl) => {
+              p6marks1 =
+                p6marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p6m2.map((evl) => {
+              p6marks2 =
+                p6marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p6m3.map((evl) => {
+              p6marks3 =
+                p6marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p7m1.map((evl) => {
+              p7marks1 =
+                p7marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p7m2.map((evl) => {
+              p7marks2 =
+                p7marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p7m3.map((evl) => {
+              p7marks3 =
+                p7marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p8m1.map((evl) => {
+              p8marks1 =
+                p8marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p8m2.map((evl) => {
+              p8marks2 =
+                p8marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p8m3.map((evl) => {
+              p8marks3 =
+                p8marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p9m1.map((evl) => {
+              p9marks1 =
+                p9marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p9m2.map((evl) => {
+              p9marks2 =
+                p9marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p9m3.map((evl) => {
+              p9marks3 =
+                p9marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p10m1.map((evl) => {
+              p10marks1 =
+                p10marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p10m2.map((evl) => {
+              p10marks2 =
+                p10marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p10m3.map((evl) => {
+              p10marks3 =
+                p10marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p11m1.map((evl) => {
+              p11marks1 =
+                p11marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p11m2.map((evl) => {
+              p11marks2 =
+                p11marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p11m3.map((evl) => {
+              p11marks3 =
+                p11marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p12m1.map((evl) => {
+              p12marks1 =
+                p12marks1 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p12m2.map((evl) => {
+              p12marks2 =
+                p12marks2 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            p12m3.map((evl) => {
+              p12marks3 =
+                p12marks3 +
+                Number(evl.marks1) +
+                Number(evl.marks2) +
+                Number(evl.marks3);
+            });
+            this.setState({
+              p4perc1: (p4marks1 / 240) * 100,
+              p4perc2: (p4marks2 / 240) * 100,
+              p4perc3: (p4marks3 / 240) * 100,
+              p5perc1: (p5marks1 / 330) * 100,
+              p5perc2: (p5marks2 / 330) * 100,
+              p5perc3: (p5marks3 / 330) * 100,
+              p6perc1: (p6marks1 / 120) * 100,
+              p6perc2: (p6marks2 / 120) * 100,
+              p6perc3: (p6marks3 / 120) * 100,
+              p7perc1: (p7marks1 / 120) * 100,
+              p7perc2: (p7marks2 / 120) * 100,
+              p7perc3: (p7marks3 / 120) * 100,
+              p8perc1: (p8marks1 / 510) * 100,
+              p8perc2: (p8marks2 / 510) * 100,
+              p8perc3: (p8marks3 / 510) * 100,
+              p9perc1: (p9marks1 / 360) * 100,
+              p9perc2: (p9marks2 / 360) * 100,
+              p9perc3: (p9marks3 / 360) * 100,
+              p10perc1: (p10marks1 / 360) * 100,
+              p10perc2: (p10marks2 / 360) * 100,
+              p10perc3: (p10marks3 / 360) * 100,
+              p11perc1: (p11marks1 / 480) * 100,
+              p11perc2: (p11marks2 / 480) * 100,
+              p11perc3: (p11marks3 / 480) * 100,
+              p12perc1: (p12marks1 / 120) * 100,
+              p12perc2: (p12marks2 / 120) * 100,
+              p12perc3: (p12marks3 / 120) * 100,
             });
           })
           .catch((err) => console.log(err));
@@ -481,7 +1071,7 @@ export class Mid extends Component {
               fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
             }}
           >
-            Marks Of Each Evaluation
+            Marks
           </h3>
           <br></br>
           <table style={{ border: "1px solid black" }} className="detail">
@@ -494,109 +1084,456 @@ export class Mid extends Component {
                 border: "1px solid black",
               }}
             >
-              <th>Evaluation</th>
-              <th>Weightage</th>
-              <th>Obtained marks</th>
+              <th>Name</th>
+              <th>Marks</th>
             </tr>
 
             <tr>
-              <td>Evaluation 1</td>
-              <td>{this.state.weight1}</td>
-              <td>
-                {(this.state.weight1 * this.state.eval1ObtainedPerc).toFixed(2)}
+              <td style={{ width: "50%", height: "50%" }}>
+                Final Report (Out Of 10 Marks)
               </td>
+              <td>{this.state.finalReport}</td>
             </tr>
 
             <tr>
-              <td>Evaluation 2 </td>
-              <td>{this.state.weight2}</td>
-              <td>
-                {(this.state.weight2 * this.state.eval2ObtainedPerc).toFixed(2)}
+              <td style={{ width: "50%", height: "50%" }}>
+                Other Report (Out Of 10 Marks)
               </td>
+              <td>{this.state.otherRepots}</td>
             </tr>
             <tr>
-              <td> Evaluation 3</td>
-              <td>{this.state.weight3}</td>
-              <td>
-                {(this.state.weight3 * this.state.eval3ObtainedPerc).toFixed(2)}
+              <td style={{ width: "50%", height: "50%" }}>
+                {" "}
+                By Chairman (Out Of 20 Marks)
               </td>
-            </tr>
-            <tr>
-              <td> Evaluation 4</td>
-              <td>{this.state.weight4}</td>
-              <td>
-                {(this.state.weight4 * this.state.eval4ObtainedPerc).toFixed(2)}
-              </td>
+              <td>{this.state.byChairman}</td>
             </tr>
           </table>
           <br></br>
           <br></br>
-          <h3
-            className="main_heading2"
-            style={{
-              textTransform: "uppercase",
-              fontSize: "30px",
-              color: "#0b1442",
-              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-            }}
-          >
-            PLO
-          </h3>
-          <br></br>
-          <table style={{ border: "1px solid black" }} className="detail">
-            <tr
+          <Tabs style={{ color: "#000" }}>
+            <TabList
               style={{
-                textAlign: "center",
-                textTransform: "uppercase",
-                fontWeight: "bold",
-                fontSize: "16px",
-                border: "1px solid black",
+                border: "1px solid #000",
+                display: "flex",
+                justifyContent: "space-around",
               }}
             >
-              <th> PLO No</th>
-              <th>Percentage</th>
-            </tr>
+              <Tab>Member 1</Tab>
+              <Tab>Member 2</Tab>
+              <Tab>Member 3 </Tab>
+            </TabList>
+            <TabPanel>
+              <br></br>
+              <br></br>
 
-            <tr>
-              <td>Plo 4</td>
-              <td>{this.state.p4perc.toFixed(2)}%</td>
-            </tr>
+              <h3
+                className="main_heading2"
+                style={{
+                  textTransform: "uppercase",
+                  fontSize: "30px",
+                  color: "#0b1442",
+                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                }}
+              >
+                Marks Of Each Evaluation 1
+              </h3>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <th>Evaluation</th>
+                  <th>Weightage</th>
+                  <th>Obtained marks</th>
+                </tr>
 
-            <tr>
-              <td>Plo 5 </td>
-              <td>{this.state.p5perc.toFixed(2)}%</td>
-            </tr>
-            <tr>
-              <td> Plo 6</td>
-              <td>{this.state.p6perc.toFixed(2)}%</td>
-            </tr>
-            <tr>
-              <td>Plo 7</td>
-              <td>{this.state.p7perc.toFixed(2)}%</td>
-            </tr>
-            <tr>
-              <td>Plo 8 </td>
-              <td>{this.state.p8perc.toFixed(2)}%</td>
-            </tr>
-            <tr>
-              <td>Plo 9 </td>
-              <td>{this.state.p9perc.toFixed(2)}%</td>
-            </tr>
-            <tr>
-              <td>Plo 10 </td>
-              <td>{this.state.p10perc.toFixed(2)}%</td>
-            </tr>
-            <tr>
-              <td>Plo 11 </td>
-              <td>{this.state.p11perc.toFixed(2)}%</td>
-            </tr>
-            <tr>
-              <td>Plo 12 </td>
-              <td>{this.state.p12perc.toFixed(2)}%</td>
-            </tr>
-          </table>
-          <br></br>
-          <br></br>
+                <tr>
+                  <td>Evaluation 1</td>
+                  <td>{this.state.weight1}</td>
+                  <td>
+                    {(
+                      this.state.weight1 * this.state.eval1ObtainedPerc1
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Evaluation 2 </td>
+                  <td>{this.state.weight2}</td>
+                  <td>
+                    {(
+                      this.state.weight2 * this.state.eval2ObtainedPerc1
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+                <tr>
+                  <td> Evaluation 3</td>
+                  <td>{this.state.weight3}</td>
+                  <td>
+                    {(
+                      this.state.weight3 * this.state.eval3ObtainedPerc1
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+                <tr>
+                  <td> Evaluation 4</td>
+                  <td>{this.state.weight4}</td>
+                  <td>
+                    {(
+                      this.state.weight4 * this.state.eval4ObtainedPerc1
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+              <br></br>
+              <h3
+                className="main_heading2"
+                style={{
+                  textTransform: "uppercase",
+                  fontSize: "30px",
+                  color: "#0b1442",
+                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                }}
+              >
+                PLO 1
+              </h3>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <th> PLO No</th>
+                  <th>Percentage</th>
+                </tr>
+
+                <tr>
+                  <td>Plo 4</td>
+                  <td>{this.state.p4perc1.toFixed(2)}%</td>
+                </tr>
+
+                <tr>
+                  <td>Plo 5 </td>
+                  <td>{this.state.p5perc1.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td> Plo 6</td>
+                  <td>{this.state.p6perc1.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 7</td>
+                  <td>{this.state.p7perc1.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 8 </td>
+                  <td>{this.state.p8perc1.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 9 </td>
+                  <td>{this.state.p9perc1.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 10 </td>
+                  <td>{this.state.p10perc1.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 11 </td>
+                  <td>{this.state.p11perc1.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 12 </td>
+                  <td>{this.state.p12perc1.toFixed(2)}%</td>
+                </tr>
+              </table>
+            </TabPanel>
+
+            <TabPanel>
+              <br></br>
+              <br></br>
+
+              <h3
+                className="main_heading2"
+                style={{
+                  textTransform: "uppercase",
+                  fontSize: "30px",
+                  color: "#0b1442",
+                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                }}
+              >
+                Marks Of Each Evaluation 2
+              </h3>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <th>Evaluation</th>
+                  <th>Weightage</th>
+                  <th>Obtained marks</th>
+                </tr>
+
+                <tr>
+                  <td>Evaluation 1</td>
+                  <td>{this.state.weight1}</td>
+                  <td>
+                    {(
+                      this.state.weight1 * this.state.eval1ObtainedPerc2
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Evaluation 2 </td>
+                  <td>{this.state.weight2}</td>
+                  <td>
+                    {(
+                      this.state.weight2 * this.state.eval2ObtainedPerc2
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+                <tr>
+                  <td> Evaluation 3</td>
+                  <td>{this.state.weight3}</td>
+                  <td>
+                    {(
+                      this.state.weight3 * this.state.eval3ObtainedPerc2
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+                <tr>
+                  <td> Evaluation 4</td>
+                  <td>{this.state.weight4}</td>
+                  <td>
+                    {(
+                      this.state.weight4 * this.state.eval4ObtainedPerc2
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+              <br></br>
+              <h3
+                className="main_heading2"
+                style={{
+                  textTransform: "uppercase",
+                  fontSize: "30px",
+                  color: "#0b1442",
+                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                }}
+              >
+                PLO 2
+              </h3>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <th> PLO No</th>
+                  <th>Percentage</th>
+                </tr>
+
+                <tr>
+                  <td>Plo 4</td>
+                  <td>{this.state.p4perc2.toFixed(2)}%</td>
+                </tr>
+
+                <tr>
+                  <td>Plo 5 </td>
+                  <td>{this.state.p5perc2.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td> Plo 6</td>
+                  <td>{this.state.p6perc2.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 7</td>
+                  <td>{this.state.p7perc2.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 8 </td>
+                  <td>{this.state.p8perc2.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 9 </td>
+                  <td>{this.state.p9perc2.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 10 </td>
+                  <td>{this.state.p10perc2.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 11 </td>
+                  <td>{this.state.p11perc2.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 12 </td>
+                  <td>{this.state.p12perc2.toFixed(2)}%</td>
+                </tr>
+              </table>
+            </TabPanel>
+
+            <TabPanel>
+              <br></br>
+              <br></br>
+
+              <h3
+                className="main_heading2"
+                style={{
+                  textTransform: "uppercase",
+                  fontSize: "30px",
+                  color: "#0b1442",
+                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                }}
+              >
+                Marks Of Each Evaluation 3
+              </h3>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <th>Evaluation</th>
+                  <th>Weightage</th>
+                  <th>Obtained marks</th>
+                </tr>
+
+                <tr>
+                  <td>Evaluation 1</td>
+                  <td>{this.state.weight1}</td>
+                  <td>
+                    {(
+                      this.state.weight1 * this.state.eval1ObtainedPerc3
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Evaluation 2 </td>
+                  <td>{this.state.weight2}</td>
+                  <td>
+                    {(
+                      this.state.weight2 * this.state.eval2ObtainedPerc3
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+                <tr>
+                  <td> Evaluation 3</td>
+                  <td>{this.state.weight3}</td>
+                  <td>
+                    {(
+                      this.state.weight3 * this.state.eval3ObtainedPerc3
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+                <tr>
+                  <td> Evaluation 4</td>
+                  <td>{this.state.weight4}</td>
+                  <td>
+                    {(
+                      this.state.weight4 * this.state.eval4ObtainedPerc3
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+              <br></br>
+              <h3
+                className="main_heading2"
+                style={{
+                  textTransform: "uppercase",
+                  fontSize: "30px",
+                  color: "#0b1442",
+                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                }}
+              >
+                PLO 3
+              </h3>
+              <br></br>
+              <table style={{ border: "1px solid black" }} className="detail">
+                <tr
+                  style={{
+                    textAlign: "center",
+                    textTransform: "uppercase",
+                    fontWeight: "bold",
+                    fontSize: "16px",
+                    border: "1px solid black",
+                  }}
+                >
+                  <th> PLO No</th>
+                  <th>Percentage</th>
+                </tr>
+
+                <tr>
+                  <td>Plo 4</td>
+                  <td>{this.state.p4perc3.toFixed(2)}%</td>
+                </tr>
+
+                <tr>
+                  <td>Plo 5 </td>
+                  <td>{this.state.p5perc3.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td> Plo 6</td>
+                  <td>{this.state.p6perc3.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 7</td>
+                  <td>{this.state.p7perc3.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 8 </td>
+                  <td>{this.state.p8perc3.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 9 </td>
+                  <td>{this.state.p9perc3.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 10 </td>
+                  <td>{this.state.p10perc3.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 11 </td>
+                  <td>{this.state.p11perc3.toFixed(2)}%</td>
+                </tr>
+                <tr>
+                  <td>Plo 12 </td>
+                  <td>{this.state.p12perc3.toFixed(2)}%</td>
+                </tr>
+              </table>
+            </TabPanel>
+          </Tabs>
         </div>
         <div>
           {/* Individual Assesment */}
