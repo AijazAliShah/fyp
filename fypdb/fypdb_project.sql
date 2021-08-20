@@ -111,6 +111,15 @@ CREATE TABLE `criteria` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+CREATE TABLE `weightage` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `project_id` varchar(45) DEFAULT NULL,
+  `weight1` varchar(200) DEFAULT NULL,
+  `weight2` varchar(200) DEFAULT NULL,
+  `weight3` varchar(200) DEFAULT NULL,
+  `weight4` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;

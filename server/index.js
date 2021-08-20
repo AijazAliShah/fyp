@@ -514,6 +514,48 @@ app.get("/api/projectStd", async (req, res) => {
   );
 });
 
+//Inserting data into Announcement table (Add an announcement)
+app.post("/api/weightage", async (req, res) => {
+  const project_id = req.body.project_id;
+  const weight1 = req.body.weight1;
+  const weight2 = req.body.weight2;
+  const weight3 = req.body.weight3;
+  const weight4 = req.body.weight4;
+
+  console.log(req.body);
+  res.send(
+    await new Promise(function (resolve, reject) {
+      const sqlInsert =
+        "INSERT INTO weightage (project_id, weight1, weight2, weight3, weight4) VALUES (?,?,?,?,?);";
+      db.query(
+        sqlInsert,
+        [project_id, weight1, weight2, weight3, weight4],
+        (err, result) => {
+          console.log(err);
+          if (err) {
+            resolve({ message: "wsomething wend wrong" });
+          }
+          resolve({ result });
+        }
+      );
+    })
+  );
+});
+
+app.get("/api/weightage/:id", async (req, res) => {
+  console.log(req.params.id)
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query(`SELECT * FROM weightage WHERE project_id = '${req.params.id}';`, (err, result) => {
+        if (err) {
+          res.send({ err: errr });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
 app.post("/api/projectStd/edit/:id", async (req, res) => {
   console.log(req.body);
   const data = req.body;

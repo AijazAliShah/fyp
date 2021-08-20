@@ -85,7 +85,7 @@ function Front_page() {
           <Route path="/rubric3/:id/:evel" component={Rubric3} />
           <Route path="/rubric4/:id/:evel" component={Rubric4} />
           <Route path="/result/:id" component={Result} />
-          <Route path="/detail" component={Detail} />
+          <Route path="/detail/:id" component={Detail} />
           <Route path="/showGrades" component={showGrades} />
           <Route path="/evaluation1" component={Evaluation1} />
           <Route path="/evaluation2" component={Evaluation2} />
