@@ -1,0 +1,6 @@
+id,name,password,email,type,stdId,department
+13,anas,$2b$10$gvS6BGygQEVC9OlbM1JD3./8Y5JbZYinEpZHzVYjbmEZop7xeQk9O,anasarshad@gmail.com,student,123,cs
+14,cor,$2b$10$tdjfyYL8rtAkb2WeHvIO8OnjNropHNoWSb7q3upxYNLq6DtKh/SNO,coordinator@gmail.com,supervisor,NULL,NULL
+15,admin,$2b$10$YtedjS8jhrpYk2ZzyX4kO.qHjFhzlKTLGuOnJzW2qe/nefl0DrYC2,adminuser@gmail.com,coordinator,NULL,NULL
+16,hayyat,$2b$10$4zYuo3GUEx6OWO9LRLt5iu2NaJauTU86Ay1yRvHFWjFhAkBxlGG8C,syedhayyatshah@gmail.com,student,234,cs
+17,coor,$2b$10$bGbtonxX0M0iPF76o2PFAu3mE.LJY52Dft22Fw8g1Kobm8nMz0222,coordinator123@gmail.com,coordinator,NULL,NULL

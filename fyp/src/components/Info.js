@@ -16,61 +16,112 @@ function Info() {
 
   //export class Info extends Component {
   // render() {
+
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
     <div id="table-div1">
       <br></br>
       {/* <br></br> */}
       <h3 className="info_heading">Timeline and Deliverables</h3>
-      <Table striped bordered hover size="sm">
-        <thead id="inf_thead">
-          <tr>
-            <th>Activity</th>
-            <th>Tentative Dates</th>
-            <th>Responsibility</th>
-            <th>Deliverables</th>
-          </tr>
-        </thead>
+      <table style={{ border: "1px solid black" }} className="detail">
+        <tr
+           style={{
+            textAlign: "center",
+            textTransform: "uppercase",
+            fontWeight: "bold",
+            fontSize: "16px",
+            border: "1px solid black",
+          }}
+        >
+          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}> Template Name</th>
+          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}>File</th>
+          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}>Responsibility</th>
+          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}>Deliverables</th>
+        </tr>
+
         <tbody>
           {dataList.map((val) => {
             return (
               <tr>
                 <td>{val.Activity}</td>
-                <td>{val.Tentative_date.substring(0,10)}</td>
+                <td>
+                  {val.Tentative_date.substring(8, 10) +
+                    " " +
+                    monthNames[Number(val.Tentative_date.substring(5, 7)) - 1] +
+                    " " +
+                    val.Tentative_date.substring(0, 4)}
+                </td>
                 <td>{val.Responsibility}</td>
                 <td>{val.Deliverables}</td>
               </tr>
             );
           })}
         </tbody>
-      </Table>
+      </table>
       <br></br>
       <h3 className="info_heading">Downloadable Forms/Templates</h3>
-      <Table style={{ paddingRight: "", paddingRight: "100px" }}>
-        <tr>
+      <table style={{ border: "1px solid black" }} className="detail">
+        <tr
+           style={{
+            textAlign: "center",
+            textTransform: "uppercase",
+            fontWeight: "bold",
+            fontSize: "16px",
+            border: "1px solid black",
+          }}
+        >
+          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}> Template Name</th>
+          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}>File</th>
+        </tr>
+
+        <tr  >
           <td>FYP Proposal</td>
-          <td>
-            <a target='_blank' href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProposal.pdf?alt=media&token=479c4a08-9042-48e4-82b5-343a687e1262">
+          <td style={{display:"flex", justifyContent:"center"}}>
+            <a
+              target="_blank"
+              href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProposal.pdf?alt=media&token=479c4a08-9042-48e4-82b5-343a687e1262"
+            >
               Download
             </a>
           </td>
         </tr>
         <tr>
           <td>FYP Progress Report</td>
-          <td>
-            <a target='_blank' href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProgressReport.pdf?alt=media&token=da915196-8aec-4a37-9255-479397ab1560">
+          <td style={{display:"flex", justifyContent:"center"}}>
+            <a
+              target="_blank"
+              href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProgressReport.pdf?alt=media&token=da915196-8aec-4a37-9255-479397ab1560"
+            >
               Download
             </a>
           </td>
         </tr>
         <tr>
           <td>FYP Progress Tracker</td>
-          <td>
-            <a target='_blank' href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProgressTracker.pdf?alt=media&token=61924eb7-2f8e-40f8-a17b-ffe9562642b5">
+          <td style={{display:"flex", justifyContent:"center"}}>
+            <a
+              target="_blank"
+              href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProgressTracker.pdf?alt=media&token=61924eb7-2f8e-40f8-a17b-ffe9562642b5"
+            >
               Download
             </a>
           </td>
         </tr>
-      </Table>
+      </table>
     </div>
   );
 }

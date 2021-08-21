@@ -954,7 +954,7 @@ export class Mid extends Component {
               textTransform: "uppercase",
               fontSize: "30px",
               color: "#0b1442",
-              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+              fontFamily: "Arial, sans-serif",
             }}
           >
             Result Details
@@ -994,7 +994,7 @@ export class Mid extends Component {
               textTransform: "uppercase",
               fontSize: "30px",
               color: "#0b1442",
-              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+              fontFamily: "Arial, sans-serif",
             }}
           >
             Evaluator Details
@@ -1043,7 +1043,7 @@ export class Mid extends Component {
               textTransform: "uppercase",
               fontSize: "30px",
               color: "#0b1442",
-              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+              fontFamily: "Arial, sans-serif",
             }}
           >
             Member Details
@@ -1090,7 +1090,7 @@ export class Mid extends Component {
               textTransform: "uppercase",
               fontSize: "30px",
               color: "#0b1442",
-              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+              fontFamily: "Arial, sans-serif",
             }}
           >
             Marks
@@ -1155,7 +1155,7 @@ export class Mid extends Component {
                   textTransform: "uppercase",
                   fontSize: "30px",
                   color: "#0b1442",
-                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                  fontFamily: "Arial, sans-serif",
                 }}
               >
                 Marks Of Each Evaluation
@@ -1278,9 +1278,9 @@ export class Mid extends Component {
                           this.state.weight4 * this.state.eval4ObtainedPerc1
                         ).toFixed(2)
                       )+
-                      Number(this.state.finalReport) +
-                      Number(this.state.otherRepots) +
-                      Number(this.state.byChairman)
+                        Number(this.state.finalReport) +
+                        Number(this.state.otherRepots) +
+                        Number(this.state.byChairman)
                     ).toFixed(2)}
                   </td>
                 </tr>
@@ -1294,7 +1294,7 @@ export class Mid extends Component {
                   textTransform: "uppercase",
                   fontSize: "30px",
                   color: "#0b1442",
-                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                  fontFamily: "Arial, sans-serif",
                 }}
               >
                 PLO
@@ -1364,7 +1364,7 @@ export class Mid extends Component {
                   textTransform: "uppercase",
                   fontSize: "30px",
                   color: "#0b1442",
-                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                  fontFamily: "Arial, sans-serif",
                 }}
               >
                 Marks Of Each Evaluation
@@ -1502,7 +1502,7 @@ export class Mid extends Component {
                   textTransform: "uppercase",
                   fontSize: "30px",
                   color: "#0b1442",
-                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                  fontFamily: "Arial, sans-serif",
                 }}
               >
                 PLO
@@ -1572,7 +1572,7 @@ export class Mid extends Component {
                   textTransform: "uppercase",
                   fontSize: "30px",
                   color: "#0b1442",
-                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                  fontFamily: "Arial, sans-serif",
                 }}
               >
                 Marks Of Each Evaluation
@@ -1708,7 +1708,7 @@ export class Mid extends Component {
                   textTransform: "uppercase",
                   fontSize: "30px",
                   color: "#0b1442",
-                  fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+                  fontFamily: "Arial, sans-serif",
                 }}
               >
                 PLO

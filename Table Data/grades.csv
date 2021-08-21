@@ -1,0 +1,6 @@
+id,projectTitle,project_id,batch,group_id,date,evlP,evlName1,evlName2,evlName3,designation1,designation2,designation3,stdRoll1,stdRoll2,stdRoll3,stdName1,stdName2,stdName3,groupP1,groupP2,groupP3
+1,"Project Mars",1234,2021,123,2021-08-31,1,Azhar,Ali,Saim,hod,supervisor,coordinator,1,2,3,Aijaz,Anas,Hayyat,Leader,Member,Member
+2,"Project Mars",1234,2021,123,2021-08-31,2,Azhar,Ali,Saim,hod,supervisor,coordinator,1,2,3,Aijaz,Anas,Hayyat,Leader,Member,Member
+3,"Project Mars",1234,2021,123,2021-08-31,3,Azhar,Ali,Saim,hod,supervisor,coordinator,1,2,3,Aijaz,Anas,Hayyat,Leader,Member,Member
+4,"Project Mars",1234,2021,123,2021-08-31,4,Azhar,Ali,Saim,hod,supervisor,coordinator,1,2,3,Aijaz,Anas,Hayyat,Leader,Member,Member
+5,sun,12,2021,3,2021-02-06,1,aijaz,azhar,noman,cod,supervisor,corrdinator,2,3,4,hayyat,anas,daniyal,leader,member,member
