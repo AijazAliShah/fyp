@@ -831,7 +831,7 @@ export class Mid extends Component {
               fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
             }}
           >
-            Evaluator Details
+            Result Details
           </h3>
           <br></br>
           <table style={{ border: "1px solid black" }} className="detail">
@@ -860,6 +860,18 @@ export class Mid extends Component {
             </tr>
           </table>
           <br></br>
+          <br></br>
+          <h3
+            className="main_heading2"
+            style={{
+              textTransform: "uppercase",
+              fontSize: "30px",
+              color: "#0b1442",
+              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+            }}
+          >
+            Evaluator Details
+          </h3>
           <br></br>
           <table style={{ border: "1px solid black" }} className="detail">
             <tr
@@ -897,6 +909,18 @@ export class Mid extends Component {
           <br></br>
           <br></br>
           {/* //student details/ */}
+          <h3
+            className="main_heading2"
+            style={{
+              textTransform: "uppercase",
+              fontSize: "30px",
+              color: "#0b1442",
+              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+            }}
+          >
+            Member Details
+          </h3>
+          <br></br>
           <table style={{ border: "1px solid black" }} className="detail">
             <tr
               style={{
@@ -1176,7 +1200,62 @@ export class Mid extends Component {
                     ).toFixed(2)}
                   </td>
                 </tr>
+                <tr>
+                  <td> Total of all Evalouations</td>
+                  <td>{Number(this.state.weight1)+ Number(this.state.weight2)+ Number(this.state.weight3)+ Number(this.state.weight4)}</td>
+                  <td>
+                    {(Number((
+                      this.state.weight1 * this.state.eval1ObtainedPerc1
+                    ).toFixed(2))+ Number((
+                      this.state.weight2 * this.state.eval2ObtainedPerc1
+                    ).toFixed(2))+ Number((
+                      this.state.weight3 * this.state.eval3ObtainedPerc1
+                    ).toFixed(2))+Number((
+                      this.state.weight4 * this.state.eval4ObtainedPerc1
+                    ).toFixed(2))).toFixed(2)}
+                  </td>
+                </tr>
               </table>
+              <br></br>
+              <br></br>
+             
+              
+              <table style={{ border: "1px solid black" }} className="detail">
+            
+
+            <tr>
+              <td>Total</td>
+              <td>
+                {" "}
+                {(
+                  Number(
+                    (
+                      this.state.weight1 * this.state.eval1ObtainedPerc1
+                    ).toFixed(2)
+                  ) +
+                  Number(
+                    (
+                      this.state.weight2 * this.state.eval2ObtainedPerc1
+                    ).toFixed(2)
+                  ) +
+                  Number(
+                    (
+                      this.state.weight3 * this.state.eval3ObtainedPerc1
+                    ).toFixed(2)
+                  ) +
+                  Number(
+                    (
+                      this.state.weight4 * this.state.eval4ObtainedPerc1
+                    ).toFixed(2)
+                  )+
+                  Number(this.state.finalReport) +
+                  Number(this.state.otherRepots) +
+                  Number(this.state.byChairman)
+                ).toFixed(2)}
+              </td>
+            </tr>
+
+          </table>
               <br></br>
               <br></br>
               <h3
@@ -1206,40 +1285,40 @@ export class Mid extends Component {
                 </tr>
 
                 <tr>
-                  <td>Plo 4</td>
+                  <td>PLO 4</td>
                   <td>{this.state.p4perc1.toFixed(2)}%</td>
                 </tr>
 
                 <tr>
-                  <td>Plo 5 </td>
+                  <td>PLO 5 </td>
                   <td>{this.state.p5perc1.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td> Plo 6</td>
+                  <td> PLO 6</td>
                   <td>{this.state.p6perc1.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 7</td>
+                  <td>PLO 7</td>
                   <td>{this.state.p7perc1.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 8 </td>
+                  <td>PLO 8 </td>
                   <td>{this.state.p8perc1.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 9 </td>
+                  <td>PLO 9 </td>
                   <td>{this.state.p9perc1.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 10 </td>
+                  <td>PLO 10 </td>
                   <td>{this.state.p10perc1.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 11 </td>
+                  <td>PLO 11 </td>
                   <td>{this.state.p11perc1.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 12 </td>
+                  <td>PLO 12 </td>
                   <td>{this.state.p12perc1.toFixed(2)}%</td>
                 </tr>
               </table>
@@ -1254,7 +1333,7 @@ export class Mid extends Component {
                   fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
                 }}
               >
-                Marks Of Each Evaluation 2
+                Marks Of Each Evaluation 
               </h3>
               <br></br>
               <table style={{ border: "1px solid black" }} className="detail">
@@ -1309,7 +1388,62 @@ export class Mid extends Component {
                     ).toFixed(2)}
                   </td>
                 </tr>
+                <tr>
+                  <td> Total of all Evalouations</td>
+                  <td>{Number(this.state.weight1)+ Number(this.state.weight2)+ Number(this.state.weight3)+ Number(this.state.weight4)}</td>
+                  <td>
+                    {(Number((
+                      this.state.weight1 * this.state.eval1ObtainedPerc2
+                    ).toFixed(2))+ Number((
+                      this.state.weight2 * this.state.eval2ObtainedPerc2
+                    ).toFixed(2))+ Number((
+                      this.state.weight3 * this.state.eval3ObtainedPerc2
+                    ).toFixed(2))+Number((
+                      this.state.weight4 * this.state.eval4ObtainedPerc2
+                    ).toFixed(2))).toFixed(2)}
+                  </td>
+                </tr>
               </table>
+              <br></br>
+              <br></br>
+             
+              
+              <table style={{ border: "1px solid black" }} className="detail">
+            
+
+            <tr>
+              <td>Total</td>
+              <td>
+                {" "}
+                {(
+                  Number(
+                    (
+                      this.state.weight1 * this.state.eval1ObtainedPerc2
+                    ).toFixed(2)
+                  ) +
+                  Number(
+                    (
+                      this.state.weight2 * this.state.eval2ObtainedPerc2
+                    ).toFixed(2)
+                  ) +
+                  Number(
+                    (
+                      this.state.weight3 * this.state.eval3ObtainedPerc2
+                    ).toFixed(2)
+                  ) +
+                  Number(
+                    (
+                      this.state.weight4 * this.state.eval4ObtainedPerc2
+                    ).toFixed(2)
+                  )+
+                  Number(this.state.finalReport) +
+                  Number(this.state.otherRepots) +
+                  Number(this.state.byChairman)
+                ).toFixed(2)}
+              </td>
+            </tr>
+
+          </table>
               <br></br>
               <br></br>
               <h3
@@ -1339,40 +1473,40 @@ export class Mid extends Component {
                 </tr>
 
                 <tr>
-                  <td>Plo 4</td>
+                  <td>PLO 4</td>
                   <td>{this.state.p4perc2.toFixed(2)}%</td>
                 </tr>
 
                 <tr>
-                  <td>Plo 5 </td>
+                  <td>PLO 5 </td>
                   <td>{this.state.p5perc2.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td> Plo 6</td>
+                  <td> PLO 6</td>
                   <td>{this.state.p6perc2.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 7</td>
+                  <td>PLO 7</td>
                   <td>{this.state.p7perc2.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 8 </td>
+                  <td>PLO 8 </td>
                   <td>{this.state.p8perc2.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 9 </td>
+                  <td>PLO 9 </td>
                   <td>{this.state.p9perc2.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 10 </td>
+                  <td>PLO 10 </td>
                   <td>{this.state.p10perc2.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 11 </td>
+                  <td>PLO 11 </td>
                   <td>{this.state.p11perc2.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 12 </td>
+                  <td>PLO 12 </td>
                   <td>{this.state.p12perc2.toFixed(2)}%</td>
                 </tr>
               </table>
@@ -1387,7 +1521,7 @@ export class Mid extends Component {
                   fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
                 }}
               >
-                Marks Of Each Evaluation 3
+                Marks Of Each Evaluation 
               </h3>
               <br></br>
               <table style={{ border: "1px solid black" }} className="detail">
@@ -1442,6 +1576,61 @@ export class Mid extends Component {
                     ).toFixed(2)}
                   </td>
                 </tr>
+                <tr>
+                  <td> Total of all Evalouations</td>
+                  <td>{Number(this.state.weight1)+ Number(this.state.weight2)+ Number(this.state.weight3)+ Number(this.state.weight4)}</td>
+                  <td>
+                    {(Number((
+                      this.state.weight1 * this.state.eval1ObtainedPerc3
+                    ).toFixed(2))+ Number((
+                      this.state.weight2 * this.state.eval2ObtainedPerc3
+                    ).toFixed(2))+ Number((
+                      this.state.weight3 * this.state.eval3ObtainedPerc3
+                    ).toFixed(2))+Number((
+                      this.state.weight4 * this.state.eval4ObtainedPerc3
+                    ).toFixed(2))).toFixed(2)}
+                  </td>
+                </tr>
+              </table>
+              <br></br>
+              <br></br>
+             
+              
+              <table style={{ border: "1px solid black" }} className="detail">
+            
+
+                <tr>
+                  <td>Total</td>
+                  <td>
+                    {" "}
+                    {(
+                      Number(
+                        (
+                          this.state.weight1 * this.state.eval1ObtainedPerc3
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight2 * this.state.eval2ObtainedPerc3
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight3 * this.state.eval3ObtainedPerc3
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight4 * this.state.eval4ObtainedPerc3
+                        ).toFixed(2)
+                      )+
+                      Number(this.state.finalReport) +
+                      Number(this.state.otherRepots) +
+                      Number(this.state.byChairman)
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+
               </table>
               <br></br>
               <br></br>
@@ -1472,40 +1661,40 @@ export class Mid extends Component {
                 </tr>
 
                 <tr>
-                  <td>Plo 4</td>
+                  <td>PLO 4</td>
                   <td>{this.state.p4perc3.toFixed(2)}%</td>
                 </tr>
 
                 <tr>
-                  <td>Plo 5 </td>
+                  <td>PLO 5 </td>
                   <td>{this.state.p5perc3.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td> Plo 6</td>
+                  <td> PLO 6</td>
                   <td>{this.state.p6perc3.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 7</td>
+                  <td>PLO 7</td>
                   <td>{this.state.p7perc3.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 8 </td>
+                  <td>PLO 8 </td>
                   <td>{this.state.p8perc3.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 9 </td>
+                  <td>PLO 9 </td>
                   <td>{this.state.p9perc3.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 10 </td>
+                  <td>PLO 10 </td>
                   <td>{this.state.p10perc3.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 11 </td>
+                  <td>PLO 11 </td>
                   <td>{this.state.p11perc3.toFixed(2)}%</td>
                 </tr>
                 <tr>
-                  <td>Plo 12 </td>
+                  <td>PLO 12 </td>
                   <td>{this.state.p12perc3.toFixed(2)}%</td>
                 </tr>
               </table>
