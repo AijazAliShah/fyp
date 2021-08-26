@@ -100,9 +100,19 @@ function Navbar() {
           </IconContext.Provider>
         </>
       ) : (
-        <> </>
+        <>
+        <IconContext.Provider value={{ color: "#fff" }}>
+          <div className="navbar">
+            {/* <Link to="#" className="menu-bars">
+              <FaIcons.FaBars onClick={showSidebar} />
+            </Link> */}
+            <img src={logo} style={{width: '60px', height: '60px',marginLeft:"10px",marginRight:"10px"}}/>
+            <h1>NEDUET</h1>
+
+          </div>
+        </IconContext.Provider>
+      </>
       )}
-      ;
     </>
   );
 }

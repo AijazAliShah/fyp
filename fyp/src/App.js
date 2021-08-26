@@ -5,7 +5,7 @@ import Front_Page from './components/Front_page.js';
 
 function App() {
   return (
-    <div className="App">  
+    <div className="App" style={{backgroundColor:"#fff"}}>  
         <Front_Page/>
     </div>
     

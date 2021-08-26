@@ -159,7 +159,7 @@ export class Mid extends Component {
     console.log("data", this.props.match.params, this.state, typeof this.props.match.params.evel);
 
     return (
-      <div id="c_table">
+      <div id="c_table" >
           <h1
             style={{
               color: "black",
@@ -169,7 +169,7 @@ export class Mid extends Component {
               fontSize: "50PX",
             }}
           >
-            OBE BASED FYP
+             EVALUATION RUBRIC
           </h1>
           <table>
             <tr>
@@ -3505,6 +3505,8 @@ export class Mid extends Component {
         >
           Save and Next{" "}
         </button>
+        <br></br>
+
       </div>
     );
   }

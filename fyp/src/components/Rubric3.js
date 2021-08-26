@@ -171,7 +171,7 @@ export class Mid extends Component {
               fontSize: "50PX",
             }}
           >
-            OBE BASED FYP
+             EVALUATION RUBRIC
           </h1>
           <table>
             <tr>
@@ -3507,6 +3507,8 @@ export class Mid extends Component {
         >
           Save and Next{" "}
         </button>
+        <br></br>
+
       </div>
     );
   }

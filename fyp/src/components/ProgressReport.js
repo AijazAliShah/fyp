@@ -50,6 +50,7 @@ export class Mid extends Component {
               <>
                 <tr
                   style={{
+                    padding:"20px",
                     textAlign: "center",
                     textTransform: "uppercase",
                     fontWeight: "bold",
@@ -57,16 +58,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <th>No</th>
-                  <th>User Name</th>
-                  <th>User Email</th>
-                  <th>Project Name</th>
+                  <th  style={{
+                    padding:"10px"
+                  }}>User Name</th>
+                  <th  style={{
+                    padding:"10px"
+                  }}>User Email</th>
+                  <th  style={{
+                    padding:"10px"
+                  }}>Project Name</th>
                   
-                  <th>Report</th>
+                  <th  style={{
+                    padding:"10px"
+                  }}>Report</th>
                 </tr>
                 {this.state.reports.map((rep) => (
                   <tr>
-                    <td>{rep.id}</td>
                     <td>{rep.userName}</td>
                     <td>{rep.userEmail}</td>
                     <td>{rep.Title}</td>

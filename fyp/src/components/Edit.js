@@ -141,7 +141,7 @@ function Project() {
     <div className="prj_div">
       <ToastContainer />
       <div className="container1">
-        <h1 id="prj_heading">EDIT PROJECT DETAILS</h1>
+        <h1 id="prj_heading">EDIT GROUP DETAILS</h1>
 
         <table>
           <tr>

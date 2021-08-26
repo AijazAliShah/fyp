@@ -58,7 +58,7 @@ const [description, setDescription] = useState("");*/
           marginRight: "20%",
         }}
         type="text"
-        placeholder="Search Record..."
+        placeholder="  Search Record..."
         onChange={(event) => {
           setSearchTerm(event.target.value);
         }}

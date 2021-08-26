@@ -117,7 +117,7 @@ class Upload extends Component {
       <div>
          <img src={background} alt="background" style={{width:"100%", height:"83vh"}}/>
         <ToastContainer />
-        <div class="container" enctype="multipart/form-data" style={{marginTop:"4%", height:"80%",opacity:"0.8", backgroundColor:"#fff"}}>
+        <div class="container" enctype="multipart/form-data" style={{marginTop:"4%", height:"auto",opacity:"0.8", backgroundColor:"#fff"}}>
           <div class="form-group">
             <h1 id="upload">Upload File here</h1>
             {this.state.isStd.result[0].type === "student" ? (
@@ -224,7 +224,14 @@ class Upload extends Component {
           </div>
           <br></br>
           <button
-          style={{  backgroundColor: "rgb(43, 43, 148)",
+          style={{  
+          color: "white",
+          padding: "14px 40px",
+          width: "100%",
+          backgroundColor: "rgb(43, 43, 148)",
+          border: "none",
+          fontSize: "20px",
+          fontWeight: "bold",
           color: "white",
         }}
             type="submit"

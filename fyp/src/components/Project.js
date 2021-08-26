@@ -84,7 +84,7 @@ function Project() {
 
       <ToastContainer />
       <div className="container1" style={{opacity:"0.8", backgroundColor:"#fff"}}>
-        <h1 id="prj_heading">FYP PROJECT DETAILS</h1>
+        <h1 id="prj_heading">FYP GROUP DETAILS</h1>
 
         <table>
           <tr>

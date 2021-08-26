@@ -10,6 +10,7 @@ import Upload from "./Upload";
 import Create_acc from "./Create_acc";
 import Edit_profile from "./Edit_profile";
 import Navbar from "./Navbar";
+import Navbar1 from "./Navbar1";
 import View_List from "./View_List";
 import Info from "./Info";
 import Announcement from "./Announcement";
@@ -60,7 +61,7 @@ function Front_page() {
     <AuthContext.Provider value={{ authState, setAuthState }}>
       <Router>
         <Navbar />
-        {/* <Sidebar /> */}
+        {/* <Navbar1 /> */}
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/project" exact component={Project} />
