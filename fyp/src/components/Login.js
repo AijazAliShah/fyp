@@ -57,11 +57,16 @@ function Login() {
         <div class="form-group"  >
           <h1 id="Login">Log In</h1>
           <br></br>
-          <label for="exampleInputEmail1" className="lab">
+          <label for="exampleInputEmail1" className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>
             Email address
           </label>
+          <br></br>
           <input
-          style={{ width: "98%" }}
+          style={{ width: "98%" ,
+          border:"none",
+          borderBottom:"1px solid #2b2b94",
+          outline:"none"
+        }}
          
          
             type="email"
@@ -78,13 +83,18 @@ function Login() {
         <br></br>
           
         <div class="form-group">
-          <label for="exampleInputPassword1" className="lab">
+          <label for="exampleInputPassword1" className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>
             Password
           </label>
          
-
+          <br></br>
           <input
-          style={{ width: "98%" }}
+          style={{ width: "98%" ,
+                border:"none",
+               borderBottom:"1px solid #2b2b94" ,
+               outline:"none"
+
+              }}
             name="password"
             type="password"
             class="form-control"

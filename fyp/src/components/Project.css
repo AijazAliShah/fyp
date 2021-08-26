@@ -51,3 +51,10 @@
     margin-bottom: 2%;
 
 }
+.btn:hover{
+  padding: 8px 20px;
+  transition: all 0.3s ease-out;
+  background: rgb(43, 43, 148);
+  color: #fff;
+  transition: 250ms;
+}

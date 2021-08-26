@@ -79,14 +79,19 @@ function Registration() {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form className="container" style={{opacity:"0.8", backgroundColor:"#fff"}}>
+        <Form className="container" style={{opacity:"0.8", backgroundColor:"#fff", height:"95%"}}>
           <h1 id="signUp">          Create Account</h1>
           <br></br>
-          <label className="lab">Username: </label>
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}} >Username: </label>
           <ErrorMessage className="error" name="name" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%" ,
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+          }}
             autocomplete="off"
             id="inputCreatePost"
             name="name"
@@ -95,11 +100,16 @@ function Registration() {
           />
           <br></br>
           <br></br>
-          <label className="lab">Email: </label>
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Email: </label>
           <ErrorMessage className="error" name="email" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+          }}
             autocomplete="off"
             id="inputCreatePost"
             name="email"
@@ -108,11 +118,16 @@ function Registration() {
           />
           <br></br>
           <br></br>
-          <label className="lab">Password: </label>
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Password: </label>
           <ErrorMessage className="error" name="password" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+          }}
             autocomplete="off"
             type="password"
             id="inputCreatePost"
@@ -122,7 +137,9 @@ function Registration() {
 
           <br></br>
           <br></br>
-          <label className="lab">Dropdown: </label>
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Dropdown: </label>
+          <br></br>
+         
           <select name="cars" id="cars" style={{width:"98%"}} onChange={(event) => setType(event.target.value)}>
             <option value="student">Student</option>
             <option value="supervisor">Supervisor</option>
@@ -132,8 +149,14 @@ function Registration() {
           <br></br>
           {type === 'student' ? (
           <div>
+            
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+          }}
             autocomplete="off"
             type="text"
             id="inputCreatePost"
@@ -143,7 +166,12 @@ function Registration() {
            <br></br>
           <br></br>
             <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+           }}
             autocomplete="off"
             type="text"
             id="inputCreatePost"

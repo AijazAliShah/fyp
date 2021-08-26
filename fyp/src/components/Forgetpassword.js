@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
 import emailExistence from "email-existence";
 import { emailheck } from "email-check";
+import background from "./img.png";
 
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -51,22 +52,33 @@ function Registration() {
         })
   };
   return (
-    <div>
+    <div >
+      <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
       <ToastContainer />
+      <div className="container" style={{opacity:"0.8", backgroundColor:"#fff"}}>
+
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
       >
-        <Form className="container">
+        <Form className="">
           <h1 id="signUp">Forgot Password</h1>
-         
-         
-         
-          <label className="lab">Email: </label>
-          <ErrorMessage className="error" name="email" component="span" />
           <br></br>
+         
+         
+         <div class="form-group">
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Email: </label>
+          <br></br>
+
+          <ErrorMessage className="error" name="email" component="span" />
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+           }}
+           class="form-control"
             autocomplete="off"
             id="inputCreatePost"
             name="email"
@@ -76,7 +88,7 @@ function Registration() {
           
          <br></br>
          <br></br>
-         
+         </div>
           <button
             type="submit"
             className="btn btn primary"
@@ -95,6 +107,7 @@ function Registration() {
           </button>
         </Form>
       </Formik>
+      </div>
     </div>
   );
 }

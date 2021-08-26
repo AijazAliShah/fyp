@@ -17,12 +17,12 @@ export const SupSidebarData = [
      icon: <VscIcons.RiAccountBoxFill />,
     cName: 'nav-text'
   },
-  {
-    title: 'Insert Marks',
-    path: '/rubric',
-    icon: <AiIcons.AiOutlineInsertRowBelow />,
-    cName: 'nav-text'
-  },
+  // {
+  //   title: 'Insert Marks',
+  //   path: '/rubric',
+  //   icon: <AiIcons.AiOutlineInsertRowBelow />,
+  //   cName: 'nav-text'
+  // },
   {
     title: 'Announcement',
     path: '/announcement',

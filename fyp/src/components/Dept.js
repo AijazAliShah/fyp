@@ -63,18 +63,25 @@ function Registration() {
 
   return (
     <div style={{ backgroundColor:"#fff"}}>
-      <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
+      <img src={background} alt="background" style={{width:"100%", height:"83vh"}}/>
 
       <ToastContainer />
+      <div className="container" style={{opacity:"0.8", backgroundColor:"#fff" , marginTop:"2%"}}>
+
       <Formik initialValues={initialValues} onSubmit={onSubmit} >
-        <Form className="container" >
+        <Form className="" >
           <h1 id="signUp">Change Password</h1>
 
-          <label className="lab">Email: </label>
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Email: </label>
           <ErrorMessage className="error" name="email" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+          }}
             autocomplete="off"
             id="inputCreatePost"
             name="email"
@@ -85,11 +92,16 @@ function Registration() {
           <br></br>
           <br></br>
 
-          <label className="lab">Current Password: </label>
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Current Password: </label>
           <ErrorMessage className="error" name="password" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+          }}
             autocomplete="off"
             id="inputCreatePost"
             name="cpassword"
@@ -100,11 +112,16 @@ function Registration() {
           <br></br>
           <br></br>
 
-          <label className="lab">New Password: </label>
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>New Password: </label>
           <ErrorMessage className="error" name="password" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+          }}
             autocomplete="off"
             id="inputCreatePost"
             name="password"
@@ -115,11 +132,16 @@ function Registration() {
           <br></br>
           <br></br>
 
-          <label className="lab">Re-Enter New Password: </label>
+          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Re-Enter New Password: </label>
           <ErrorMessage className="error" name="password" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%" }}
+            style={{ width: "98%",
+            border:"none",
+            borderBottom:"1px solid #2b2b94",
+            outline:"none"
+
+          }}
             autocomplete="off"
             id="inputCreatePost"
             name="ccpassword"
@@ -146,6 +168,7 @@ function Registration() {
           </button>
         </Form>
       </Formik>
+      </div>
     </div>
   );
 }

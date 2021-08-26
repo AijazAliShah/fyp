@@ -115,18 +115,24 @@ class Upload extends Component {
     console.log(this.state);
     return !this.isEmpty(this.state.isStd) ? (
       <div>
-         <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
+         <img src={background} alt="background" style={{width:"100%", height:"83vh"}}/>
         <ToastContainer />
-        <div class="container" enctype="multipart/form-data" style={{opacity:"0.8", backgroundColor:"#fff"}}>
+        <div class="container" enctype="multipart/form-data" style={{marginTop:"4%", height:"80%",opacity:"0.8", backgroundColor:"#fff"}}>
           <div class="form-group">
             <h1 id="upload">Upload File here</h1>
             {this.state.isStd.result[0].type === "student" ? (
               <>
-                   <label className="lab">User Name: </label>
+              <br></br>
+                   <label className="lab"  style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>User Name: </label>
                 {/* <ErrorMessage className="error" name="email" component="span" /> */}
                 <br></br>
                 <input
-                  style={{ width: "98%" }}
+                  style={{ width: "98%",
+                  border:"none",
+                  borderBottom:"1px solid #2b2b94",
+                  outline:"none"
+                   
+                }}
                   autocomplete="off"
                   id="inputCreatePost"
                   name="userName"
@@ -134,11 +140,18 @@ class Upload extends Component {
                   placeholder="Enter User Name"
                   onChange={(e) => this.setState({ userName: e.target.value })}
                 />
-                     <label className="lab">User Email: </label>
+             
+                    
+                     <label className="lab"  style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>User Email: </label>
                 {/* <ErrorMessage className="error" name="email" component="span" /> */}
                 <br></br>
                 <input
-                  style={{ width: "98%" }}
+                  style={{ width: "98%",
+                  border:"none",
+                  borderBottom:"1px solid #2b2b94",
+                  outline:"none"
+
+                 }}
                   autocomplete="off"
                   id="inputCreatePost"
                   name=" userEmail"
@@ -146,11 +159,16 @@ class Upload extends Component {
                   placeholder="Enter User Email"
                   onChange={(e) => this.setState({ userEmail: e.target.value })}
                 />
-                <label className="lab">Project Name: </label>
+                <label className="lab"  style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Project Name: </label>
                 {/* <ErrorMessage className="error" name="email" component="span" /> */}
                 <br></br>
                 <input
-                  style={{ width: "98%" }}
+                  style={{ width: "98%" ,
+                  border:"none",
+                  borderBottom:"1px solid #2b2b94",
+                  outline:"none"
+
+                }}
                   autocomplete="off"
                   id="inputCreatePost"
                   name="title"
@@ -160,10 +178,15 @@ class Upload extends Component {
                 />
                 <br></br>
                 <br></br>
-                <label className="lab">Supervisor Email: </label>
+                <label className="lab"  style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Supervisor Email: </label>
                 {/* <ErrorMessage className="error" name="email" component="span" /> */}
                 <input
-                  style={{ width: "98%" }}
+                  style={{ width: "98%",
+                  border:"none",
+                  borderBottom:"1px solid #2b2b94",
+                  outline:"none"
+
+                }}
                   autocomplete="off"
                   id="inputCreatePost"
                   name="supEmail"
@@ -202,6 +225,7 @@ class Upload extends Component {
           <br></br>
           <button
           style={{  backgroundColor: "rgb(43, 43, 148)",
+          color: "white",
         }}
             type="submit"
             class="btn btn-primary"

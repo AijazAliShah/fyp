@@ -1,14 +1,44 @@
 import React, { Component } from "react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-
 import Axios from "axios";
+// import { Modal,Button  } from 'react-bootstrap';
+// import Button from 'react-bootstrap/Button';
+// import Modal from 'react-bootstrap/Modal';
+import Modal from 'react-modal';
+
+// import React, { useState } from 'react';
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 import Table from "react-bootstrap/Table";
 import "./View_List.css";
 import axios from "axios";
 
-function View_List() {
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
+
+function View_List(props) {
+
+  const {
+    buttonLabel,
+    className
+  } = props;
+
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   /*const [project_id, setProject_id] = useState("");
 const [title, setTitle] = useState("");
 const [student, setStudent] = useState("");
@@ -21,6 +51,23 @@ const [description, setDescription] = useState("");*/
   const [newTitle, setNewTitle] = useState("");
 
   const [dataList, setDataList] = useState([]);
+
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [val, setVal] = React.useState('');
+  
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
 
   let history = useHistory();
 
@@ -43,14 +90,14 @@ const [description, setDescription] = useState("");*/
         dataList.map((val) => {
           return val.Project_id == project_id
             ? {
-                Project_id: val.Project_id,
-                Title: newTitle,
-                Description: val.Description,
-                Student: val.Student,
-                Email: val.Email,
-                Internal: val.Internal,
-                External: val.External,
-              }
+              Project_id: val.Project_id,
+              Title: newTitle,
+              Description: val.Description,
+              Student: val.Student,
+              Email: val.Email,
+              Internal: val.Internal,
+              External: val.External,
+            }
             : val;
         })
       );
@@ -128,7 +175,7 @@ const [description, setDescription] = useState("");*/
             >
               Project Title
             </th>
-            
+
             <th
               style={{
                 textTransform: "uppercase",
@@ -229,62 +276,64 @@ const [description, setDescription] = useState("");*/
                 val.project.external.toLowerCase().includes(searchTerm.toLowerCase())
               ) {
                 return val;
-              } else if(
+              } else if (
                 val.project.batch.toLowerCase().includes(searchTerm.toLocaleLowerCase())
-              ){
+              ) {
                 return val;
               }
             })
             .map((val) => {
               return (
-                <tr style={{border: '2px solid black', textAlign: 'center'}}>
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.project_id}</td>
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.title}</td>
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.internal}</td>
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.external}</td>
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>{val.project.batch}</td>
+                <tr style={{ border: '2px solid black', textAlign: 'center' }}>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>{val.project.project_id}</td>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>{val.project.title}</td>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>{val.project.internal}</td>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>{val.project.external}</td>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>{val.project.batch}</td>
 
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>
                     {val.stds.result.map(v => (
-                      <tr style={{display: 'flex', justifyContent: 'center'}}>
-                          <td style={{alignItem: 'center'}}>{v.fullName}</td>
+                      <tr style={{ display: 'flex', justifyContent: 'center' }}>
+                        <td style={{ alignItem: 'center' }}>{v.fullName}</td>
                       </tr>
                     ))}
                   </td>
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>
                     {val.stds.result.map(v => (
-                      <tr style={{display: 'flex', justifyContent: 'center'}}>
-                          <td style={{alignItem: 'center'}}>{v.email}</td>
+                      <tr style={{ display: 'flex', justifyContent: 'center' }}>
+                        <td style={{ alignItem: 'center' }}>{v.email}</td>
                       </tr>
                     ))}
                   </td>
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>
                     {val.stds.result.map(v => (
-                      <tr style={{display: 'flex', justifyContent: 'center'}}>
-                          <td style={{alignItem: 'center'}}>{v.rollNo}</td>
+                      <tr style={{ display: 'flex', justifyContent: 'center' }}>
+                        <td style={{ alignItem: 'center' }}>{v.rollNo}</td>
                       </tr>
                     ))}
                   </td>
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>
+                  <td style={{ border: '2px solid black', textAlign: 'center', }}>
                     <button
+                      style={{ border: '1px solid blue', }}
+
                       class="btn btn-primary"
                       onClick={() => {
-                        history.push("/edit/"+val.project.project_id);
+                        history.push("/edit/" + val.project.project_id);
                       }}
                     >
                       Edit
                     </button>
                   </td>
 
-                  <td style={{border: '2px solid black', textAlign: 'center'}}>
+                  <td style={{ border: '2px solid black', textAlign: 'center' }}>
                     <button
-                      class="btn btn-primary"
+                      style={{ border: '1px solid blue', }}
+
+                      class="btn btn1 btn-primary"
                       onClick={() => {
-                        Axios.post('http://localhost:3001/api/project/delete/'+val.project.project_id)
-                        .then(resp => {
-                          getData()
-                        })
-                        .catch(err => console.log(err))
+                        setVal(val.project.project_id)
+                        openModal();
+
                       }}
                     >
                       Delete
@@ -295,6 +344,30 @@ const [description, setDescription] = useState("");*/
             })}
         </tbody>
       </Table>
+
+      <>
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <h2 ref={(_subtitle) => (subtitle = _subtitle)} > <span style={{color:"#0b1442"}}>Are you Sure You Want To Delete?</span></h2>
+          <br></br>
+          <button  class="btn btn-primary" style={{ border: '1px solid blue',marginLeft:"20%" }} onClick={() => { 
+            Axios.post('http://localhost:3001/api/project/delete/'+val)
+            .then(resp => {
+              getData()
+              closeModal()
+            })
+            .catch(err => console.log(err))
+          }}>Delete</button>
+          <button  class="btn btn-primary" style={{ border: '1px solid blue',marginLeft:"20%" }} onClick={closeModal}>close</button>
+
+        </Modal>
+      </>
+
     </div>
   );
 }

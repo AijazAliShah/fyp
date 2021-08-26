@@ -25,3 +25,19 @@ tbody{
     margin-left: 5%;
     margin-bottom: 2%;
 }
+.bb:hover{
+    /* padding: 8px 20px; */
+    transition: all 0.3s ease-out;
+    background: rgb(43, 43, 148);
+    color: #fff;
+    transition: 250ms;
+}
+
+.bb{
+    padding: 8px 20px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    color: #fff;
+    cursor:pointer;
+}

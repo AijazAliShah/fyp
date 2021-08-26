@@ -47,22 +47,21 @@ function Navbar() {
               <Link to="#" className="menu-bars">
                 <FaIcons.FaBars onClick={showSidebar} />
               </Link>
-              <img src={logo} style={{width: '60px', height: '60px'}}/>
+              <img src={logo} style={{width: '60px', height: '60px',marginLeft:"10px",marginRight:"10px"}}/>
               <h1>NEDUET</h1>
               {isNav.result[0].type !== "student" ? (
                 <button
                   onClick={() => history.push("/Signup")}
                   style={{
-                    // padding: "14px 40px",
-                    marginLeft: "70%",
-                    // width: "100%",
                     backgroundColor: "rgb(43, 43, 148)",
-                    border: "none",
-                    fontSize: "20px",
-                    fontWeight: "bold",
-                    color: "white",
-                    border: "1px solid white",
-                    cursor: "pointer",
+                color: "white",
+                border: "none",
+                height: "2rem",
+                width: "9rem",
+                fontWeight: "bold",
+                borderRadius: "5px",
+                cursor: "pointer",
+                marginLeft:"68%"
                   }}
                 >
                   Create Account

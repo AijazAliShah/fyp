@@ -91,34 +91,44 @@ function Info() {
         <tr  >
           <td>FYP Proposal</td>
           <td style={{display:"flex", justifyContent:"center"}}>
+          <button className="bb"> 
+
             <a
               target="_blank"
               href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProposal.pdf?alt=media&token=479c4a08-9042-48e4-82b5-343a687e1262"
             >
               Download
             </a>
+            </button>
+
           </td>
         </tr>
         <tr>
           <td>FYP Progress Report</td>
           <td style={{display:"flex", justifyContent:"center"}}>
+          <button className="bb"> 
             <a
               target="_blank"
               href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProgressReport.pdf?alt=media&token=da915196-8aec-4a37-9255-479397ab1560"
             >
               Download
             </a>
+            </button>
+
           </td>
         </tr>
         <tr>
           <td>FYP Progress Tracker</td>
           <td style={{display:"flex", justifyContent:"center"}}>
-            <a
+            <button className="bb">           
+               <a 
               target="_blank"
               href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProgressTracker.pdf?alt=media&token=61924eb7-2f8e-40f8-a17b-ffe9562642b5"
             >
               Download
             </a>
+            </button>
+
           </td>
         </tr>
       </table>

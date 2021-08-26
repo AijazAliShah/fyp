@@ -78,7 +78,7 @@ function Project() {
   };
   return (
     <div>
-      <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
+      <img src={background} alt="background" style={{width:"100%", height:"83vh"}}/>
 
     <div className="prj_div">
 

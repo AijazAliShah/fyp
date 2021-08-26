@@ -131,7 +131,7 @@ const [description, setDescription] = useState("");*/
               if (searchTerm == "") {
                 return val;
               } else if (
-                val.projectTitle.toLowerCase().includes(searchTerm.toLowerCase())
+                val.projectTitle.toLowerCase().includes(searchTerm.toLowerCase()) > -1
               ) {
                 return val;
               } else if (
@@ -157,8 +157,10 @@ const [description, setDescription] = useState("");*/
                   <td style={{border: '2px solid black', textAlign: 'center'}}>{val.batch}</td>
 
                   <td style={{border: '2px solid black', textAlign: 'center'}}>
-                    <button
-                    style={{border: '2px solid black',}}
+                    <button 
+                      type="submit"
+                      class="btn btn-primary"
+                    style={{border: '1px solid blue',}}
                       // className="btn btn-primary"
                       onClick={() => {
                         window.location.href ='/detail/'+val.id

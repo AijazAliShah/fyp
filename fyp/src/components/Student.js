@@ -7,7 +7,9 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Student.css";
 import { AuthContext } from "./helpers/AuthContext";
-import logo from "../images/pic5.png";
+import logo from "../images/images.png";
+import background from "./img.png";
+
 
 //import { response } from 'express';
 
@@ -33,31 +35,23 @@ function Student() {
   }, []);
 
   return (
-    <div className="container emp-profile" style={{ height: "70%" }}>
-      <form method="post">
-        <div className="row">
-          <div className="col-md-4">
-            {/* <div className="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            <div className="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            
-                            </div>
-                            
-                        </div> */}
-          </div>
+    <div>
+    <img src={background} alt="background" style={{width:"100%", height:"85vh"}}/>
 
-        </div>
+    <div className="container emp-profile" style={{ height: "70%", marginTop:"4%" }}>
+
+      <form method="post">
+       
         <div className="row">
           <div className="col-md-8">
             <div
               class="card"
               style={{
                 boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                width: "300px",
-                margin: "auto",
-                height: "200px",
+                width: "100px",
+                // margin: "auto",
+                // borderRadius:"100%",
+                height: "100px",
                 textAlign: "center",
                 fontFamily: "arial",
               }}
@@ -70,12 +64,31 @@ function Student() {
               />
               <br></br>
               <br></br>
+              <div className="row" style={{display:"flex",color:"#575757", flexDirection:"row", width:"250%",}}>
+                <div className="col-md-6" style={{width:"150"}}><h3>Name:</h3></div>
+                <div className="col-md-6" style={{width:"50%" , marginLeft:"50%"}}>  <h3>{user.name}</h3></div>
+             
+              </div>
 
-              <h1>{user.name}</h1>
-              <p class="title" atyle={{ color: "grey", fontSize: "18px" }}>
-              {user.email}
-              </p>
-              <p>{user.department}</p>
+              <br></br>
+              <br></br>
+              
+              
+              <div className="row" style={{display:"flex",color:"#575757", flexDirection:"row", width:"250%",}}>
+              <div className="col-md-6" style={{width:"150"}}><h3>Email:</h3></div>
+              <div className="col-md-6" style={{width:"50", marginLeft:"50%"}}>{user.email}</div>
+              
+              </div>
+              <br></br>
+              <br></br>
+              
+              <div className="row" style={{display:"flex",color:"#575757", flexDirection:"row", width:"250%",}}>
+              <div className="col-md-6" style={{width:"150"}}><h3>Department:</h3></div>
+              <div className="col-md-6" style={{width:"50" , marginLeft:"50%"}}><h3>{user.department}</h3></div>
+              <p></p>
+              </div>
+              <br></br>
+              <br></br>
 
               <p>
                 <button
@@ -85,7 +98,8 @@ function Student() {
                     display: "inline-block",
                     padding: "8px",
                     color: "white",
-                    backgroundColor: "#000",
+                    borderRadius:"2rem",
+                    backgroundColor: "#575757",
                     textAlign: "center",
                     cursor: "pointer",
                     width: "100%",
@@ -136,6 +150,7 @@ function Student() {
           </div>
         </div>
       </form>
+    </div>
     </div>
   );
 }

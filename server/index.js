@@ -623,11 +623,11 @@ app.post("/api/grade", async (req, res) => {
   );
 });
 
-function search(nameKey, prop, myArray){
-  for (var i=0; i < myArray.length; i++) {
-      if (myArray[i][prop]=== nameKey) {
-          return myArray[i];
-      }
+function search(nameKey, prop, myArray) {
+  for (var i = 0; i < myArray.length; i++) {
+    if (myArray[i][prop] === nameKey) {
+      return myArray[i];
+    }
   }
 }
 
@@ -637,12 +637,12 @@ app.get("/api/grade", async (req, res) => {
       db.query("SELECT * FROM grades;", (err, result) => {
 
         let response = []
-        for(var i=0; i< result.length; i++){
+        for (var i = 0; i < result.length; i++) {
           // console.log(result[i].project_id,project_id, response)
 
-          var resultObject = search(result[i].project_id,'project_id', response);
+          var resultObject = search(result[i].project_id, 'project_id', response);
           console.log(!resultObject)
-          if(!resultObject){
+          if (!resultObject) {
             response.push(result[i])
           }
         }
@@ -699,7 +699,7 @@ app.post("/api/criteria", async (req, res) => {
           }
           resolve({ result });
         }
-      );  
+      );
     })
   );
 });
@@ -727,26 +727,31 @@ app.get("/api/criteria/:projectId", async (req, res) => {
         resolve({ result });
       });
     })
-  );   
-}); 
+  );
+});
 
 
 //Inserting data into Announcement table (Add an announcement)
-app.post("/api/announcement", (req, res) => {
+app.post("/api/announcement", async (req, res) => {
   const activity = req.body.activity;
   const tentativeDate = req.body.tentativeDate;
   const responsibility = req.body.responsibility;
   const deliverables = req.body.deliverables;
+  res.send(
+    await new Promise(function (resolve, reject) {
+      const sqlInsert =
+        "INSERT INTO announcements (Activity, Tentative_date, Responsibility,  Deliverables) VALUES (?,?,?,?);";
+      db.query(
+        sqlInsert,
+        [activity, tentativeDate, responsibility, deliverables],
+        (err, result) => {
+          if(err)
+            console.log(err);
 
-  const sqlInsert =
-    "INSERT INTO announcements (Activity, Tentative_date, Responsibility, Deliverables) VALUES (?,?,?,?);";
-  db.query(
-    sqlInsert,
-    [activity, tentativeDate, responsibility, deliverables],
-    (err, result) => {
-      console.log(err);
-    }
-  );
+            res.send({ result: result });
+        }
+      );
+    }))
 });
 
 //Deleting data from project table

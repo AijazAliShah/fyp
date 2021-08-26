@@ -3,8 +3,11 @@ import { useEffect } from "react";
 import { FaCentercode } from "react-icons/fa";
 import Axios from "axios";
 import "./Project.css";
+import { ToastContainer, toast } from "react-toastify";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import Info from './Info'
+import background from "./img.png";
+
 import { reactLocalStorage } from "reactjs-localstorage";
 
 function AddAnnouncement() {
@@ -24,7 +27,15 @@ function AddAnnouncement() {
       tentativeDate: tentativeDate,
       responsibility: responsibility,
       deliverables: deliverables,
-    });
+
+    })
+      .then(resp => {
+        console.log(resp.data)
+        toast("Announcement added Successfully", {
+          position: "top-center",
+          type: "success",
+        });
+      }).catch(err => console.log(err));
 
     setDataList([
       ...dataList,
@@ -38,92 +49,113 @@ function AddAnnouncement() {
   };
 
   return (
-    <div style={{ marginLeft: "20%" }}>
+    <div style={{ marginLeft: "0%" }}>
+
+      <ToastContainer />
+
       <Tabs style={{ color: "#000" }}>
         <TabList>
-          {isNav.result[0].type !== "student" ? (
-          <Tab>Add Announcement</Tab>
-          ): null}
-          <Tab style={{marginLeft:"20px"}}>View Announcement</Tab>
+          {isNav.result[0].type !== "student" && isNav.result[0].type !== "supervisor" ? (
+            <Tab>Add Announcement</Tab>
+          ) : null}
+          <Tab style={{ marginLeft: "20px" }}>View Announcement</Tab>
         </TabList>
-        {isNav.result[0].type !== "student" ? (
-        <TabPanel>
-          <div className="container">
-            <h3 style={{ color: "blue", textAlign: "center", fontSize:"1.5rem" }}>
-              ADD AN ANNOUNCEMENT
-            </h3>
-            <form>
-              <tr>
-                <td>
-                  <input
-                  style={{border:"1px solid #000", width:"120%"}}
-                    type="text"
-                    name="Activity"
-                    placeholder="Activity"
-                    onChange={(e) => {
-                      setActivity(e.target.value);
-                    }}
-                  />
-                </td>
-              </tr>
-              <br></br>
-              <tr>
-                <td>
-                  <input
-                  style={{border:"1px solid #000", width:"140%"}}
-                    type="date"
-                    name="Tentative Date"
-                    placeholder="Tentative Date"
-                    onChange={(e) => {
-                      setTentativeDate(e.target.value);
-                    }}
-                  />
-                </td>
-              </tr>
-              <br></br>
-              <tr>
-                <td>
-                  <input
-                  style={{border:"1px solid #000", width:"120%"}}
-                    type="text"
-                    name="Responsibility"
-                    placeholder="Responsibility"
-                    onChange={(e) => {
-                      setResponsibility(e.target.value);
-                    }}
-                  />
-                </td>
-              </tr>
-              <br></br>
-              <tr>
-                <td>
-                  <input
-                  style={{border:"1px solid #000", width:"120%"}}
-                    type="text"
-                    name="Deliverables"
-                    placeholder="Deliverables"
-                    onChange={(e) => {
-                      setDeliverables(e.target.value);
-                    }}
-                  />
-                </td>
-              </tr>
-            </form>
-            <br></br>
+        {isNav.result[0].type !== "student" && isNav.result[0].type !== "supervisor" ? (
+          <TabPanel>
+      <img src={background} alt="background" style={{width:"100%", height:"76vh"}}/>
 
-            <button style={{ backgroundColor: "rgb(43, 43, 148)",  
-             color: "white",
-             border:"none",
-             height:"2rem",
-             width:"9rem",
-             fontWeight:"bold",
-             borderRadius:"5px",
-             cursor:"pointer"}} onClick={add}>Add Announcement</button>
-          </div>
-        </TabPanel>
-        ): null}
-        <TabPanel style={{paddingRight:"30px" , marginRight:"50px"}}>
-          <Info/>
+            <div className="container" style={{opacity:"0.8", backgroundColor:"#fff"}}>
+
+              <h3 style={{ color: "blue", textAlign: "center", fontSize: "1.5rem" }}>
+                ADD AN ANNOUNCEMENT
+              </h3>
+            
+                <tr>
+                  <td>
+                    <input 
+                      style={{border:"none",
+                      borderBottom:"1px solid #2b2b94",
+                      outline:"none"
+           }}
+                      type="text"
+                      name="Activity"
+                      placeholder="Activity"
+                      onChange={(e) => {
+                        setActivity(e.target.value);
+                      }}
+                    />
+                  </td>
+                </tr>
+                <br></br>
+                <tr>
+                  <td>
+                    <input
+                      style={{ border:"none",
+                      borderBottom:"1px solid #2b2b94",
+                      outline:"none",
+                      width:"120%"
+           }}
+                      type="date"
+                      name="Tentative Date"
+                      placeholder="Tentative Date"
+                      onChange={(e) => {
+                        setTentativeDate(e.target.value);
+                      }}
+                    />
+                  </td>
+                </tr>
+                <br></br>
+                <tr>
+                  <td>
+                    <input
+                      style={{ border:"none",
+                      borderBottom:"1px solid #2b2b94",
+                      outline:"none"
+           }}
+                      type="text"
+                      name="Responsibility"
+                      placeholder="Responsibility"
+                      onChange={(e) => {
+                        setResponsibility(e.target.value);
+                      }}
+                    />
+                  </td>
+                </tr>
+                <br></br>
+                <tr>
+                  <td>
+                    <input
+                      style={{ border:"none",
+                      borderBottom:"1px solid #2b2b94",
+                      outline:"none"
+           }}
+                      type="text"
+                      name="Deliverables"
+                      placeholder="Deliverables"
+                      onChange={(e) => {
+                        setDeliverables(e.target.value);
+                      }}
+                    />
+                  </td>
+                </tr>
+             
+              <br></br>
+
+              <button style={{
+                backgroundColor: "rgb(43, 43, 148)",
+                color: "white",
+                border: "none",
+                height: "2rem",
+                width: "9rem",
+                fontWeight: "bold",
+                borderRadius: "5px",
+                cursor: "pointer"
+              }} onClick={add}>Add Announcement</button>
+            </div>
+          </TabPanel>
+        ) : null}
+        <TabPanel style={{ paddingRight: "30px", marginRight: "50px" }}>
+          <Info />
         </TabPanel>
       </Tabs>
     </div>

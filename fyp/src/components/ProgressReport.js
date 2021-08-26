@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { reactLocalStorage } from "reactjs-localstorage";
+import "./Project.css";
+
 
 export class Mid extends Component {
   constructor(props) {
@@ -74,7 +76,9 @@ export class Mid extends Component {
                         <button
                           type="submit"
                           class="btn btn-primary"
-                          id="marks_submit_btn"
+                    style={{border: '1px solid blue',}}
+
+                          // id="marks_submit_btn"
                         >
                           Download{" "}
                         </button>
