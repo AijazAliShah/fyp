@@ -219,7 +219,18 @@ export class Mid extends Component {
             </tr>
           </table>
          
-          <h3>Individual Assessment </h3>
+          <h3
+            className="main_heading2"
+            style={{
+              textTransform: "uppercase",
+              fontSize: "30px",
+              color: "#0b1442",
+              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+            }}
+          >
+            Individual Assessment
+          </h3>
+          <br></br>
 
           {this.props.match.params.evel !== '4' ? (
             <>

@@ -314,6 +314,19 @@ export class Mid extends Component {
           <br></br>
           <br></br>
           {/* //student details/ */}
+
+          <h3
+            className="main_heading2"
+            style={{
+              textTransform: "uppercase",
+              fontSize: "30px",
+              color: "#0b1442",
+              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+            }}
+          >
+            Student Details
+          </h3>
+          <br></br>
           <table style={{ border: "1px solid black" }} className="detail">
             <tr
               style={{
