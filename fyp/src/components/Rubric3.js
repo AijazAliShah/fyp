@@ -143,13 +143,17 @@ export class Mid extends Component {
             criteriaNo: i,
             evalNo: this.props.match.params.evel,
             stdRollNo: this.state.gradeData.stdRoll2,
-            project_id: this.state.gradeData.project_id.toLocaleLowerCase(),
+            project_id: this.state.gradeData.project_id,
 
           })
           .then(resp1 => {
             console.log(resp1.data)
             if(i === (end-1)){
-              window.location.href =`/rubric4/${this.props.match.params.id}/${this.props.match.params.evel}`;
+              if(this.state.gradeData.stdRoll3){
+                window.location.href =`/rubric4/${this.props.match.params.id}/${this.props.match.params.evel}`;
+              }else{
+                window.location.href =`/showGrades`;
+              }
             }
           })
           .catch(err => console.log(err))

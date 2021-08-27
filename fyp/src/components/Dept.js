@@ -63,7 +63,7 @@ function Registration() {
 
   return (
     <div style={{ backgroundColor:"#fff"}}>
-      <img src={background} alt="background" style={{width:"100%", height:"83vh"}}/>
+      <img src={background} alt="background" style={{width:"100%", height:"85vh"}}/>
 
       <ToastContainer />
       <div className="container" style={{opacity:"0.8", backgroundColor:"#fff" , marginTop:"2%"}}>

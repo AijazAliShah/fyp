@@ -40,9 +40,9 @@ export class Mid extends Component {
     return (
       <Tabs style={{ color: "#000" }}>
         <TabList>
-          <Tab style={{ marginLeft: "20%" }}>Indivisual 1</Tab>
-          <Tab style={{ marginLeft: "20%" }}>Indivisual 2</Tab>
-          <Tab style={{ marginLeft: "20%" }}>Indivisual 3</Tab>
+          {this.props.data.stdRoll1 ? (<Tab>Indivisual 1</Tab>) : null}
+          {this.props.data.stdRoll2 ? (<Tab>Indivisual 2</Tab>) : null}
+          {this.props.data.stdRoll3 ? (<Tab>Indivisual 3</Tab>) : null}
         </TabList>
 
         <TabPanel>
@@ -79,14 +79,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criterion 1</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criterion 1</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -122,15 +130,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -140,15 +148,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -158,15 +166,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -187,14 +195,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 2</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 2</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -229,15 +245,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -247,15 +263,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -265,15 +281,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -294,14 +310,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 3</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 3</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -338,15 +362,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -356,15 +380,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -374,15 +398,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -403,14 +427,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 4</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 4</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -445,15 +477,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -463,15 +495,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -481,15 +513,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -509,14 +541,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 5</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 5</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -550,15 +590,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -568,15 +608,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -586,15 +626,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -612,14 +652,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}> Criteria 6</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}> PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}> Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}> Criteria 6</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}> PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}> Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -655,15 +703,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks
                       : null}
                   </td>
                 </tr>
@@ -673,15 +721,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -691,15 +739,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -717,14 +765,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 7</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 7</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -759,15 +815,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -777,15 +833,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -795,15 +851,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -821,14 +877,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 8</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 8</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -858,15 +922,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -876,15 +940,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -894,15 +958,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -920,14 +984,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 9</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 9</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -963,15 +1035,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -981,15 +1053,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -999,15 +1071,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member1.length
                       ? this.state.member1.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1017,7 +1089,7 @@ export class Mid extends Component {
           </>
         </TabPanel>
         <TabPanel>
-        <>
+          <>
             <div>
               {/* Individual Assesment */}
               <br></br>
@@ -1050,14 +1122,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criterion 1</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criterion 1</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1093,15 +1173,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -1111,15 +1191,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1129,15 +1209,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1156,16 +1236,24 @@ export class Mid extends Component {
                     fontWeight: "bold",
                     fontSize: "18px",
                     border: "1px solid black",
-                  }} 
+                  }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 2</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 2</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1200,15 +1288,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -1218,15 +1306,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1236,15 +1324,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1265,14 +1353,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 3</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 3</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1309,15 +1405,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -1327,15 +1423,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1345,15 +1441,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1374,14 +1470,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 4</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 4</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1416,15 +1520,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -1434,15 +1538,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1452,15 +1556,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1480,14 +1584,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 5</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 5</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1521,15 +1633,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -1539,15 +1651,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1557,15 +1669,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1583,14 +1695,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 6</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 6</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1626,15 +1746,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks
                       : null}
                   </td>
                 </tr>
@@ -1644,15 +1764,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1662,15 +1782,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1688,14 +1808,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 7</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 7</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1730,15 +1858,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -1748,15 +1876,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1766,15 +1894,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1792,14 +1920,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 8</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 8</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1829,15 +1965,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -1847,15 +1983,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1865,15 +2001,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1891,14 +2027,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 9</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 9</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -1934,15 +2078,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -1952,15 +2096,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -1970,15 +2114,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member2.length
                       ? this.state.member2.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -1988,7 +2132,7 @@ export class Mid extends Component {
           </>
         </TabPanel>
         <TabPanel>
-        <>
+          <>
             <div>
               {/* Individual Assesment */}
               <br></br>
@@ -2021,14 +2165,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criterion 1</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criterion 1</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2064,15 +2216,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -2082,15 +2234,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2100,15 +2252,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "1"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "1"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -2129,14 +2281,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 2</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 2</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2171,15 +2331,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -2189,15 +2349,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2207,15 +2367,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "2"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "2"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -2236,14 +2396,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 3</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 3</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2280,15 +2448,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -2298,15 +2466,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2316,15 +2484,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "3"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "3"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -2345,14 +2513,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 4</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 4</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2387,15 +2563,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -2405,15 +2581,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2423,15 +2599,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "4"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "4"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -2451,14 +2627,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 5</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 5</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2492,15 +2676,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -2510,15 +2694,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2528,15 +2712,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "5"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "5"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -2554,14 +2738,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 6</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 6</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2597,15 +2789,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks
                       : null}
                   </td>
                 </tr>
@@ -2615,15 +2807,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2633,15 +2825,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "6"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "6"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -2659,14 +2851,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 7</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 7</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2701,15 +2901,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -2719,15 +2919,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2737,15 +2937,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "7"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "7"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -2763,14 +2963,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 8</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 8</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2800,15 +3008,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -2818,15 +3026,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2836,15 +3044,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "8"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "8"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>
@@ -2862,14 +3070,22 @@ export class Mid extends Component {
                     border: "1px solid black",
                   }}
                 >
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 9</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>PLO</td>
-                  <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Weighing Factor</td>
-                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff",width: "40%" }}>Guidelines</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Criteria 9</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>PLO</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff"
+                  }}>Weighing Factor</td>
+                  <td style={{
+                    backgroundColor: "#0b1442", textAlign: "center",
+                    fontWeight: "bold", color: "#fff", width: "40%"
+                  }}>Guidelines</td>
                 </tr>
 
                 <tr>
@@ -2905,15 +3121,15 @@ export class Mid extends Component {
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks1
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks1
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks1
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks1
                       : null}
                   </td>
                 </tr>
@@ -2923,15 +3139,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks2
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks2
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks2
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks2
                       : null}
                   </td>
                 </tr>
@@ -2941,15 +3157,15 @@ export class Mid extends Component {
                     {" "}
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].marks3
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].marks3
                       : null}
                   </td>
                   <td>
                     {this.state.member3.length
                       ? this.state.member3.filter(
-                          (crit) => crit.criteriaNo === "9"
-                        )[0].reMarks3
+                        (crit) => crit.criteriaNo === "9"
+                      )[0].reMarks3
                       : null}
                   </td>
                 </tr>

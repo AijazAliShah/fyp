@@ -143,7 +143,7 @@ export class Mid extends Component {
             criteriaNo: i,
             evalNo: this.props.match.params.evel,
             stdRollNo: this.state.gradeData.stdRoll3,
-            project_id: this.state.gradeData.project_id.toLocaleLowerCase(),
+            project_id: this.state.gradeData.project_id,
 
           })
           .then(resp1 => {

@@ -184,7 +184,7 @@ export class Mid extends Component {
         axios
           .get(
             "http://localhost:3001/api/criteria/" +
-              resp.data.result[0].project_id
+            resp.data.result[0].project_id
           )
           .then((resp1) => {
             const eval1Criterias1 = resp1.data.result.filter(
@@ -228,7 +228,7 @@ export class Mid extends Component {
               (element) => element.evalNo === "4" && (element.stdRollNo === 'group' || element.stdRollNo === resp.data.result[0].stdRoll3)
             );
 
-          
+
             this.setState({
               allCriterias: resp1.data.result,
               eval1Criterias1,
@@ -256,7 +256,7 @@ export class Mid extends Component {
             let eval2ObtainedMarks3 = 0;
             let eval3ObtainedMarks3 = 0;
             let eval4ObtainedMarks3 = 0;
-            
+
             eval1Criterias1.map((evl) => {
               eval1ObtainedMarks1 =
                 eval1ObtainedMarks1 +
@@ -333,7 +333,7 @@ export class Mid extends Component {
                 Number(evl.marks1) +
                 Number(evl.marks2) +
                 Number(evl.marks3);
-            });eval4Criterias3.map((evl) => {
+            }); eval4Criterias3.map((evl) => {
               eval4ObtainedMarks3 =
                 eval4ObtainedMarks3 +
                 Number(evl.marks1) +
@@ -379,20 +379,20 @@ export class Mid extends Component {
             const p5m1 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "9" ||
-                crit.criteriaNo === "3" ||
-                crit.criteriaNo === "17") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+                  crit.criteriaNo === "3" ||
+                  crit.criteriaNo === "17") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p5m2 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "9" ||
-                crit.criteriaNo === "3" ||
-                crit.criteriaNo === "17") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+                  crit.criteriaNo === "3" ||
+                  crit.criteriaNo === "17") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p5m3 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "9" ||
-                crit.criteriaNo === "3" ||
-                crit.criteriaNo === "17") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+                  crit.criteriaNo === "3" ||
+                  crit.criteriaNo === "17") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p6m1 = resp1.data.result.filter(
               (crit) => crit.criteriaNo === "2" && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
@@ -415,86 +415,86 @@ export class Mid extends Component {
             const p8m1 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "4" ||
-                crit.criteriaNo === "9" ||
-                crit.criteriaNo === "10" ||
-                crit.criteriaNo === "11" ||
-                crit.criteriaNo === "12") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+                  crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "10" ||
+                  crit.criteriaNo === "11" ||
+                  crit.criteriaNo === "12") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p8m2 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "4" ||
-                crit.criteriaNo === "9" ||
-                crit.criteriaNo === "10" ||
-                crit.criteriaNo === "11" ||
-                crit.criteriaNo === "12") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+                  crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "10" ||
+                  crit.criteriaNo === "11" ||
+                  crit.criteriaNo === "12") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p8m3 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "4" ||
-                crit.criteriaNo === "9" ||
-                crit.criteriaNo === "10" ||
-                crit.criteriaNo === "11" ||
-                crit.criteriaNo === "12") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+                  crit.criteriaNo === "9" ||
+                  crit.criteriaNo === "10" ||
+                  crit.criteriaNo === "11" ||
+                  crit.criteriaNo === "12") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p9m1 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "5" ||
-                crit.criteriaNo === "6" ||
-                crit.criteriaNo === "7") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+                  crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "7") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p9m2 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "5" ||
-                crit.criteriaNo === "6" ||
-                crit.criteriaNo === "7") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+                  crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "7") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p9m3 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "5" ||
-                crit.criteriaNo === "6" ||
-                crit.criteriaNo === "7") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+                  crit.criteriaNo === "6" ||
+                  crit.criteriaNo === "7") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p10m1 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "6" ||
-                crit.criteriaNo === "4" ||
-                crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+                  crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p10m2 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "6" ||
-                crit.criteriaNo === "4" ||
-                crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+                  crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p10m3 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "6" ||
-                crit.criteriaNo === "4" ||
-                crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+                  crit.criteriaNo === "4" ||
+                  crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p11m1 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "7" ||
-                crit.criteriaNo === "13" ||
-                crit.criteriaNo === "14" ||
-                crit.criteriaNo === "15" ||
-                crit.criteriaNo === "16") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+                  crit.criteriaNo === "13" ||
+                  crit.criteriaNo === "14" ||
+                  crit.criteriaNo === "15" ||
+                  crit.criteriaNo === "16") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p11m2 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "7" ||
-                crit.criteriaNo === "13" ||
-                crit.criteriaNo === "14" ||
-                crit.criteriaNo === "15" ||
-                crit.criteriaNo === "16") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+                  crit.criteriaNo === "13" ||
+                  crit.criteriaNo === "14" ||
+                  crit.criteriaNo === "15" ||
+                  crit.criteriaNo === "16") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p11m3 = resp1.data.result.filter(
               (crit) =>
                 (crit.criteriaNo === "7" ||
-                crit.criteriaNo === "13" ||
-                crit.criteriaNo === "14" ||
-                crit.criteriaNo === "15" ||
-                crit.criteriaNo === "16") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+                  crit.criteriaNo === "13" ||
+                  crit.criteriaNo === "14" ||
+                  crit.criteriaNo === "15" ||
+                  crit.criteriaNo === "16") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p12m1 = resp1.data.result.filter(
               (crit) => crit.criteriaNo === "8" && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
@@ -505,35 +505,35 @@ export class Mid extends Component {
             const p12m3 = resp1.data.result.filter(
               (crit) => crit.criteriaNo === "8" && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
-            this.setState({ 
-               p4m1,
-               p4m2,
-               p4m3,
-               p5m1,
-               p5m2,
-               p5m3,
-               p6m1,
-               p6m2,
-               p6m3,
-               p7m1,
-               p7m2,
-               p7m3,
-               p8m1,
-               p8m2,
-               p8m3,
-               p9m1,
-               p9m2,
-               p9m3,
-               p10m1,
-               p10m2,
-               p10m3,
-               p11m1,
-               p11m2,
-               p11m3,
-               p12m1,
-               p12m2,
-               p12m3,
-               });
+            this.setState({
+              p4m1,
+              p4m2,
+              p4m3,
+              p5m1,
+              p5m2,
+              p5m3,
+              p6m1,
+              p6m2,
+              p6m3,
+              p7m1,
+              p7m2,
+              p7m3,
+              p8m1,
+              p8m2,
+              p8m3,
+              p9m1,
+              p9m2,
+              p9m3,
+              p10m1,
+              p10m2,
+              p10m3,
+              p11m1,
+              p11m2,
+              p11m3,
+              p12m1,
+              p12m2,
+              p12m3,
+            });
             let p4marks1 = 0;
             let p4marks2 = 0;
             let p4marks3 = 0;
@@ -745,7 +745,7 @@ export class Mid extends Component {
             });
             p12m3.map((evl) => {
               p12marks3 =
-                p12marks3+
+                p12marks3 +
                 Number(evl.marks1) +
                 Number(evl.marks2) +
                 Number(evl.marks3);
@@ -888,22 +888,24 @@ export class Mid extends Component {
               <th>Designation</th>
             </tr>
 
-            <tr>
-              <td>1</td>
-              <td>{this.state.gradeData.evlName1}</td>
-              <td>{this.state.gradeData.designation1}</td>
-            </tr>
-
-            <tr>
-              <td>2</td>
-              <td>{this.state.gradeData.evlName2}</td>
-              <td>{this.state.gradeData.designation2}</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>{this.state.gradeData.evlName3}</td>
-              <td>{this.state.gradeData.designation3}</td>
-            </tr>
+            {this.state.gradeData.evlName1 ? (
+              <tr>
+                <td>1</td>
+                <td>{this.state.gradeData.evlName1}</td>
+                <td>{this.state.gradeData.designation1}</td>
+              </tr>) : null}
+            {this.state.gradeData.evlName2 ? (
+              <tr>
+                <td>2</td>
+                <td>{this.state.gradeData.evlName2}</td>
+                <td>{this.state.gradeData.designation2}</td>
+              </tr>) : null}
+            {this.state.gradeData.evlName3 ? (
+              <tr>
+                <td>3</td>
+                <td>{this.state.gradeData.evlName3}</td>
+                <td>{this.state.gradeData.designation3}</td>
+              </tr>) : null}
           </table>
 
           <br></br>
@@ -936,22 +938,24 @@ export class Mid extends Component {
               <th>Group Position</th>
             </tr>
 
-            <tr>
-              <td>{this.state.gradeData.stdRoll1}</td>
-              <td>{this.state.gradeData.stdName1}</td>
-              <td>{this.state.gradeData.groupP1}</td>
-            </tr>
-
-            <tr>
-              <td>{this.state.gradeData.stdRoll2} </td>
-              <td>{this.state.gradeData.stdName2}</td>
-              <td>{this.state.gradeData.groupP2}</td>
-            </tr>
-            <tr>
-              <td> {this.state.gradeData.stdRoll3}</td>
-              <td>{this.state.gradeData.stdName3}</td>
-              <td>{this.state.gradeData.groupP3}</td>
-            </tr>
+            {this.state.gradeData.stdRoll1 ? (
+              <tr>
+                <td>{this.state.gradeData.stdRoll1}</td>
+                <td>{this.state.gradeData.stdName1}</td>
+                <td>{this.state.gradeData.groupP1}</td>
+              </tr>) : null}
+            {this.state.gradeData.stdRoll2 ? (
+              <tr>
+                <td>{this.state.gradeData.stdRoll2} </td>
+                <td>{this.state.gradeData.stdName2}</td>
+                <td>{this.state.gradeData.groupP2}</td>
+              </tr>) : null}
+            {this.state.gradeData.stdRoll3 ? (
+              <tr>
+                <td> {this.state.gradeData.stdRoll3}</td>
+                <td>{this.state.gradeData.stdName3}</td>
+                <td>{this.state.gradeData.groupP3}</td>
+              </tr>) : null}
           </table>
           <br></br>
           <br></br>
@@ -1129,10 +1133,9 @@ export class Mid extends Component {
                 justifyContent: "space-around",
               }}
             >
-              <Tab>Member 1</Tab>
-              <Tab>Member 2</Tab>
-
-              <Tab>Member 3 </Tab>
+              {this.state.gradeData.stdRoll1 ? (<Tab>Member 1</Tab>) : null}
+              {this.state.gradeData.stdRoll2 ? (<Tab>Member 2</Tab>) : null}
+              {this.state.gradeData.stdRoll3 ? (<Tab>Member 3</Tab>) : null}
             </TabList>
 
             <TabPanel>
@@ -1202,15 +1205,15 @@ export class Mid extends Component {
                 </tr>
                 <tr>
                   <td> Total of all Evalouations</td>
-                  <td>{Number(this.state.weight1)+ Number(this.state.weight2)+ Number(this.state.weight3)+ Number(this.state.weight4)}</td>
+                  <td>{Number(this.state.weight1) + Number(this.state.weight2) + Number(this.state.weight3) + Number(this.state.weight4)}</td>
                   <td>
                     {(Number((
                       this.state.weight1 * this.state.eval1ObtainedPerc1
-                    ).toFixed(2))+ Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight2 * this.state.eval2ObtainedPerc1
-                    ).toFixed(2))+ Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight3 * this.state.eval3ObtainedPerc1
-                    ).toFixed(2))+Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight4 * this.state.eval4ObtainedPerc1
                     ).toFixed(2))).toFixed(2)}
                   </td>
@@ -1218,44 +1221,44 @@ export class Mid extends Component {
               </table>
               <br></br>
               <br></br>
-             
-              
+
+
               <table style={{ border: "1px solid black" }} className="detail">
-            
 
-            <tr>
-              <td>Total</td>
-              <td>
-                {" "}
-                {(
-                  Number(
-                    (
-                      this.state.weight1 * this.state.eval1ObtainedPerc1
-                    ).toFixed(2)
-                  ) +
-                  Number(
-                    (
-                      this.state.weight2 * this.state.eval2ObtainedPerc1
-                    ).toFixed(2)
-                  ) +
-                  Number(
-                    (
-                      this.state.weight3 * this.state.eval3ObtainedPerc1
-                    ).toFixed(2)
-                  ) +
-                  Number(
-                    (
-                      this.state.weight4 * this.state.eval4ObtainedPerc1
-                    ).toFixed(2)
-                  )+
-                  Number(this.state.finalReport) +
-                  Number(this.state.otherRepots) +
-                  Number(this.state.byChairman)
-                ).toFixed(2)}
-              </td>
-            </tr>
 
-          </table>
+                <tr>
+                  <td>Total</td>
+                  <td>
+                    {" "}
+                    {(
+                      Number(
+                        (
+                          this.state.weight1 * this.state.eval1ObtainedPerc1
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight2 * this.state.eval2ObtainedPerc1
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight3 * this.state.eval3ObtainedPerc1
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight4 * this.state.eval4ObtainedPerc1
+                        ).toFixed(2)
+                      ) +
+                      Number(this.state.finalReport) +
+                      Number(this.state.otherRepots) +
+                      Number(this.state.byChairman)
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+
+              </table>
               <br></br>
               <br></br>
               <h3
@@ -1333,7 +1336,7 @@ export class Mid extends Component {
                   fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
                 }}
               >
-                Marks Of Each Evaluation 
+                Marks Of Each Evaluation
               </h3>
               <br></br>
               <table style={{ border: "1px solid black" }} className="detail">
@@ -1390,15 +1393,15 @@ export class Mid extends Component {
                 </tr>
                 <tr>
                   <td> Total of all Evalouations</td>
-                  <td>{Number(this.state.weight1)+ Number(this.state.weight2)+ Number(this.state.weight3)+ Number(this.state.weight4)}</td>
+                  <td>{Number(this.state.weight1) + Number(this.state.weight2) + Number(this.state.weight3) + Number(this.state.weight4)}</td>
                   <td>
                     {(Number((
                       this.state.weight1 * this.state.eval1ObtainedPerc2
-                    ).toFixed(2))+ Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight2 * this.state.eval2ObtainedPerc2
-                    ).toFixed(2))+ Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight3 * this.state.eval3ObtainedPerc2
-                    ).toFixed(2))+Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight4 * this.state.eval4ObtainedPerc2
                     ).toFixed(2))).toFixed(2)}
                   </td>
@@ -1406,44 +1409,44 @@ export class Mid extends Component {
               </table>
               <br></br>
               <br></br>
-             
-              
+
+
               <table style={{ border: "1px solid black" }} className="detail">
-            
 
-            <tr>
-              <td>Total</td>
-              <td>
-                {" "}
-                {(
-                  Number(
-                    (
-                      this.state.weight1 * this.state.eval1ObtainedPerc2
-                    ).toFixed(2)
-                  ) +
-                  Number(
-                    (
-                      this.state.weight2 * this.state.eval2ObtainedPerc2
-                    ).toFixed(2)
-                  ) +
-                  Number(
-                    (
-                      this.state.weight3 * this.state.eval3ObtainedPerc2
-                    ).toFixed(2)
-                  ) +
-                  Number(
-                    (
-                      this.state.weight4 * this.state.eval4ObtainedPerc2
-                    ).toFixed(2)
-                  )+
-                  Number(this.state.finalReport) +
-                  Number(this.state.otherRepots) +
-                  Number(this.state.byChairman)
-                ).toFixed(2)}
-              </td>
-            </tr>
 
-          </table>
+                <tr>
+                  <td>Total</td>
+                  <td>
+                    {" "}
+                    {(
+                      Number(
+                        (
+                          this.state.weight1 * this.state.eval1ObtainedPerc2
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight2 * this.state.eval2ObtainedPerc2
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight3 * this.state.eval3ObtainedPerc2
+                        ).toFixed(2)
+                      ) +
+                      Number(
+                        (
+                          this.state.weight4 * this.state.eval4ObtainedPerc2
+                        ).toFixed(2)
+                      ) +
+                      Number(this.state.finalReport) +
+                      Number(this.state.otherRepots) +
+                      Number(this.state.byChairman)
+                    ).toFixed(2)}
+                  </td>
+                </tr>
+
+              </table>
               <br></br>
               <br></br>
               <h3
@@ -1521,7 +1524,7 @@ export class Mid extends Component {
                   fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
                 }}
               >
-                Marks Of Each Evaluation 
+                Marks Of Each Evaluation
               </h3>
               <br></br>
               <table style={{ border: "1px solid black" }} className="detail">
@@ -1578,15 +1581,15 @@ export class Mid extends Component {
                 </tr>
                 <tr>
                   <td> Total of all Evalouations</td>
-                  <td>{Number(this.state.weight1)+ Number(this.state.weight2)+ Number(this.state.weight3)+ Number(this.state.weight4)}</td>
+                  <td>{Number(this.state.weight1) + Number(this.state.weight2) + Number(this.state.weight3) + Number(this.state.weight4)}</td>
                   <td>
                     {(Number((
                       this.state.weight1 * this.state.eval1ObtainedPerc3
-                    ).toFixed(2))+ Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight2 * this.state.eval2ObtainedPerc3
-                    ).toFixed(2))+ Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight3 * this.state.eval3ObtainedPerc3
-                    ).toFixed(2))+Number((
+                    ).toFixed(2)) + Number((
                       this.state.weight4 * this.state.eval4ObtainedPerc3
                     ).toFixed(2))).toFixed(2)}
                   </td>
@@ -1594,10 +1597,10 @@ export class Mid extends Component {
               </table>
               <br></br>
               <br></br>
-             
-              
+
+
               <table style={{ border: "1px solid black" }} className="detail">
-            
+
 
                 <tr>
                   <td>Total</td>
@@ -1623,7 +1626,7 @@ export class Mid extends Component {
                         (
                           this.state.weight4 * this.state.eval4ObtainedPerc3
                         ).toFixed(2)
-                      )+
+                      ) +
                       Number(this.state.finalReport) +
                       Number(this.state.otherRepots) +
                       Number(this.state.byChairman)

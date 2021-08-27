@@ -192,7 +192,7 @@ export class Mid extends Component {
         axios
           .get(
             "http://localhost:3001/api/weightage/" +
-              resp.data.result[0].project_id
+            resp.data.result[0].project_id
           )
           .then((resp2) => {
             console.log("resp2.data");
@@ -211,7 +211,7 @@ export class Mid extends Component {
         axios
           .get(
             "http://localhost:3001/api/criteria/" +
-              resp.data.result[0].project_id
+            resp.data.result[0].project_id
           )
           .then((resp1) => {
             const eval1Criterias = resp1.data.result.filter(
@@ -1015,23 +1015,24 @@ export class Mid extends Component {
               <th>Name</th>
               <th>Designation</th>
             </tr>
-
-            <tr>
-              <td>1</td>
-              <td>{this.state.gradeData.evlName1}</td>
-              <td>{this.state.gradeData.designation1}</td>
-            </tr>
-
-            <tr>
-              <td>2</td>
-              <td>{this.state.gradeData.evlName2}</td>
-              <td>{this.state.gradeData.designation2}</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>{this.state.gradeData.evlName3}</td>
-              <td>{this.state.gradeData.designation3}</td>
-            </tr>
+            {this.state.gradeData.evlName1 ? (
+              <tr>
+                <td>1</td>
+                <td>{this.state.gradeData.evlName1}</td>
+                <td>{this.state.gradeData.designation1}</td>
+              </tr>) : null}
+            {this.state.gradeData.evlName2 ? (
+              <tr>
+                <td>2</td>
+                <td>{this.state.gradeData.evlName2}</td>
+                <td>{this.state.gradeData.designation2}</td>
+              </tr>) : null}
+            {this.state.gradeData.evlName3 ? (
+              <tr>
+                <td>3</td>
+                <td>{this.state.gradeData.evlName3}</td>
+                <td>{this.state.gradeData.designation3}</td>
+              </tr>) : null}
           </table>
 
           <br></br>
@@ -1065,23 +1066,24 @@ export class Mid extends Component {
               <th>Name</th>
               <th>Group Position</th>
             </tr>
-
-            <tr>
-              <td>{this.state.gradeData.stdRoll1}</td>
-              <td>{this.state.gradeData.stdName1}</td>
-              <td>{this.state.gradeData.groupP1}</td>
-            </tr>
-
-            <tr>
-              <td>{this.state.gradeData.stdRoll2} </td>
-              <td>{this.state.gradeData.stdName2}</td>
-              <td>{this.state.gradeData.groupP2}</td>
-            </tr>
-            <tr>
-              <td> {this.state.gradeData.stdRoll3}</td>
-              <td>{this.state.gradeData.stdName3}</td>
-              <td>{this.state.gradeData.groupP3}</td>
-            </tr>
+            {this.state.gradeData.stdRoll1 ? (
+              <tr>
+                <td>{this.state.gradeData.stdRoll1}</td>
+                <td>{this.state.gradeData.stdName1}</td>
+                <td>{this.state.gradeData.groupP1}</td>
+              </tr>) : null}
+            {this.state.gradeData.stdRoll2 ? (
+              <tr>
+                <td>{this.state.gradeData.stdRoll2} </td>
+                <td>{this.state.gradeData.stdName2}</td>
+                <td>{this.state.gradeData.groupP2}</td>
+              </tr>) : null}
+            {this.state.gradeData.stdRoll3 ? (
+              <tr>
+                <td> {this.state.gradeData.stdRoll3}</td>
+                <td>{this.state.gradeData.stdName3}</td>
+                <td>{this.state.gradeData.groupP3}</td>
+              </tr>) : null}
           </table>
           <br></br>
           <br></br>
@@ -1143,9 +1145,9 @@ export class Mid extends Component {
                 justifyContent: "space-around",
               }}
             >
-              <Tab>Member 1</Tab>
-              <Tab>Member 2</Tab>
-              <Tab>Member 3 </Tab>
+              {this.state.gradeData.stdRoll1 ? (<Tab>Member 1</Tab>) : null}
+              {this.state.gradeData.stdRoll2 ? (<Tab>Member 2</Tab>) : null}
+              {this.state.gradeData.stdRoll3 ? (<Tab>Member 3</Tab>) : null}
             </TabList>
             <TabPanel>
               <br></br>
@@ -1253,7 +1255,7 @@ export class Mid extends Component {
               <br></br>
 
               <table style={{ border: "1px solid black" }} className="detail">
-            
+
 
                 <tr>
                   <td>Total</td>
@@ -1279,10 +1281,10 @@ export class Mid extends Component {
                         (
                           this.state.weight4 * this.state.eval4ObtainedPerc1
                         ).toFixed(2)
-                      )+
-                        Number(this.state.finalReport) +
-                        Number(this.state.otherRepots) +
-                        Number(this.state.byChairman)
+                      ) +
+                      Number(this.state.finalReport) +
+                      Number(this.state.otherRepots) +
+                      Number(this.state.byChairman)
                     ).toFixed(2)}
                   </td>
                 </tr>
@@ -1487,7 +1489,7 @@ export class Mid extends Component {
                         (
                           this.state.weight4 * this.state.eval4ObtainedPerc2
                         ).toFixed(2)
-                      )+
+                      ) +
                       Number(this.state.finalReport) +
                       Number(this.state.otherRepots) +
                       Number(this.state.byChairman)
@@ -1694,11 +1696,11 @@ export class Mid extends Component {
                         (
                           this.state.weight4 * this.state.eval4ObtainedPerc3
                         ).toFixed(2)
-                      )+
+                      ) +
                       Number(this.state.finalReport) +
                       Number(this.state.otherRepots) +
                       Number(this.state.byChairman)
-                    ).toFixed(2) }
+                    ).toFixed(2)}
                   </td>
                 </tr>
               </table>

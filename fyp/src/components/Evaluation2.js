@@ -33,9 +33,9 @@ export class Mid extends Component {
       <Tabs style={{ color: "#000" }}>
         <TabList>
           <Tab>Group</Tab>
-          <Tab style={{ marginLeft: "20%" }}>Indivisual 1</Tab>
-          <Tab style={{ marginLeft: "20%" }}>Indivisual 2</Tab>
-          <Tab style={{ marginLeft: "20%" }}>Indivisual 3</Tab>
+          {this.props.data.stdRoll1 ? (<Tab>Indivisual 1</Tab>) : null}
+          {this.props.data.stdRoll2 ? (<Tab>Indivisual 2</Tab>) : null}
+          {this.props.data.stdRoll3 ? (<Tab>Indivisual 3</Tab>) : null}
         </TabList>
         <TabPanel>
           <>
