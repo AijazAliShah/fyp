@@ -302,11 +302,12 @@ app.post("/api/progress", async (req, res) => {
   const supEmail = req.body.supEmail;
   const userName = req.body.userName;
   const userEmail = req.body.userEmail;
+  const date = new Date();
   console.log(req.body);
   res.send(
     await new Promise(function (resolve, reject) {
-      const sqlInsert = "INSERT INTO progress (Title, supEmail, userName, userEmail) VALUES (?,?,?,?);";
-      db.query(sqlInsert, [Title, supEmail, userName, userEmail], (err, result) => {
+      const sqlInsert = "INSERT INTO progress (Title, supEmail, userName, userEmail, date) VALUES (?,?,?,?,?);";
+      db.query(sqlInsert, [Title, supEmail, userName, userEmail, date], (err, result) => {
         console.log(err);
         if (err) {
           resolve({ message: "wsomething wend wrong" });

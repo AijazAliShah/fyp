@@ -131,19 +131,21 @@ const [description, setDescription] = useState("");*/
               if (searchTerm == "") {
                 return val;
               } else if (
-                val.projectTitle.toLowerCase().includes(searchTerm.toLowerCase()) > -1
+                val.projectTitle.toLowerCase().includes(searchTerm.toLowerCase())
               ) {
                 return val;
               } else if (
-                val.project_id.toLowerCase().includes(searchTerm.toLowerCase())
+                val.project_id === Number(searchTerm)
               ) {
                 return val;
               } else if (
-                val.group_id.toLowerCase().includes(searchTerm.toLowerCase())
+                val.group_id === Number(searchTerm)
+
               ) {
                 return val;
               } else if(
-                val.batch.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+                val.batch === Number(searchTerm)
+                
               ){
                 return val;
               }

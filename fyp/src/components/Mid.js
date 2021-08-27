@@ -226,6 +226,7 @@ export class Mid extends Component {
           </h3>
           <br></br>
           <table style={{ border: "1px solid black" }} className="detail">
+            
             <tr
               style={{
                 textAlign: "center",

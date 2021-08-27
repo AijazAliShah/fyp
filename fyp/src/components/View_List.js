@@ -73,6 +73,7 @@ const [description, setDescription] = useState("");*/
 
   const getData = () => {
     Axios.get("http://localhost:3001/api/project").then((response) => {
+      console.log('response.data.result')
       console.log(response.data.result)
       setDataList(response.data.result);
     });
@@ -278,7 +279,7 @@ const [description, setDescription] = useState("");*/
               ) {
                 return val;
               } else if (
-                val.project.batch.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+                val.project.batch === Number(searchTerm)
               ) {
                 return val;
               }

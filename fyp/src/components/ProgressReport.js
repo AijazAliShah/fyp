@@ -30,6 +30,20 @@ export class Mid extends Component {
   }
   render() {
     console.log(this.state);
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     return (
       <div id="c_table">
         <div>
@@ -67,7 +81,9 @@ export class Mid extends Component {
                   <th  style={{
                     padding:"10px"
                   }}>Project Name</th>
-                  
+                  <th  style={{
+                    padding:"10px"
+                  }}>Date</th>
                   <th  style={{
                     padding:"10px"
                   }}>Report</th>
@@ -77,6 +93,11 @@ export class Mid extends Component {
                     <td>{rep.userName}</td>
                     <td>{rep.userEmail}</td>
                     <td>{rep.Title}</td>
+                    <td>{rep.date.substring(8, 10) +
+                    " " +
+                    monthNames[Number(rep.date.substring(5, 7)) - 1] +
+                    " " +
+                    rep.date.substring(0, 4)}</td>
                 
                     <td style={{ display: "flex", justifyContent: "center" }}>
                       <a target="_blank" href={rep.reportUrl}>
