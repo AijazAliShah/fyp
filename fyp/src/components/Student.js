@@ -9,6 +9,7 @@ import "./Student.css";
 import { AuthContext } from "./helpers/AuthContext";
 import logo from "../images/images.png";
 import background from "./img.png";
+import { reactLocalStorage } from "reactjs-localstorage";
 
 
 //import { response } from 'express';
@@ -22,7 +23,16 @@ function Student() {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState("");
   const { setAuthState } = useContext(AuthContext);
+  const isNav1 = reactLocalStorage.getObject("accessToken");
+  function isEmpty(obj) {
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        return false;
+      }
+    }
 
+    return JSON.stringify(obj) === JSON.stringify({});
+  }
   useEffect(() => {
       console.log('jhhhh')
     axios.get(`http://localhost:3001/basicinfo/${id}`).then((response) => {
@@ -31,7 +41,11 @@ function Student() {
       console.log("response.data");
       console.log(response.data);
       setUser(response.data[0])
+      if(isEmpty(isNav1)){
+        window.location.href = '/'
+      }
     });
+
   }, []);
 
   return (

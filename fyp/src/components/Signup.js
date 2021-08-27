@@ -79,7 +79,7 @@ function Registration() {
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form className="container" style={{opacity:"0.8", backgroundColor:"#fff", height:"95%"}}>
+        <Form className="container" style={{opacity:"0.8", backgroundColor:"#fff", height:"auto", marginTop:"5%"}}>
           <h1 id="signUp">          Create Account</h1>
           <br></br>
           <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}} >Username: </label>

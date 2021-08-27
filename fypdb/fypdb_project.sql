@@ -41,8 +41,9 @@ CREATE TABLE `progress` (
   `reportUrl` varchar(500) DEFAULT NULL,
   `userName` varchar(500) DEFAULT NULL,
   `userEmail` varchar(500) DEFAULT NULL,
+  `date` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 --
 -- Dumping data for table `project`
 --
@@ -55,7 +56,7 @@ CREATE TABLE `project` (
   `external` varchar(45) DEFAULT NULL,
   `batch` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`project_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `projectStd` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -64,7 +65,7 @@ CREATE TABLE `projectStd` (
   `rollNo` varchar(45) DEFAULT NULL,
   `email` varchar(65) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 
