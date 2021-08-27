@@ -38,7 +38,7 @@ for (i = 0; i < dropdown.length; i++) {
     <a href="#">Supervisor</a>
     <a href="#">Project </a>
   </div>
-  <Link to="/Logout" href="#logout">Logout</Link>
+  <Link to="/" href="#logout">Logout</Link>
 </div>
         )
     }

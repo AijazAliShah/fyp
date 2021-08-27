@@ -4,7 +4,7 @@ import AuthRedirect from './AuthRedirect';
 
 const PrivateRoute = ({component: Component, authEd, ...rest}) => {
     // console.log("sd",authEd)
-    // alert("ssss",JSON.stringify(authEd))
+    // alert(JSON.stringify(authEd))
     return (
         <Route {...rest}  render={props => (
             !isEmpty(authEd) ? (

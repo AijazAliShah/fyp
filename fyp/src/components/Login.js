@@ -125,7 +125,7 @@ function Login() {
           Login{" "}
         </button>
 
-        <a href="/forgetpassword"> Forgot Password?</a>
+        <a href="/forgotpassword"> Forgot Password?</a>
       </div>
     </div>
   );

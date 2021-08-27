@@ -80,170 +80,167 @@ function Front_page() {
           {/* <Route exact path="/" component={Login} /> */}
           <Route exact path="/">
           {!isEmpty(isNav) ?  <Redirect to={"/profile/"+isNav.result[0].id} /> : <Login />}
-          
         </Route>
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/project"
             component={Project}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/profile/:id"
             component={Profile}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/upload"
             component={Upload}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/uploads"
             component={FileUpload}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/progressreport"
             component={ProgressReport}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/edit/:id"
             component={Edit}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/edit_profile"
             component={Edit_profile}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/edit_profile"
             component={Edit_profile}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/assignment"
             component={View_List}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/rubric"
             component={Mid}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/rubric1"
             component={Rubric}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/info"
             component={Info}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/announcement"
             component={Announcement}
           />
+          
           <PrivateRoute
-            authEd={isNav}
-            exact
-            path="/forgetpassword"
-            component={Forgetpassword}
-          />
-          <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/changepassword"
             component={Dept}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/rubric2/:id/:evel"
             component={Rubric2}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/rubric3/:id/:evel"
             component={Rubric3}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/rubric4/:id/:evel"
             component={Rubric4}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/result/:id"
             component={Result}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/detail/:id"
             component={Detail}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/showGrades"
             component={showGrades}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/evaluation1"
             component={Evaluation1}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/evaluation2"
             component={Evaluation2}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/evaluation3"
             component={Evaluation3}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/evaluation4"
             component={Evaluation4}
           />
           <PrivateRoute
-            authEd={isNav}
+            authEd={reactLocalStorage.getObject("accessToken")}
             exact
             path="/insertMakrs"
             component={InsertMakrs}
           />
           <Route path="/signup" component={Signup} />
           <Route path="/signup1" component={Signup} />
-          <Route path="/forgetpassemail/:email" component={Forgetpassemail} />
-
-
-
+          <Route exact path="/forgetpassemail/:email">
+          {!isEmpty(isNav) ?  <Redirect to={"/profile/"+isNav.result[0].id} /> : <Login />}
+        </Route>
+        <Route exact path="/forgotpassword">
+          {!isEmpty(isNav) ?  <Redirect to={"/profile/"+isNav.result[0].id} /> : <Forgetpassword />}
+        </Route>
+      
 
           {/* <Route path='/login'4exact component={Login}4/4
         <Route path='/Profile' exact component={Student} />
