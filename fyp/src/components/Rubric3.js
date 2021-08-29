@@ -149,11 +149,17 @@ export class Mid extends Component {
           .then(resp1 => {
             console.log(resp1.data)
             if(i === (end-1)){
-              if(this.state.gradeData.stdRoll3){
-                window.location.href =`/rubric4/${this.props.match.params.id}/${this.props.match.params.evel}`;
-              }else{
-                window.location.href =`/showGrades`;
+              if(this.props.match.params.evel === '4'){
+                window.location.href =`/result/${this.props.match.params.id}`;
+              }else {
+                if(this.state.gradeData.stdRoll3){
+                  window.location.href =`/rubric4/${this.props.match.params.id}/${this.props.match.params.evel}`;
+                }else{
+                  window.location.href =`/showGrades`;
+                }
               }
+              
+              
             }
           })
           .catch(err => console.log(err))
