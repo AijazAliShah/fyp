@@ -122,6 +122,8 @@ export class Mid extends Component {
               })
               .catch((err) => console.log(err));
           }
+        }else {
+          window.location.href = `/rubric2/${resp.data.result.insertId}/${this.state.eval_no}`;
         }
       })
       .catch((err) => console.log(err));
