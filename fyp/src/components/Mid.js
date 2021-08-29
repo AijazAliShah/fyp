@@ -1103,7 +1103,7 @@ export class Mid extends Component {
 
                 <tr>
                   <td>Demonstration of Project? </td>
-                  <td>PLO-11 Project Management</td>
+                  <td>PLO-5 Project Management</td>
                   <td>1-10</td>
                   <td rowSpan="5">
                     Either the demonstration of the project is poor, average,

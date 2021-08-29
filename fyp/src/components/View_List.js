@@ -13,6 +13,8 @@ import Modal from 'react-modal';
 import Table from "react-bootstrap/Table";
 import "./View_List.css";
 import axios from "axios";
+import { reactLocalStorage } from "reactjs-localstorage";
+
 
 const customStyles = {
   content: {
@@ -121,6 +123,7 @@ const [description, setDescription] = useState("");*/
       }
     );
   };
+  const isNav = reactLocalStorage.getObject("accessToken");
 
   return (
     <div id="table-div">
@@ -241,6 +244,7 @@ const [description, setDescription] = useState("");*/
             >
               Roll No.
             </th>
+            {isNav.result[0].type=="coordinator" ?(
             <th
               style={{
                 textTransform: "uppercase",
@@ -250,7 +254,8 @@ const [description, setDescription] = useState("");*/
               }}
             >
               Edit
-            </th>
+            </th>): null}
+            {isNav.result[0].type=="coordinator" ?(
             <th
               style={{
                 textTransform: "uppercase",
@@ -260,7 +265,7 @@ const [description, setDescription] = useState("");*/
               }}
             >
               Delete
-            </th>
+            </th>): null}
           </tr>
         </thead>
         <tbody>
@@ -328,6 +333,7 @@ const [description, setDescription] = useState("");*/
                       </tr>
                     ))}
                   </td>
+                  {isNav.result[0].type=="coordinator" ?(
                   <td style={{ border: '2px solid black', textAlign: 'center', }}>
                     <button
                       style={{ border: '1px solid blue', }}
@@ -340,7 +346,8 @@ const [description, setDescription] = useState("");*/
                       Edit
                     </button>
                   </td>
-
+                  ): null}
+                  {isNav.result[0].type=="coordinator" ?(
                   <td style={{ border: '2px solid black', textAlign: 'center' }}>
                     <button
                       style={{ border: '1px solid blue', }}
@@ -354,7 +361,7 @@ const [description, setDescription] = useState("");*/
                     >
                       Delete
                     </button>
-                  </td>
+                  </td>) : null}
                 </tr>
               );
             })}

@@ -11,7 +11,7 @@ export class Mid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allGrades: {result: []},
+      allGrades: { result: [] },
       projectTitle: "",
       projectId: "",
       batch: "",
@@ -194,11 +194,13 @@ export class Mid extends Component {
       .then((resp) => {
         this.setState({ gradeData: resp.data.result[0] });
 
-        axios.get('http://localhost:3001/api/getall/grades/'+resp.data.result[0].project_id)
-        .then(async rsp3 => {
-          await this.setState({allGrades: rsp3.data})
-          this.forceUpdate()
-        }).catch(err => console.log(err))
+        axios.get('http://localhost:3001/api/getall/grades/' + resp.data.result[0].project_id)
+          .then(async rsp3 => {
+            console.log("resp3")
+            console.log(rsp3)
+            await this.setState({ allGrades: rsp3.data })
+            this.forceUpdate()
+          }).catch(err => console.log(err))
 
         axios
           .get(
@@ -208,15 +210,17 @@ export class Mid extends Component {
           .then((resp2) => {
             console.log("resp2.data");
             console.log(resp2.data);
-            this.setState({
-              weight1: Number(resp2.data.result[0].weight1),
-              weight2: Number(resp2.data.result[0].weight2),
-              weight3: Number(resp2.data.result[0].weight3),
-              weight4: Number(resp2.data.result[0].weight4),
-              finalReport: Number(resp2.data.result[0].finalReport),
-              otherRepots: Number(resp2.data.result[0].otherRepots),
-              byChairman: Number(resp2.data.result[0].byChairman),
-            });
+            if (resp2.data.result.length) {
+              this.setState({
+                weight1: Number(resp2.data.result[0].weight1),
+                weight2: Number(resp2.data.result[0].weight2),
+                weight3: Number(resp2.data.result[0].weight3),
+                weight4: Number(resp2.data.result[0].weight4),
+                finalReport: Number(resp2.data.result[0].finalReport),
+                otherRepots: Number(resp2.data.result[0].otherRepots),
+                byChairman: Number(resp2.data.result[0].byChairman),
+              });
+            }
           })
           .catch((err) => console.log(err));
         axios
@@ -945,490 +949,345 @@ export class Mid extends Component {
     console.log("data", this.state);
 
     return (
-      <div id="c_table">
-        <h1
-          style={{
-            color: "black",
-            color: "#0b1442",
-            textAlign: "center",
-            fontWeight: "bold",
-            fontSize: "50PX",
-          }}
-        >
-          RESULT
-        </h1>
-
-        <div id="eval_table">
-
-          <table style={{ border: "1px solid black" }} className="detail">
-            <tr
-              style={{
-                textAlign: "center",
-                textTransform: "uppercase",
-                fontWeight: "bold",
-                fontSize: "16px",
-                border: "1px solid black",
-              }}
-            >
-              <th>Project Title</th>
-              <th>Project Id</th>
-              <th>Batch</th>
-              <th>Group Id</th>
-              <th>Date</th>
-            </tr>
-
-            <tr>
-              <td>{this.state.gradeData.projectTitle}</td>
-              <td>{this.state.gradeData.project_id}</td>
-              <td>{this.state.gradeData.batch}</td>
-              <td>{this.state.gradeData.group_id}</td>
-              <td>{this.state.gradeData.date}</td>
-            </tr>
-          </table>
-          <br></br>
-          <br></br>
-
-          <h3
-            className="main_heading2"
+      this.state.allGrades.result.length ? (
+        <div id="c_table">
+          <h1
             style={{
-              textTransform: "uppercase",
-              fontSize: "30px",
+              color: "black",
               color: "#0b1442",
-              fontFamily: "Arial, sans-serif",
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: "50PX",
             }}
           >
-            Evaluator Details
-          </h3>
+            RESULT
+          </h1>
 
-          <br></br>
-          <Tabs style={{ color: "#000" }} onSelect={index => this.setState({ selectedTab2: index })}>
-            <TabList
-              style={{
-                border: "1px solid #000",
-                display: "flex",
-                justifyContent: "space-around",
-              }}
-            >
-              {this.state.eval1Criterias.length ? (<Tab style={this.state.selectedTab2 === 0 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Evaluation 1 Member(s)</Tab>) : null}
-              {this.state.eval2Criterias.length ? (<Tab style={this.state.selectedTab2 === 1 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Evaluation 2 Member(s)</Tab>) : null}
-              {this.state.eval3Criterias.length ? (<Tab style={this.state.selectedTab2 === 2 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Evaluation 3 Member(s)</Tab>) : null}
-              {this.state.eval4Criterias.length ? (<Tab style={this.state.selectedTab2 === 3 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Evaluation 4 Member(s)</Tab>) : null}
-            </TabList>
-            <TabPanel>
+          <div id="eval_table">
 
-              <table style={{ border: "1px solid black" }} className="detail">
-                <tr
-                  style={{
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    border: "1px solid black",
-                  }}
-                >
-                  <th>No</th>
-                  <th>Name</th>
-                  <th>Designation</th>
-                </tr>
-                {this.state.allGrades.result.length && this.state.allGrades.result[0].evlName1 ? (
-                  <tr>
-                    <td>1</td>
-                    <td>{this.state.allGrades.result[0].evlName1}</td>
-                    <td>{this.state.allGrades.result[0].designation1}</td>
-                  </tr>) : null}
-                {this.state.allGrades.result.length && this.state.allGrades.result[0].evlName2 ? (
-                  <tr>
-                    <td>2</td>
-                    <td>{this.state.allGrades.result[0].evlName2}</td>
-                    <td>{this.state.allGrades.result[0].designation2}</td>
-                  </tr>) : null}
-                {this.state.allGrades.result.length && this.state.allGrades.result[0].evlName3 ? (
-                  <tr>
-                    <td>3</td>
-                    <td>{this.state.allGrades.result[0].evlName3}</td>
-                    <td>{this.state.allGrades.result[0].designation3}</td>
-                  </tr>) : null}
-              </table>
-            </TabPanel>
-            <TabPanel>
-
-              <table style={{ border: "1px solid black" }} className="detail">
-                <tr
-                  style={{
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    border: "1px solid black",
-                  }}
-                >
-                  <th>No</th>
-                  <th>Name</th>
-                  <th>Designation</th>
-                </tr>
-                {this.state.allGrades.result.length && this.state.allGrades.result[1].evlName1 ? (
-                  <tr>
-                    <td>1</td>
-                    <td>{this.state.allGrades.result[1].evlName1}</td>
-                    <td>{this.state.allGrades.result[1].designation1}</td>
-                  </tr>) : null}
-                {this.state.allGrades.result.length && this.state.allGrades.result[1].evlName2 ? (
-                  <tr>
-                    <td>2</td>
-                    <td>{this.state.allGrades.result[1].evlName2}</td>
-                    <td>{this.state.allGrades.result[1].designation2}</td>
-                  </tr>) : null}
-                {this.state.allGrades.result.length && this.state.allGrades.result[1].evlName3 ? (
-                  <tr>
-                    <td>3</td>
-                    <td>{this.state.allGrades.result[1].evlName3}</td>
-                    <td>{this.state.allGrades.result[1].designation3}</td>
-                  </tr>) : null}
-              </table>
-            </TabPanel>
-            <TabPanel>
-
-              <table style={{ border: "1px solid black" }} className="detail">
-                <tr
-                  style={{
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    border: "1px solid black",
-                  }}
-                >
-                  <th>No</th>
-                  <th>Name</th>
-                  <th>Designation</th>
-                </tr>
-                {this.state.allGrades.result.length && this.state.allGrades.result[2].evlName1 ? (
-                  <tr>
-                    <td>1</td>
-                    <td>{this.state.allGrades.result[2].evlName1}</td>
-                    <td>{this.state.allGrades.result[2].designation1}</td>
-                  </tr>) : null}
-                {this.state.allGrades.result.length && this.state.allGrades.result[2].evlName2 ? (
-                  <tr>
-                    <td>2</td>
-                    <td>{this.state.allGrades.result[2].evlName2}</td>
-                    <td>{this.state.allGrades.result[2].designation2}</td>
-                  </tr>) : null}
-                {this.state.allGrades.result.length && this.state.allGrades.result[2].evlName3 ? (
-                  <tr>
-                    <td>3</td>
-                    <td>{this.state.allGrades.result[2].evlName3}</td>
-                    <td>{this.state.allGrades.result[2].designation3}</td>
-                  </tr>) : null}
-              </table>
-            </TabPanel>
-            <TabPanel>
-
-              <table style={{ border: "1px solid black" }} className="detail">
-                <tr
-                  style={{
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    border: "1px solid black",
-                  }}
-                >
-                  <th>No</th>
-                  <th>Name</th>
-                  <th>Designation</th>
-                </tr>
-                {this.state.allGrades.result.length && this.state.allGrades.result[3].evlName1 ? (
-                  <tr>
-                    <td>1</td>
-                    <td>{this.state.allGrades.result[3].evlName1}</td>
-                    <td>{this.state.allGrades.result[3].designation1}</td>
-                  </tr>) : null}
-                {this.state.allGrades.result.length && this.state.allGrades.result[3].evlName2 ? (
-                  <tr>
-                    <td>2</td>
-                    <td>{this.state.allGrades.result[3].evlName2}</td>
-                    <td>{this.state.allGrades.result[3].designation2}</td>
-                  </tr>) : null}
-                {this.state.allGrades.result.length && this.state.allGrades.result[3].evlName3 ? (
-                  <tr>
-                    <td>3</td>
-                    <td>{this.state.allGrades.result[3].evlName3}</td>
-                    <td>{this.state.allGrades.result[3].designation3}</td>
-                  </tr>) : null}
-              </table>
-            </TabPanel>
-          </Tabs>
-
-          <br></br>
-          <br></br>
-          {/* //student details/ */}
-          <h3
-            className="main_heading2"
-            style={{
-              textTransform: "uppercase",
-              fontSize: "30px",
-              color: "#0b1442",
-              fontFamily: "Arial, sans-serif",
-            }}
-          >
-            Student Details
-          </h3>
-          <br></br>
-
-
-          <table style={{ border: "1px solid black" }} className="detail">
-            <tr
-              style={{
-                textAlign: "center",
-                textTransform: "uppercase",
-                fontWeight: "bold",
-                fontSize: "16px",
-                border: "1px solid black",
-              }}
-            >
-              <th> Roll No</th>
-              <th>Name</th>
-              <th>Group Position</th>
-            </tr>
-            {this.state.gradeData.stdRoll1 ? (
-              <tr>
-                <td>{this.state.gradeData.stdRoll1}</td>
-                <td>{this.state.gradeData.stdName1}</td>
-                <td>{this.state.gradeData.groupP1}</td>
-              </tr>) : null}
-            {this.state.gradeData.stdRoll2 ? (
-              <tr>
-                <td>{this.state.gradeData.stdRoll2} </td>
-                <td>{this.state.gradeData.stdName2}</td>
-                <td>{this.state.gradeData.groupP2}</td>
-              </tr>) : null}
-            {this.state.gradeData.stdRoll3 ? (
-              <tr>
-                <td> {this.state.gradeData.stdRoll3}</td>
-                <td>{this.state.gradeData.stdName3}</td>
-                <td>{this.state.gradeData.groupP3}</td>
-              </tr>) : null}
-          </table>
-          <br></br>
-          <br></br>
-
-          <h3
-            className="main_heading2"
-            style={{
-              textTransform: "uppercase",
-              fontSize: "30px",
-              color: "#0b1442",
-              fontFamily: "Arial, sans-serif",
-            }}
-          >
-            Marks
-          </h3>
-          <br></br>
-          <table style={{ border: "1px solid black" }} className="detail">
-            <tr
-              style={{
-                textAlign: "center",
-                textTransform: "uppercase",
-                fontWeight: "bold",
-                fontSize: "16px",
-                border: "1px solid black",
-              }}
-            >
-              <th>Name</th>
-              <th>Marks</th>
-            </tr>
-
-            <tr>
-              <td style={{ width: "50%", height: "50%" }}>
-                Final Report (Out Of 10 Marks)
-              </td>
-              <td>{this.state.finalReport}</td>
-            </tr>
-
-            <tr>
-              <td style={{ width: "50%", height: "50%" }}>
-                Other Report (Out Of 10 Marks)
-              </td>
-              <td>{this.state.otherRepots}</td>
-            </tr>
-            <tr>
-              <td style={{ width: "50%", height: "50%" }}>
-                {" "}
-                By Chairman (Out Of 20 Marks)
-              </td>
-              <td>{this.state.byChairman}</td>
-            </tr>
-          </table>
-          <br></br>
-          <br></br>
-          <Tabs style={{ color: "#000" }} onSelect={index => this.setState({ selectedTab: index })}>
-            <TabList
-              style={{
-                border: "1px solid #000",
-                display: "flex",
-                justifyContent: "space-around",
-              }}
-            >
-              {this.state.gradeData.stdRoll1 ? (<Tab style={this.state.selectedTab === 0 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 1</Tab>) : null}
-              {this.state.gradeData.stdRoll2 ? (<Tab style={this.state.selectedTab === 1 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 2</Tab>) : null}
-              {this.state.gradeData.stdRoll3 ? (<Tab style={this.state.selectedTab === 2 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 3</Tab>) : null}
-            </TabList>
-            <TabPanel>
-              <br></br>
-              <br></br>
-
-              <h3
-                className="main_heading2"
+            <table style={{ border: "1px solid black" }} className="detail">
+              <tr
                 style={{
+                  textAlign: "center",
                   textTransform: "uppercase",
-                  fontSize: "30px",
-                  color: "#0b1442",
-                  fontFamily: "Arial, sans-serif",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  border: "1px solid black",
                 }}
               >
-                Marks Of Each Evaluation
-              </h3>
-              <br></br>
-              <table style={{ border: "1px solid black" }} className="detail">
-                <tr
-                  style={{
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    border: "1px solid black",
-                  }}
-                >
-                  <th>Evaluation</th>
-                  <th>Obtained Marks</th>
-                  <th>Weightage</th>
-                  <th>Marks After Weightage</th>
-                </tr>
+                <th>Project Title</th>
+                <th>Project Id</th>
+                <th>Batch</th>
+                <th>Group Id</th>
+                <th>Date</th>
+              </tr>
 
+              <tr>
+                <td>{this.state.gradeData.projectTitle}</td>
+                <td>{this.state.gradeData.project_id}</td>
+                <td>{this.state.gradeData.batch}</td>
+                <td>{this.state.gradeData.group_id}</td>
+                <td>{this.state.gradeData.date}</td>
+              </tr>
+            </table>
+            <br></br>
+            <br></br>
+
+            <h3
+              className="main_heading2"
+              style={{
+                textTransform: "uppercase",
+                fontSize: "30px",
+                color: "#0b1442",
+                fontFamily: "Arial, sans-serif",
+              }}
+            >
+              Evaluator Details
+            </h3>
+
+            <br></br>
+            <Tabs style={{ color: "#000" }} onSelect={index => this.setState({ selectedTab2: index })}>
+              <TabList
+                style={{
+                  border: "1px solid #000",
+                  display: "flex",
+                  justifyContent: "space-around",
+                }}
+              >
+                {this.state.eval1Criterias.length ? (<Tab style={this.state.selectedTab2 === 0 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 1 Member(s)</Tab>) : null}
+                {this.state.eval2Criterias.length ? (<Tab style={this.state.selectedTab2 === 1 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 2 Member(s)</Tab>) : null}
+                {this.state.eval3Criterias.length ? (<Tab style={this.state.selectedTab2 === 2 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 3 Member(s)</Tab>) : null}
+                {this.state.eval4Criterias.length ? (<Tab style={this.state.selectedTab2 === 3 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 4 Member(s)</Tab>) : null}
+              </TabList>
+              {this.state.allGrades.result.length === 1 ? (
+              <TabPanel>
+
+                <table style={{ border: "1px solid black" }} className="detail">
+                  <tr
+                    style={{
+                      textAlign: "center",
+                      textTransform: "uppercase",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      border: "1px solid black",
+                    }}
+                  >
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                  </tr>
+                  {this.state.allGrades.result.length && this.state.allGrades.result[0].evlName1 ? (
+                    <tr>
+                      <td>1</td>
+                      <td>{this.state.allGrades.result[0].evlName1}</td>
+                      <td>{this.state.allGrades.result[0].designation1}</td>
+                    </tr>) : null}
+                  {this.state.allGrades.result.length && this.state.allGrades.result[0].evlName2 ? (
+                    <tr>
+                      <td>2</td>
+                      <td>{this.state.allGrades.result[0].evlName2}</td>
+                      <td>{this.state.allGrades.result[0].designation2}</td>
+                    </tr>) : null}
+                  {this.state.allGrades.result.length && this.state.allGrades.result[0].evlName3 ? (
+                    <tr>
+                      <td>3</td>
+                      <td>{this.state.allGrades.result[0].evlName3}</td>
+                      <td>{this.state.allGrades.result[0].designation3}</td>
+                    </tr>) : null}
+                </table>
+              </TabPanel>) : null}
+              {this.state.allGrades.result.length === 2 ? (
+              <TabPanel>
+
+                <table style={{ border: "1px solid black" }} className="detail">
+                  <tr
+                    style={{
+                      textAlign: "center",
+                      textTransform: "uppercase",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      border: "1px solid black",
+                    }}
+                  >
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                  </tr>
+                  {this.state.allGrades.result.length && this.state.allGrades.result[1].evlName1 ? (
+                    <tr>
+                      <td>1</td>
+                      <td>{this.state.allGrades.result[1].evlName1}</td>
+                      <td>{this.state.allGrades.result[1].designation1}</td>
+                    </tr>) : null}
+                  {this.state.allGrades.result.length && this.state.allGrades.result[1].evlName2 ? (
+                    <tr>
+                      <td>2</td>
+                      <td>{this.state.allGrades.result[1].evlName2}</td>
+                      <td>{this.state.allGrades.result[1].designation2}</td>
+                    </tr>) : null}
+                  {this.state.allGrades.result.length && this.state.allGrades.result[1].evlName3 ? (
+                    <tr>
+                      <td>3</td>
+                      <td>{this.state.allGrades.result[1].evlName3}</td>
+                      <td>{this.state.allGrades.result[1].designation3}</td>
+                    </tr>) : null}
+                </table>
+              </TabPanel>): null}
+              {this.state.allGrades.result.length === 3 ? (
+              <TabPanel>
+
+                <table style={{ border: "1px solid black" }} className="detail">
+                  <tr
+                    style={{
+                      textAlign: "center",
+                      textTransform: "uppercase",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      border: "1px solid black",
+                    }}
+                  >
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                  </tr>
+                  {this.state.allGrades.result.length && this.state.allGrades.result[2].evlName1 ? (
+                    <tr>
+                      <td>1</td>
+                      <td>{this.state.allGrades.result[2].evlName1}</td>
+                      <td>{this.state.allGrades.result[2].designation1}</td>
+                    </tr>) : null}
+                  {this.state.allGrades.result.length && this.state.allGrades.result[2].evlName2 ? (
+                    <tr>
+                      <td>2</td>
+                      <td>{this.state.allGrades.result[2].evlName2}</td>
+                      <td>{this.state.allGrades.result[2].designation2}</td>
+                    </tr>) : null}
+                  {this.state.allGrades.result.length && this.state.allGrades.result[2].evlName3 ? (
+                    <tr>
+                      <td>3</td>
+                      <td>{this.state.allGrades.result[2].evlName3}</td>
+                      <td>{this.state.allGrades.result[2].designation3}</td>
+                    </tr>) : null}
+                </table>
+              </TabPanel>): null}
+              {this.state.allGrades.result.length === 4 ? (
+              <TabPanel>
+
+                <table style={{ border: "1px solid black" }} className="detail">
+                  <tr
+                    style={{
+                      textAlign: "center",
+                      textTransform: "uppercase",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      border: "1px solid black",
+                    }}
+                  >
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Designation</th>
+                  </tr>
+                  {this.state.allGrades.result.length && this.state.allGrades.result[3].evlName1 ? (
+                    <tr>
+                      <td>1</td>
+                      <td>{this.state.allGrades.result[3].evlName1}</td>
+                      <td>{this.state.allGrades.result[3].designation1}</td>
+                    </tr>) : null}
+                  {this.state.allGrades.result.length && this.state.allGrades.result[3].evlName2 ? (
+                    <tr>
+                      <td>2</td>
+                      <td>{this.state.allGrades.result[3].evlName2}</td>
+                      <td>{this.state.allGrades.result[3].designation2}</td>
+                    </tr>) : null}
+                  {this.state.allGrades.result.length && this.state.allGrades.result[3].evlName3 ? (
+                    <tr>
+                      <td>3</td>
+                      <td>{this.state.allGrades.result[3].evlName3}</td>
+                      <td>{this.state.allGrades.result[3].designation3}</td>
+                    </tr>) : null}
+                </table>
+              </TabPanel> ) : null}
+            </Tabs>
+
+            <br></br>
+            <br></br>
+            {/* //student details/ */}
+            <h3
+              className="main_heading2"
+              style={{
+                textTransform: "uppercase",
+                fontSize: "30px",
+                color: "#0b1442",
+                fontFamily: "Arial, sans-serif",
+              }}
+            >
+              Student Details
+            </h3>
+            <br></br>
+
+
+            <table style={{ border: "1px solid black" }} className="detail">
+              <tr
+                style={{
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  border: "1px solid black",
+                }}
+              >
+                <th> Roll No</th>
+                <th>Name</th>
+                <th>Group Position</th>
+              </tr>
+              {this.state.gradeData.stdRoll1 ? (
                 <tr>
-                  <td>Evaluation 1</td>
-                  <td>{`${this.state.eval1ObtainedMarks1}/510`}</td>
-                  <td>{this.state.weight1}</td>
-                  <td>
-                    {(
-                      this.state.weight1 * this.state.eval1ObtainedPerc1
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-
+                  <td>{this.state.gradeData.stdRoll1}</td>
+                  <td>{this.state.gradeData.stdName1}</td>
+                  <td>{this.state.gradeData.groupP1}</td>
+                </tr>) : null}
+              {this.state.gradeData.stdRoll2 ? (
                 <tr>
-                  <td>Evaluation 2 </td>
-                  <td>{`${this.state.eval2ObtainedMarks1}/510`}</td>
-                  <td>{this.state.weight2}</td>
-                  <td>
-                    {(
-                      this.state.weight2 * this.state.eval2ObtainedPerc1
-                    ).toFixed(2)}
-                  </td>
-                </tr>
+                  <td>{this.state.gradeData.stdRoll2} </td>
+                  <td>{this.state.gradeData.stdName2}</td>
+                  <td>{this.state.gradeData.groupP2}</td>
+                </tr>) : null}
+              {this.state.gradeData.stdRoll3 ? (
                 <tr>
-                  <td> Evaluation 3</td>
-                  <td>{`${this.state.eval3ObtainedMarks1}/510`}</td>
-                  <td>{this.state.weight3}</td>
-                  <td>
-                    {(
-                      this.state.weight3 * this.state.eval3ObtainedPerc1
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-                <tr>
-                  <td> Evaluation 4</td>
-                  <td>{`${this.state.eval4ObtainedMarks1}/270`}</td>
-                  <td>{this.state.weight4}</td>
-                  <td>
-                    {(
-                      this.state.weight4 * this.state.eval4ObtainedPerc1
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-                <tr>
-                  <td> Total of all Evalouations</td>
-                  <td>{Number(this.state.eval1ObtainedMarks1)+Number(this.state.eval2ObtainedMarks1)+Number(this.state.eval3ObtainedMarks1)+Number(this.state.eval4ObtainedMarks1)}/1800</td>
-                  <td>
-                    {Number(this.state.weight1) +
-                      Number(this.state.weight2) +
-                      Number(this.state.weight3) +
-                      Number(this.state.weight4)}
-                  </td>
-                  <td>
-                    {(
-                      Number(
-                        (
-                          this.state.weight1 * this.state.eval1ObtainedPerc1
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight2 * this.state.eval2ObtainedPerc1
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight3 * this.state.eval3ObtainedPerc1
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight4 * this.state.eval4ObtainedPerc1
-                        ).toFixed(2)
-                      )
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-              </table>
-              <br></br>
-              <br></br>
+                  <td> {this.state.gradeData.stdRoll3}</td>
+                  <td>{this.state.gradeData.stdName3}</td>
+                  <td>{this.state.gradeData.groupP3}</td>
+                </tr>) : null}
+            </table>
+            <br></br>
+            <br></br>
 
-              {this.state.eval4Criterias.length ? (
-              
-              <table style={{ border: "1px solid black" }} className="detail">
+            <h3
+              className="main_heading2"
+              style={{
+                textTransform: "uppercase",
+                fontSize: "30px",
+                color: "#0b1442",
+                fontFamily: "Arial, sans-serif",
+              }}
+            >
+              Marks
+            </h3>
+            <br></br>
+            <table style={{ border: "1px solid black" }} className="detail">
+              <tr
+                style={{
+                  textAlign: "center",
+                  textTransform: "uppercase",
+                  fontWeight: "bold",
+                  fontSize: "16px",
+                  border: "1px solid black",
+                }}
+              >
+                <th>Name</th>
+                <th>Marks</th>
+              </tr>
 
+              <tr>
+                <td style={{ width: "50%", height: "50%" }}>
+                  Final Report (Out Of 10 Marks)
+                </td>
+                <td>{this.state.finalReport}</td>
+              </tr>
 
-                <tr>
-                  <td>Total</td>
-                  <td>
-                    {" "}
-                    {(
-                      Number(
-                        (
-                          this.state.weight1 * this.state.eval1ObtainedPerc1
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight2 * this.state.eval2ObtainedPerc1
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight3 * this.state.eval3ObtainedPerc1
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight4 * this.state.eval4ObtainedPerc1
-                        ).toFixed(2)
-                      ) +
-                      Number(this.state.finalReport) +
-                      Number(this.state.otherRepots) +
-                      Number(this.state.byChairman)
-                    ).toFixed(2)}
-                  </td>
-                </tr>
+              <tr>
+                <td style={{ width: "50%", height: "50%" }}>
+                  Other Report (Out Of 10 Marks)
+                </td>
+                <td>{this.state.otherRepots}</td>
+              </tr>
+              <tr>
+                <td style={{ width: "50%", height: "50%" }}>
+                  {" "}
+                  By Chairman (Out Of 20 Marks)
+                </td>
+                <td>{this.state.byChairman}</td>
+              </tr>
+            </table>
+            <br></br>
+            <br></br>
+            <Tabs style={{ color: "#000" }} onSelect={index => this.setState({ selectedTab: index })}>
+              <TabList
+                style={{
+                  border: "1px solid #000",
+                  display: "flex",
+                  justifyContent: "space-around",
+                }}
+              >
+                {this.state.gradeData.stdRoll1 ? (<Tab style={this.state.selectedTab === 0 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 1</Tab>) : null}
+                {this.state.gradeData.stdRoll2 ? (<Tab style={this.state.selectedTab === 1 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 2</Tab>) : null}
+                {this.state.gradeData.stdRoll3 ? (<Tab style={this.state.selectedTab === 2 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 3</Tab>) : null}
+              </TabList>
+              <TabPanel>
+                <br></br>
+                <br></br>
 
-              </table>
-              ): null}
-              <br></br>
-              <br></br>
-
-              {this.state.eval4Criterias.length ? (
-                <>              <h3
+                <h3
                   className="main_heading2"
                   style={{
                     textTransform: "uppercase",
@@ -1437,217 +1296,148 @@ export class Mid extends Component {
                     fontFamily: "Arial, sans-serif",
                   }}
                 >
-                  PLO
+                  Marks Of Each Evaluation
                 </h3>
-                  <br></br>
+                <br></br>
+                <table style={{ border: "1px solid black" }} className="detail">
+                  <tr
+                    style={{
+                      textAlign: "center",
+                      textTransform: "uppercase",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      border: "1px solid black",
+                    }}
+                  >
+                    <th>Evaluation</th>
+                    <th>Obtained Marks</th>
+                    <th>Weightage</th>
+                    <th>Marks After Weightage</th>
+                  </tr>
+
+                  <tr>
+                    <td>Evaluation 1</td>
+                    <td>{`${this.state.eval1ObtainedMarks1}/510`}</td>
+                    <td>{this.state.weight1}</td>
+                    <td>
+                      {(
+                        this.state.weight1 * this.state.eval1ObtainedPerc1
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Evaluation 2 </td>
+                    <td>{`${this.state.eval2ObtainedMarks1}/510`}</td>
+                    <td>{this.state.weight2}</td>
+                    <td>
+                      {(
+                        this.state.weight2 * this.state.eval2ObtainedPerc1
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Evaluation 3</td>
+                    <td>{`${this.state.eval3ObtainedMarks1}/510`}</td>
+                    <td>{this.state.weight3}</td>
+                    <td>
+                      {(
+                        this.state.weight3 * this.state.eval3ObtainedPerc1
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Evaluation 4</td>
+                    <td>{`${this.state.eval4ObtainedMarks1}/270`}</td>
+                    <td>{this.state.weight4}</td>
+                    <td>
+                      {(
+                        this.state.weight4 * this.state.eval4ObtainedPerc1
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Total of all Evalouations</td>
+                    <td>{Number(this.state.eval1ObtainedMarks1) + Number(this.state.eval2ObtainedMarks1) + Number(this.state.eval3ObtainedMarks1) + Number(this.state.eval4ObtainedMarks1)}/1800</td>
+                    <td>
+                      {Number(this.state.weight1) +
+                        Number(this.state.weight2) +
+                        Number(this.state.weight3) +
+                        Number(this.state.weight4)}
+                    </td>
+                    <td>
+                      {(
+                        Number(
+                          (
+                            this.state.weight1 * this.state.eval1ObtainedPerc1
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight2 * this.state.eval2ObtainedPerc1
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight3 * this.state.eval3ObtainedPerc1
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight4 * this.state.eval4ObtainedPerc1
+                          ).toFixed(2)
+                        )
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                </table>
+                <br></br>
+                <br></br>
+
+                {this.state.eval4Criterias.length ? (
+
                   <table style={{ border: "1px solid black" }} className="detail">
-                    <tr
-                      style={{
-                        textAlign: "center",
-                        textTransform: "uppercase",
-                        fontWeight: "bold",
-                        fontSize: "16px",
-                        border: "1px solid black",
-                      }}
-                    >
-                      <th> PLO No</th>
-                      <th>Percentage</th>
-                    </tr>
+
 
                     <tr>
-                      <td>PLO 4</td>
-                      <td>{this.state.p4perc1.toFixed(2)}%</td>
+                      <td>Total</td>
+                      <td>
+                        {" "}
+                        {(
+                          Number(
+                            (
+                              this.state.weight1 * this.state.eval1ObtainedPerc1
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight2 * this.state.eval2ObtainedPerc1
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight3 * this.state.eval3ObtainedPerc1
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight4 * this.state.eval4ObtainedPerc1
+                            ).toFixed(2)
+                          ) +
+                          Number(this.state.finalReport) +
+                          Number(this.state.otherRepots) +
+                          Number(this.state.byChairman)
+                        ).toFixed(2)}
+                      </td>
                     </tr>
 
-                    <tr>
-                      <td>PLO 5 </td>
-                      <td>{this.state.p5perc1.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td> PLO 6</td>
-                      <td>{this.state.p6perc1.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 7</td>
-                      <td>{this.state.p7perc1.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 8 </td>
-                      <td>{this.state.p8perc1.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 9 </td>
-                      <td>{this.state.p9perc1.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 10 </td>
-                      <td>{this.state.p10perc1.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 11 </td>
-                      <td>{this.state.p11perc1.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 12 </td>
-                      <td>{this.state.p12perc1.toFixed(2)}%</td>
-                    </tr>
                   </table>
-                </>) : null}
-            </TabPanel>
+                ) : null}
+                <br></br>
+                <br></br>
 
-            <TabPanel>
-              <br></br>
-              <br></br>
-
-              <h3
-                className="main_heading2"
-                style={{
-                  textTransform: "uppercase",
-                  fontSize: "30px",
-                  color: "#0b1442",
-                  fontFamily: "Arial, sans-serif",
-                }}
-              >
-                Marks Of Each Evaluation
-              </h3>
-              <br></br>
-              <table style={{ border: "1px solid black" }} className="detail">
-                <tr
-                  style={{
-                    textAlign: "center",
-                    textTransform: "uppercase",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    border: "1px solid black",
-                  }}
-                >
-                  <th>Evaluation</th>
-                  <th>Obtained Marks</th>
-                  <th>Weightage</th>
-                  <th>Marks After Weightage</th>
-                </tr>
-
-                <tr>
-                  <td>Evaluation 1</td>
-                  <td>{`${this.state.eval1ObtainedMarks2}/510`}</td>
-                  <td>{this.state.weight1}</td>
-                  <td>
-                    {(
-                      this.state.weight1 * this.state.eval1ObtainedPerc2
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Evaluation 2 </td>
-                  <td>{`${this.state.eval2ObtainedMarks2}/510`}</td>
-                  <td>{this.state.weight2}</td>
-                  <td>
-                    {(
-                      this.state.weight2 * this.state.eval2ObtainedPerc2
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-                <tr>
-                  <td> Evaluation 3</td>
-                  <td>{`${this.state.eval3ObtainedMarks2}/510`}</td>
-                  <td>{this.state.weight3}</td>
-                  <td>
-                    {(
-                      this.state.weight3 * this.state.eval3ObtainedPerc2
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-                <tr>
-                  <td> Evaluation 4</td>
-                  <td>{`${this.state.eval4ObtainedMarks2}/270`}</td>
-                  <td>{this.state.weight4}</td>
-                  <td>
-                    {(
-                      this.state.weight4 * this.state.eval4ObtainedPerc2
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-                <tr>
-                  <td> Total of all Evalouations</td>
-                  <td>{Number(this.state.eval1ObtainedMarks2)+Number(this.state.eval2ObtainedMarks2)+Number(this.state.eval3ObtainedMarks2)+Number(this.state.eval4ObtainedMarks2)}/1800</td>
-                  <td>
-                    {Number(this.state.weight1) +
-                      Number(this.state.weight2) +
-                      Number(this.state.weight3) +
-                      Number(this.state.weight4)}
-                  </td>
-                  <td>
-                    {(
-                      Number(
-                        (
-                          this.state.weight1 * this.state.eval1ObtainedPerc2
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight2 * this.state.eval2ObtainedPerc2
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight3 * this.state.eval3ObtainedPerc2
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight4 * this.state.eval4ObtainedPerc2
-                        ).toFixed(2)
-                      )
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-              </table>
-              <br></br>
-              <br></br>
-
-              {this.state.eval4Criterias.length ? (
-            
-              <table style={{ border: "1px solid black" }} className="detail">
-
-                <tr>
-                  <td>Total</td>
-                  <td>
-                    {" "}
-                    {(
-                      Number(
-                        (
-                          this.state.weight1 * this.state.eval1ObtainedPerc2
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight2 * this.state.eval2ObtainedPerc2
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight3 * this.state.eval3ObtainedPerc2
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight4 * this.state.eval4ObtainedPerc2
-                        ).toFixed(2)
-                      ) +
-                      Number(this.state.finalReport) +
-                      Number(this.state.otherRepots) +
-                      Number(this.state.byChairman)
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-
-              </table>) : null}
-              <br></br>
-              <br></br>
-              {this.state.eval4Criterias.length ? (
-                <>
-                  <h3
+                {this.state.eval4Criterias.length ? (
+                  <>              <h3
                     className="main_heading2"
                     style={{
                       textTransform: "uppercase",
@@ -1658,332 +1448,551 @@ export class Mid extends Component {
                   >
                     PLO
                   </h3>
-                  <br></br>
-                  <table style={{ border: "1px solid black" }} className="detail">
-                    <tr
-                      style={{
-                        textAlign: "center",
-                        textTransform: "uppercase",
-                        fontWeight: "bold",
-                        fontSize: "16px",
-                        border: "1px solid black",
-                      }}
-                    >
-                      <th> PLO No</th>
-                      <th>Percentage</th>
-                    </tr>
+                    <br></br>
+                    <table style={{ border: "1px solid black" }} className="detail">
+                      <tr
+                        style={{
+                          textAlign: "center",
+                          textTransform: "uppercase",
+                          fontWeight: "bold",
+                          fontSize: "16px",
+                          border: "1px solid black",
+                        }}
+                      >
+                        <th> PLO No</th>
+                        <th>Percentage</th>
+                      </tr>
 
-                    <tr>
-                      <td>PLO 4</td>
-                      <td>{this.state.p4perc2.toFixed(2)}%</td>
-                    </tr>
+                      <tr>
+                        <td>PLO 4</td>
+                        <td>{this.state.p4perc1.toFixed(2)}%</td>
+                      </tr>
 
-                    <tr>
-                      <td>PLO 5 </td>
-                      <td>{this.state.p5perc2.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td> PLO 6</td>
-                      <td>{this.state.p6perc2.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 7</td>
-                      <td>{this.state.p7perc2.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 8 </td>
-                      <td>{this.state.p8perc2.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 9 </td>
-                      <td>{this.state.p9perc2.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 10 </td>
-                      <td>{this.state.p10perc2.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 11 </td>
-                      <td>{this.state.p11perc2.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 12 </td>
-                      <td>{this.state.p12perc2.toFixed(2)}%</td>
-                    </tr>
-                  </table>
-                </>) : null}
-            </TabPanel>
+                      <tr>
+                        <td>PLO 5 </td>
+                        <td>{this.state.p5perc1.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td> PLO 6</td>
+                        <td>{this.state.p6perc1.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 7</td>
+                        <td>{this.state.p7perc1.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 8 </td>
+                        <td>{this.state.p8perc1.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 9 </td>
+                        <td>{this.state.p9perc1.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 10 </td>
+                        <td>{this.state.p10perc1.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 11 </td>
+                        <td>{this.state.p11perc1.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 12 </td>
+                        <td>{this.state.p12perc1.toFixed(2)}%</td>
+                      </tr>
+                    </table>
+                  </>) : null}
+              </TabPanel>
 
-            <TabPanel>
-              <br></br>
-              <br></br>
+              <TabPanel>
+                <br></br>
+                <br></br>
 
-              <h3
-                className="main_heading2"
-                style={{
-                  textTransform: "uppercase",
-                  fontSize: "30px",
-                  color: "#0b1442",
-                  fontFamily: "Arial, sans-serif",
-                }}
-              >
-                Marks Of Each Evaluation
-              </h3>
-              <br></br>
-              <table style={{ border: "1px solid black" }} className="detail">
-                <tr
+                <h3
+                  className="main_heading2"
                   style={{
-                    textAlign: "center",
                     textTransform: "uppercase",
-                    fontWeight: "bold",
-                    fontSize: "16px",
-                    border: "1px solid black",
+                    fontSize: "30px",
+                    color: "#0b1442",
+                    fontFamily: "Arial, sans-serif",
                   }}
                 >
-                  <th>Evaluation</th>
-                  <th>Obtained Marks</th>
-                  <th>Weightage</th>
-                  <th>Marks After Weightage</th>
-                </tr>
-
-                <tr>
-                  <td>Evaluation 1</td>
-                  <td>{`${this.state.eval1ObtainedMarks3}/510`}</td>
-                  <td>{this.state.weight1}</td>
-                  <td>
-                    {(
-                      this.state.weight1 * this.state.eval1ObtainedPerc3
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-
-                <tr>
-                  <td>Evaluation 2 </td>
-                  <td>{`${this.state.eval2ObtainedMarks3}/510`}</td>
-                  <td>{this.state.weight2}</td>
-                  <td>
-                    {(
-                      this.state.weight2 * this.state.eval2ObtainedPerc3
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-                <tr>
-                  <td> Evaluation 3</td>
-                  <td>{`${this.state.eval3ObtainedMarks3}/510`}</td>
-
-                  <td>{this.state.weight3}</td>
-                  <td>
-                    {(
-                      this.state.weight3 * this.state.eval3ObtainedPerc3
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-                <tr>
-                  <td> Evaluation 4</td>
-                  <td>{`${this.state.eval4ObtainedMarks3}/510`}</td>
-                  <td>{this.state.weight4}</td>
-                  <td>
-                    {(
-                      this.state.weight4 * this.state.eval4ObtainedPerc3
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-                <tr>
-                  <td> Total of all Evalouations</td>
-                  <td>{Number(this.state.eval1ObtainedMarks3)+Number(this.state.eval2ObtainedMarks3)+Number(this.state.eval3ObtainedMarks3)+Number(this.state.eval4ObtainedMarks3)}/1800</td>
-
-                  <td>
-                    {Number(this.state.weight1) +
-                      Number(this.state.weight2) +
-                      Number(this.state.weight3) +
-                      Number(this.state.weight4)}
-                  </td>
-                  <td>
-                    {
-                      Number(
-                        (
-                          this.state.weight1 * this.state.eval1ObtainedPerc3
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight2 * this.state.eval2ObtainedPerc3
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight3 * this.state.eval3ObtainedPerc3
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight4 * this.state.eval4ObtainedPerc3
-                        ).toFixed(2)
-                      )
-                    }
-                  </td>
-                </tr>
-              </table>
-              <br></br>
-              <br></br>
-              {this.state.eval4Criterias.length ? (
-              <table style={{ border: "1px solid black" }} className="detail">
-                <tr>
-                  <td>Total </td>
-                  <td>
-                    {" "}
-                    {(
-                      Number(
-                        (
-                          this.state.weight1 * this.state.eval1ObtainedPerc3
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight2 * this.state.eval2ObtainedPerc3
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight3 * this.state.eval3ObtainedPerc3
-                        ).toFixed(2)
-                      ) +
-                      Number(
-                        (
-                          this.state.weight4 * this.state.eval4ObtainedPerc3
-                        ).toFixed(2)
-                      ) +
-                      Number(this.state.finalReport) +
-                      Number(this.state.otherRepots) +
-                      Number(this.state.byChairman)
-                    ).toFixed(2)}
-                  </td>
-                </tr>
-              </table>) : null}
-              <br></br>
-              <br></br>
-              {this.state.eval4Criterias.length ? (
-                <>
-                  <h3
-                    className="main_heading2"
+                  Marks Of Each Evaluation
+                </h3>
+                <br></br>
+                <table style={{ border: "1px solid black" }} className="detail">
+                  <tr
                     style={{
+                      textAlign: "center",
                       textTransform: "uppercase",
-                      fontSize: "30px",
-                      color: "#0b1442",
-                      fontFamily: "Arial, sans-serif",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      border: "1px solid black",
                     }}
                   >
-                    PLO
-                  </h3>
-                  <br></br>
+                    <th>Evaluation</th>
+                    <th>Obtained Marks</th>
+                    <th>Weightage</th>
+                    <th>Marks After Weightage</th>
+                  </tr>
+
+                  <tr>
+                    <td>Evaluation 1</td>
+                    <td>{`${this.state.eval1ObtainedMarks2}/510`}</td>
+                    <td>{this.state.weight1}</td>
+                    <td>
+                      {(
+                        this.state.weight1 * this.state.eval1ObtainedPerc2
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Evaluation 2 </td>
+                    <td>{`${this.state.eval2ObtainedMarks2}/510`}</td>
+                    <td>{this.state.weight2}</td>
+                    <td>
+                      {(
+                        this.state.weight2 * this.state.eval2ObtainedPerc2
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Evaluation 3</td>
+                    <td>{`${this.state.eval3ObtainedMarks2}/510`}</td>
+                    <td>{this.state.weight3}</td>
+                    <td>
+                      {(
+                        this.state.weight3 * this.state.eval3ObtainedPerc2
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Evaluation 4</td>
+                    <td>{`${this.state.eval4ObtainedMarks2}/270`}</td>
+                    <td>{this.state.weight4}</td>
+                    <td>
+                      {(
+                        this.state.weight4 * this.state.eval4ObtainedPerc2
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Total of all Evalouations</td>
+                    <td>{Number(this.state.eval1ObtainedMarks2) + Number(this.state.eval2ObtainedMarks2) + Number(this.state.eval3ObtainedMarks2) + Number(this.state.eval4ObtainedMarks2)}/1800</td>
+                    <td>
+                      {Number(this.state.weight1) +
+                        Number(this.state.weight2) +
+                        Number(this.state.weight3) +
+                        Number(this.state.weight4)}
+                    </td>
+                    <td>
+                      {(
+                        Number(
+                          (
+                            this.state.weight1 * this.state.eval1ObtainedPerc2
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight2 * this.state.eval2ObtainedPerc2
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight3 * this.state.eval3ObtainedPerc2
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight4 * this.state.eval4ObtainedPerc2
+                          ).toFixed(2)
+                        )
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                </table>
+                <br></br>
+                <br></br>
+
+                {this.state.eval4Criterias.length ? (
+
                   <table style={{ border: "1px solid black" }} className="detail">
-                    <tr
+
+                    <tr>
+                      <td>Total</td>
+                      <td>
+                        {" "}
+                        {(
+                          Number(
+                            (
+                              this.state.weight1 * this.state.eval1ObtainedPerc2
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight2 * this.state.eval2ObtainedPerc2
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight3 * this.state.eval3ObtainedPerc2
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight4 * this.state.eval4ObtainedPerc2
+                            ).toFixed(2)
+                          ) +
+                          Number(this.state.finalReport) +
+                          Number(this.state.otherRepots) +
+                          Number(this.state.byChairman)
+                        ).toFixed(2)}
+                      </td>
+                    </tr>
+
+                  </table>) : null}
+                <br></br>
+                <br></br>
+                {this.state.eval4Criterias.length ? (
+                  <>
+                    <h3
+                      className="main_heading2"
                       style={{
-                        textAlign: "center",
                         textTransform: "uppercase",
-                        fontWeight: "bold",
-                        fontSize: "16px",
-                        border: "1px solid black",
+                        fontSize: "30px",
+                        color: "#0b1442",
+                        fontFamily: "Arial, sans-serif",
                       }}
                     >
-                      <th> PLO No</th>
-                      <th>Percentage</th>
-                    </tr>
+                      PLO
+                    </h3>
+                    <br></br>
+                    <table style={{ border: "1px solid black" }} className="detail">
+                      <tr
+                        style={{
+                          textAlign: "center",
+                          textTransform: "uppercase",
+                          fontWeight: "bold",
+                          fontSize: "16px",
+                          border: "1px solid black",
+                        }}
+                      >
+                        <th> PLO No</th>
+                        <th>Percentage</th>
+                      </tr>
 
-                    <tr>
-                      <td>PLO 4</td>
-                      <td>{this.state.p4perc3.toFixed(2)}%</td>
-                    </tr>
+                      <tr>
+                        <td>PLO 4</td>
+                        <td>{this.state.p4perc2.toFixed(2)}%</td>
+                      </tr>
 
+                      <tr>
+                        <td>PLO 5 </td>
+                        <td>{this.state.p5perc2.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td> PLO 6</td>
+                        <td>{this.state.p6perc2.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 7</td>
+                        <td>{this.state.p7perc2.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 8 </td>
+                        <td>{this.state.p8perc2.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 9 </td>
+                        <td>{this.state.p9perc2.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 10 </td>
+                        <td>{this.state.p10perc2.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 11 </td>
+                        <td>{this.state.p11perc2.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 12 </td>
+                        <td>{this.state.p12perc2.toFixed(2)}%</td>
+                      </tr>
+                    </table>
+                  </>) : null}
+              </TabPanel>
+
+              <TabPanel>
+                <br></br>
+                <br></br>
+
+                <h3
+                  className="main_heading2"
+                  style={{
+                    textTransform: "uppercase",
+                    fontSize: "30px",
+                    color: "#0b1442",
+                    fontFamily: "Arial, sans-serif",
+                  }}
+                >
+                  Marks Of Each Evaluation
+                </h3>
+                <br></br>
+                <table style={{ border: "1px solid black" }} className="detail">
+                  <tr
+                    style={{
+                      textAlign: "center",
+                      textTransform: "uppercase",
+                      fontWeight: "bold",
+                      fontSize: "16px",
+                      border: "1px solid black",
+                    }}
+                  >
+                    <th>Evaluation</th>
+                    <th>Obtained Marks</th>
+                    <th>Weightage</th>
+                    <th>Marks After Weightage</th>
+                  </tr>
+
+                  <tr>
+                    <td>Evaluation 1</td>
+                    <td>{`${this.state.eval1ObtainedMarks3}/510`}</td>
+                    <td>{this.state.weight1}</td>
+                    <td>
+                      {(
+                        this.state.weight1 * this.state.eval1ObtainedPerc3
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Evaluation 2 </td>
+                    <td>{`${this.state.eval2ObtainedMarks3}/510`}</td>
+                    <td>{this.state.weight2}</td>
+                    <td>
+                      {(
+                        this.state.weight2 * this.state.eval2ObtainedPerc3
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Evaluation 3</td>
+                    <td>{`${this.state.eval3ObtainedMarks3}/510`}</td>
+
+                    <td>{this.state.weight3}</td>
+                    <td>
+                      {(
+                        this.state.weight3 * this.state.eval3ObtainedPerc3
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Evaluation 4</td>
+                    <td>{`${this.state.eval4ObtainedMarks3}/510`}</td>
+                    <td>{this.state.weight4}</td>
+                    <td>
+                      {(
+                        this.state.weight4 * this.state.eval4ObtainedPerc3
+                      ).toFixed(2)}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td> Total of all Evalouations</td>
+                    <td>{Number(this.state.eval1ObtainedMarks3) + Number(this.state.eval2ObtainedMarks3) + Number(this.state.eval3ObtainedMarks3) + Number(this.state.eval4ObtainedMarks3)}/1800</td>
+
+                    <td>
+                      {Number(this.state.weight1) +
+                        Number(this.state.weight2) +
+                        Number(this.state.weight3) +
+                        Number(this.state.weight4)}
+                    </td>
+                    <td>
+                      {
+                        Number(
+                          (
+                            this.state.weight1 * this.state.eval1ObtainedPerc3
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight2 * this.state.eval2ObtainedPerc3
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight3 * this.state.eval3ObtainedPerc3
+                          ).toFixed(2)
+                        ) +
+                        Number(
+                          (
+                            this.state.weight4 * this.state.eval4ObtainedPerc3
+                          ).toFixed(2)
+                        )
+                      }
+                    </td>
+                  </tr>
+                </table>
+                <br></br>
+                <br></br>
+                {this.state.eval4Criterias.length ? (
+                  <table style={{ border: "1px solid black" }} className="detail">
                     <tr>
-                      <td>PLO 5 </td>
-                      <td>{this.state.p5perc3.toFixed(2)}%</td>
+                      <td>Total </td>
+                      <td>
+                        {" "}
+                        {(
+                          Number(
+                            (
+                              this.state.weight1 * this.state.eval1ObtainedPerc3
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight2 * this.state.eval2ObtainedPerc3
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight3 * this.state.eval3ObtainedPerc3
+                            ).toFixed(2)
+                          ) +
+                          Number(
+                            (
+                              this.state.weight4 * this.state.eval4ObtainedPerc3
+                            ).toFixed(2)
+                          ) +
+                          Number(this.state.finalReport) +
+                          Number(this.state.otherRepots) +
+                          Number(this.state.byChairman)
+                        ).toFixed(2)}
+                      </td>
                     </tr>
-                    <tr>
-                      <td> PLO 6</td>
-                      <td>{this.state.p6perc3.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 7</td>
-                      <td>{this.state.p7perc3.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 8 </td>
-                      <td>{this.state.p8perc3.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 9 </td>
-                      <td>{this.state.p9perc3.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 10 </td>
-                      <td>{this.state.p10perc3.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 11 </td>
-                      <td>{this.state.p11perc3.toFixed(2)}%</td>
-                    </tr>
-                    <tr>
-                      <td>PLO 12 </td>
-                      <td>{this.state.p12perc3.toFixed(2)}%</td>
-                    </tr>
-                  </table>
-                </>) : null}
-            </TabPanel>
-          </Tabs>
-        </div>
+                  </table>) : null}
+                <br></br>
+                <br></br>
+                {this.state.eval4Criterias.length ? (
+                  <>
+                    <h3
+                      className="main_heading2"
+                      style={{
+                        textTransform: "uppercase",
+                        fontSize: "30px",
+                        color: "#0b1442",
+                        fontFamily: "Arial, sans-serif",
+                      }}
+                    >
+                      PLO
+                    </h3>
+                    <br></br>
+                    <table style={{ border: "1px solid black" }} className="detail">
+                      <tr
+                        style={{
+                          textAlign: "center",
+                          textTransform: "uppercase",
+                          fontWeight: "bold",
+                          fontSize: "16px",
+                          border: "1px solid black",
+                        }}
+                      >
+                        <th> PLO No</th>
+                        <th>Percentage</th>
+                      </tr>
+
+                      <tr>
+                        <td>PLO 4</td>
+                        <td>{this.state.p4perc3.toFixed(2)}%</td>
+                      </tr>
+
+                      <tr>
+                        <td>PLO 5 </td>
+                        <td>{this.state.p5perc3.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td> PLO 6</td>
+                        <td>{this.state.p6perc3.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 7</td>
+                        <td>{this.state.p7perc3.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 8 </td>
+                        <td>{this.state.p8perc3.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 9 </td>
+                        <td>{this.state.p9perc3.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 10 </td>
+                        <td>{this.state.p10perc3.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 11 </td>
+                        <td>{this.state.p11perc3.toFixed(2)}%</td>
+                      </tr>
+                      <tr>
+                        <td>PLO 12 </td>
+                        <td>{this.state.p12perc3.toFixed(2)}%</td>
+                      </tr>
+                    </table>
+                  </>) : null}
+              </TabPanel>
+            </Tabs>
+          </div>
 
 
 
-        <br></br>
+          <br></br>
 
-        <Tabs style={{ color: "#000" }} onSelect={index => this.setState({ selectedTab1: index })}>
-          <TabList>
-            {this.state.eval1Criterias.length ? <Tab style={this.state.selectedTab1 === 0 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: "10%" } : { marginLeft: "10%" }}>Evaluation 1</Tab> : null}
+          <Tabs style={{ color: "#000" }} onSelect={index => this.setState({ selectedTab1: index })}>
+            <TabList>
+              {this.state.eval1Criterias.length ? <Tab style={this.state.selectedTab1 === 0 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: "10%" } : { marginLeft: "10%" }}>Evaluation 1</Tab> : null}
+              {this.state.eval2Criterias.length ? (
+                <Tab style={this.state.selectedTab1 === 1 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: "10%" } : { marginLeft: "10%" }}>Evaluation 2</Tab>
+              ) : null}
+              {this.state.eval3Criterias.length ? (
+                <Tab style={this.state.selectedTab1 === 2 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: "10%" } : { marginLeft: "10%" }}>Evaluation 3</Tab>
+              ) : null}
+              {this.state.eval4Criterias.length ? (
+                <Tab style={this.state.selectedTab1 === 3 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: "10%" } : { marginLeft: "10%" }}>Evaluation 4</Tab>
+              ) : null}
+            </TabList>
+            {this.state.eval1Criterias.length ? (
+              <TabPanel>
+                <Evaluation1
+                  eval1Criterias={this.state.eval1Criterias}
+                  data={this.state.gradeData}
+                />
+              </TabPanel>
+            ) : null}
             {this.state.eval2Criterias.length ? (
-              <Tab style={this.state.selectedTab1 === 1 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: "10%" } : { marginLeft: "10%" }}>Evaluation 2</Tab>
+              <TabPanel>
+                <Evaluation2
+                  eval1Criterias={this.state.eval2Criterias}
+                  data={this.state.gradeData}
+                />
+              </TabPanel>
             ) : null}
             {this.state.eval3Criterias.length ? (
-              <Tab style={this.state.selectedTab1 === 2 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: "10%" } : { marginLeft: "10%" }}>Evaluation 3</Tab>
+              <TabPanel>
+                <Evaluation3
+                  eval1Criterias={this.state.eval3Criterias}
+                  data={this.state.gradeData}
+                />
+              </TabPanel>
             ) : null}
             {this.state.eval4Criterias.length ? (
-              <Tab style={this.state.selectedTab1 === 3 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: "10%" } : { marginLeft: "10%" }}>Evaluation 4</Tab>
+              <TabPanel>
+                <Evaluation4
+                  eval1Criterias={this.state.eval4Criterias}
+                  data={this.state.gradeData}
+                />
+              </TabPanel>
             ) : null}
-          </TabList>
-          {this.state.eval1Criterias.length ? (
-            <TabPanel>
-              <Evaluation1
-                eval1Criterias={this.state.eval1Criterias}
-                data={this.state.gradeData}
-              />
-            </TabPanel>
-          ) : null}
-          {this.state.eval2Criterias.length ? (
-            <TabPanel>
-              <Evaluation2
-                eval1Criterias={this.state.eval2Criterias}
-                data={this.state.gradeData}
-              />
-            </TabPanel>
-          ) : null}
-          {this.state.eval3Criterias.length ? (
-            <TabPanel>
-              <Evaluation3
-                eval1Criterias={this.state.eval3Criterias}
-                data={this.state.gradeData}
-              />
-            </TabPanel>
-          ) : null}
-          {this.state.eval4Criterias.length ? (
-            <TabPanel>
-              <Evaluation4
-                eval1Criterias={this.state.eval4Criterias}
-                data={this.state.gradeData}
-              />
-            </TabPanel>
-          ) : null}
-        </Tabs>
-      </div>
+          </Tabs>
+        </div>) : null
     );
   }
 }

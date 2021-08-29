@@ -52,7 +52,7 @@ function Student() {
     <div>
       <img src={background} alt="background" style={{ width: "100%", height: "89vh" }} />
 
-      <div className="container emp-profile" style={{ height: "50%", marginTop: "4%" }}>
+      <div className="container emp-profile" style={isNav1.result[0].type === 'student' ? { height: "70%", }: {height: '50%'}}>
 
         <form method="post" >
 

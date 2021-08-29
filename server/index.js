@@ -658,6 +658,7 @@ app.get("/api/grade", async (req, res) => {
 });
 
 app.get("/api/getall/grades/:id", async (req, res) => {
+  console.log(req.params)
   res.send(
     await new Promise(function (resolve, reject) {
       db.query(`SELECT * FROM grades WHERE project_id=${req.params.id};`, (err, result) => {
@@ -665,6 +666,7 @@ app.get("/api/getall/grades/:id", async (req, res) => {
         if (err) {
           res.send({ err: errr });
         }
+       console.log(result)
         resolve({ result });
       });
     })

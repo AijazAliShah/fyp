@@ -1117,7 +1117,7 @@ export class Mid extends Component {
 
           <br></br>
           <br></br>
-          <Tabs style={{ color: "green" }} onSelect={index => this.setState({selectedTab: index})}>
+          <Tabs  onSelect={index => this.setState({selectedTab: index})}>
             <TabList
               style={{
                 border: "1px solid #000",
