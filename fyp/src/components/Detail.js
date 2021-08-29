@@ -958,12 +958,12 @@ export class Mid extends Component {
                   justifyContent: "space-around",
                 }}
               >
-                {this.state.eval1Criterias.length ? (<Tab style={this.state.selectedTab2 === 0 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 1 Member(s)</Tab>) : null}
-                {this.state.eval2Criterias.length ? (<Tab style={this.state.selectedTab2 === 1 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 2 Member(s)</Tab>) : null}
-                {this.state.eval3Criterias.length ? (<Tab style={this.state.selectedTab2 === 2 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 3 Member(s)</Tab>) : null}
-                {this.state.eval4Criterias.length ? (<Tab style={this.state.selectedTab2 === 3 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 4 Member(s)</Tab>) : null}
+                {this.state.allGrades.result.length >= 1 ? (<Tab style={this.state.selectedTab2 === 0 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 1 Member(s)</Tab>) : null}
+                {this.state.allGrades.result.length >= 2 ? (<Tab style={this.state.selectedTab2 === 1 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 2 Member(s)</Tab>) : null}
+                {this.state.allGrades.result.length >= 3 ? (<Tab style={this.state.selectedTab2 === 2 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 3 Member(s)</Tab>) : null}
+                {this.state.allGrades.result.length >= 4 ? (<Tab style={this.state.selectedTab2 === 3 ? { backgroundColor: '#0b1442', color: '#fff', marginLeft: '15%'} : null}>Evaluation 4 Member(s)</Tab>) : null}
               </TabList>
-              {this.state.allGrades.result.length === 1 ? (
+              {this.state.allGrades.result.length >= 1 ? (
               <TabPanel>
 
                 <table style={{ border: "1px solid black" }} className="detail">
@@ -1000,7 +1000,7 @@ export class Mid extends Component {
                     </tr>) : null}
                 </table>
               </TabPanel>) : null}
-              {this.state.allGrades.result.length === 2 ? (
+              {this.state.allGrades.result.length >= 2 ? (
               <TabPanel>
 
                 <table style={{ border: "1px solid black" }} className="detail">
@@ -1037,7 +1037,7 @@ export class Mid extends Component {
                     </tr>) : null}
                 </table>
               </TabPanel>): null}
-              {this.state.allGrades.result.length === 3 ? (
+              {this.state.allGrades.result.length >= 3 ? (
               <TabPanel>
 
                 <table style={{ border: "1px solid black" }} className="detail">
@@ -1074,7 +1074,7 @@ export class Mid extends Component {
                     </tr>) : null}
                 </table>
               </TabPanel>): null}
-              {this.state.allGrades.result.length === 4 ? (
+              {this.state.allGrades.result.length >= 4 ? (
               <TabPanel>
 
                 <table style={{ border: "1px solid black" }} className="detail">
@@ -1733,7 +1733,7 @@ export class Mid extends Component {
                   </tr>
                   <tr>
                     <td> Evaluation 4</td>
-                    <td>{`${this.state.eval4ObtainedMarks3}/510`}</td>
+                    <td>{`${this.state.eval4ObtainedMarks3}/270`}</td>
                     <td>{this.state.weight4}</td>
                     <td>
                       {(
