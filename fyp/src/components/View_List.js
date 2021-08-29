@@ -143,6 +143,8 @@ const [description, setDescription] = useState("");*/
           height: "35px",
           marginLeft: "20%",
           marginRight: "20%",
+          color: '#000'
+
         }}
         
         type="text"
@@ -279,7 +281,19 @@ const [description, setDescription] = useState("");*/
               ) {
                 return val;
               } else if (
-                val.project.batch === Number(searchTerm)
+                val.project.batch.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return val;
+              } else if (
+                val.stds.result.find((st) => st.fullName.toLowerCase().includes(searchTerm.toLowerCase()))
+              ) {
+                return val;
+              }else if (
+                val.stds.result.find((st) => st.email.toLowerCase().includes(searchTerm.toLowerCase()))
+              ) {
+                return val;
+              }else if (
+                val.stds.result.find((st) => st.rollNo.toLowerCase().includes(searchTerm.toLowerCase()))
               ) {
                 return val;
               }

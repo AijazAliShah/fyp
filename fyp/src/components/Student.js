@@ -50,11 +50,11 @@ function Student() {
 
   return (
     <div>
-      <img src={background} alt="background" style={{ width: "100%", height: "85vh" }} />
+      <img src={background} alt="background" style={{ width: "100%", height: "89vh" }} />
 
-      <div className="container emp-profile" style={{ height: "70%", marginTop: "4%" }}>
+      <div className="container emp-profile" style={{ height: "50%", marginTop: "4%" }}>
 
-        <form method="post">
+        <form method="post" >
 
           <div className="row">
             <div className="col-md-8">

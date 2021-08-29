@@ -657,6 +657,20 @@ app.get("/api/grade", async (req, res) => {
   );
 });
 
+app.get("/api/getall/grades/:id", async (req, res) => {
+  res.send(
+    await new Promise(function (resolve, reject) {
+      db.query(`SELECT * FROM grades WHERE project_id=${req.params.id};`, (err, result) => {
+
+        if (err) {
+          res.send({ err: errr });
+        }
+        resolve({ result });
+      });
+    })
+  );
+});
+
 app.get("/api/grade/:id", async (req, res) => {
   res.send(
     await new Promise(function (resolve, reject) {

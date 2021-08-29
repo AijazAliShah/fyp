@@ -47,7 +47,7 @@ function Navbar() {
               <Link to="#" className="menu-bars">
                 <FaIcons.FaBars onClick={showSidebar} />
               </Link>
-              <img src={logo} style={{width: '60px', height: '60px',marginLeft:"10px",marginRight:"10px"}}/>
+              <img src={logo} style={{width: '40px', height: '40px',marginLeft:"10px",marginRight:"10px"}}/>
               <h1>NEDUET</h1>
               {isNav.result[0].type === "coordinator"  ? (
                 <button

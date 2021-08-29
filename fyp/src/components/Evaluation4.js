@@ -11,6 +11,8 @@ export class Mid extends Component {
       member1: [],
       member2: [],
       member3: [],
+      selectedTab: 0,
+
     };
   }
 
@@ -38,11 +40,11 @@ export class Mid extends Component {
     console.log("data123", this.state, this.props);
 
     return (
-      <Tabs style={{ color: "#000" }}>
+      <Tabs style={{ color: "#000" }} onSelect={index => this.setState({selectedTab: index})}>
         <TabList>
-          {this.props.data.stdRoll1 ? (<Tab>Indivisual 1</Tab>) : null}
-          {this.props.data.stdRoll2 ? (<Tab>Indivisual 2</Tab>) : null}
-          {this.props.data.stdRoll3 ? (<Tab>Indivisual 3</Tab>) : null}
+          {this.props.data.stdRoll1 ? (<Tab style={this.state.selectedTab === 0 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Individual 1</Tab>) : null}
+          {this.props.data.stdRoll2 ? (<Tab style={this.state.selectedTab === 1 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Individual 2</Tab>) : null}
+          {this.props.data.stdRoll3 ? (<Tab style={this.state.selectedTab === 2 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Individual 3</Tab>) : null}
         </TabList>
 
         <TabPanel>

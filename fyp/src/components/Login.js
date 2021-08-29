@@ -49,8 +49,8 @@ function Login() {
   };
 
   return (
-    <div >
-      <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
+    <div className='bgImage1'>
+      {/* <img src={background} alt="background" style={{width:"100%",  height:"100%"}}/> */}
       <ToastContainer />
       <div className="container" style={{opacity:"0.8", backgroundColor:"#fff"}}>
 

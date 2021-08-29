@@ -173,6 +173,9 @@ export class Mid extends Component {
       p12perc1: 0,
       p12perc2: 0,
       p12perc3: 0,
+      selectedTab: 0,
+      selectedTab: 0,
+      
     };
   }
 
@@ -822,18 +825,7 @@ export class Mid extends Component {
         </h1>
 
         <div id="eval_table">
-          <h3
-            className="main_heading2"
-            style={{
-              textTransform: "uppercase",
-              fontSize: "30px",
-              color: "#0b1442",
-              fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-            }}
-          >
-            Result Details
-          </h3>
-          <br></br>
+       
           <table style={{ border: "1px solid black" }} className="detail">
             <tr
               style={{
@@ -1125,7 +1117,7 @@ export class Mid extends Component {
 
           <br></br>
           <br></br>
-          <Tabs style={{ color: "#000" }}>
+          <Tabs style={{ color: "green" }} onSelect={index => this.setState({selectedTab: index})}>
             <TabList
               style={{
                 border: "1px solid #000",
@@ -1133,9 +1125,9 @@ export class Mid extends Component {
                 justifyContent: "space-around",
               }}
             >
-              {this.state.gradeData.stdRoll1 ? (<Tab>Member 1</Tab>) : null}
-              {this.state.gradeData.stdRoll2 ? (<Tab>Member 2</Tab>) : null}
-              {this.state.gradeData.stdRoll3 ? (<Tab>Member 3</Tab>) : null}
+              {this.state.gradeData.stdRoll1 ? (<Tab style={this.state.selectedTab === 0 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 1</Tab>) : null}
+              {this.state.gradeData.stdRoll2 ? (<Tab style={this.state.selectedTab === 1 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 2</Tab>) : null}
+              {this.state.gradeData.stdRoll3 ? (<Tab style={this.state.selectedTab === 2 ? { backgroundColor: '#0b1442', color: '#fff' } : null}>Member 3</Tab>) : null}
             </TabList>
 
             <TabPanel>

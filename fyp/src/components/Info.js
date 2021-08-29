@@ -33,10 +33,10 @@ function Info() {
   ];
 
   return (
-    <div id="table-div1">
+    <div id="table-div1" style={{marginLeft:"5%"}}>
       <br></br>
       {/* <br></br> */}
-      <h3 className="info_heading">Timeline and Deliverables</h3>
+      <h3 className="info_heading">Timeline and Deliverables </h3>
       <table style={{ border: "1px solid black" }} className="detail">
         <tr
            style={{
@@ -47,7 +47,7 @@ function Info() {
             border: "1px solid black",
           }}
         >
-          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}> Activity</th>
+          <th style={{color:"#fff" , backgroundColor:"#0b1442", padding: "10px"}}> Activity</th>
           <th style={{color:"#fff" , backgroundColor:"#0b1442"}}> Tentative Dates</th>
           <th style={{color:"#fff" , backgroundColor:"#0b1442"}}>Responsibility</th>
           <th style={{color:"#fff" , backgroundColor:"#0b1442"}}>Deliverables</th>
@@ -74,19 +74,10 @@ function Info() {
       </table>
       <br></br>
       <br></br>
+
+      <h3 className="info_heading"> Downloadable Forms/Templates</h3>
       <table style={{ border: "1px solid black" }} className="detail">
-        <tr
-           style={{
-            textAlign: "center",
-            textTransform: "uppercase",
-            fontWeight: "bold",
-            fontSize: "16px",
-            border: "1px solid black",
-          }}
-        >
-          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}> Template Name</th>
-          <th style={{color:"#fff" , backgroundColor:"#0b1442"}}>File</th>
-        </tr>
+      
 
         <tr  >
           <td>FYP Proposal</td>

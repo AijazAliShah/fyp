@@ -56,6 +56,7 @@ const [description, setDescription] = useState("");*/
           height: "35px",
           marginLeft: "20%",
           marginRight: "20%",
+          color: '#000'
         }}
         type="text"
         placeholder="  Search Record..."
@@ -135,7 +136,7 @@ const [description, setDescription] = useState("");*/
               ) {
                 return val;
               } else if (
-                val.project_id === Number(searchTerm)
+                val.project_id.toLowerCase().includes(searchTerm.toLowerCase())
               ) {
                 return val;
               } else if (

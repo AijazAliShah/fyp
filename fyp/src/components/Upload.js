@@ -115,7 +115,7 @@ class Upload extends Component {
     console.log(this.state);
     return !this.isEmpty(this.state.isStd) ? (
       <div>
-         <img src={background} alt="background" style={{width:"100%", height:"83vh"}}/>
+         <img src={background} alt="background" style={{width:"100%", height:"89vh"}}/>
         <ToastContainer />
         <div class="container" enctype="multipart/form-data" style={{marginTop:"4%", height:"auto",opacity:"0.8", backgroundColor:"#fff"}}>
           <div class="form-group">

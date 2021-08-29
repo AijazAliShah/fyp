@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useHistory } from "react-router-dom";
@@ -34,64 +34,65 @@ function Registration() {
   });
 
   const onSubmit = (data) => {
-    const newData=data;
+    const newData = data;
     newData.type = type;
     console.log(newData)
 
     let verifier = new Verifier("at_xJjIdD2OvobwDlluODyoaZMaY6vJu");
-    try{
-    verifier.verify(data.email, (err, data1) => {
-      if (err) throw err;
-      console.log(data1.smtpCheck);
-      if (data1.smtpCheck === 'true') {
-        axios.post("http://localhost:3001/api/register", newData).then((resp) => {
-          console.log(resp.data);
-          if (resp.data.auth) {
-            history.push("/");
-          } else {
-            toast(resp.data.message, {
-              position: "top-center",
-              type: "error",
-            });
-          }
-        });
-      } else {
-        toast("Email does not exist!", {
-          position: "top-center",
-          type: "error",
-        });
-      }
-    
-    });
-  }catch(error){
-    toast("Email does not exist!", {
-      position: "top-center",
-      type: "error",
-    });
-  }
+    try {
+      verifier.verify(data.email, (err, data1) => {
+        if (err) throw err;
+        console.log(data1.smtpCheck);
+        if (data1.smtpCheck === 'true') {
+          axios.post("http://localhost:3001/api/register", newData).then((resp) => {
+            console.log(resp.data);
+            if (resp.data.auth) {
+              history.push("/");
+            } else {
+              toast(resp.data.message, {
+                position: "top-center",
+                type: "error",
+              });
+            }
+          });
+        } else {
+          toast("Email does not exist!", {
+            position: "top-center",
+            type: "error",
+          });
+        }
+
+      });
+    } catch (error) {
+      toast("Email does not exist!", {
+        position: "top-center",
+        type: "error",
+      });
+    }
   };
   return (
     <div>
-      <img src={background} alt="background" style={{width:"100%", height:"100vh"}}/>
+      <img src={background} alt="background" style={{ width: "100%", height: "97vh" }} />
       <ToastContainer />
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
         validationSchema={validationSchema}
       >
-        <Form className="container" style={{opacity:"0.8", backgroundColor:"#fff", height:"auto", marginTop:"5%"}}>
+        <Form className="container" style={{ opacity: "0.8", backgroundColor: "#fff", height: "auto", marginTop: "5%" }}>
           <h1 id="signUp">          Create Account</h1>
           <br></br>
-          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}} >Username: </label>
+          <label className="lab" style={{ fontWeight: "bold", color: "#2b2b94", display: "flex", justifyContent: "left" }} >Username: </label>
           <ErrorMessage className="error" name="name" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%" ,
-            border:"none",
-            borderBottom:"1px solid #2b2b94",
-            outline:"none"
+            style={{
+              width: "98%",
+              border: "none",
+              borderBottom: "1px solid #2b2b94",
+              outline: "none"
 
-          }}
+            }}
             autocomplete="off"
             id="inputCreatePost"
             name="name"
@@ -100,16 +101,17 @@ function Registration() {
           />
           <br></br>
           <br></br>
-          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Email: </label>
+          <label className="lab" style={{ fontWeight: "bold", color: "#2b2b94", display: "flex", justifyContent: "left" }}>Email: </label>
           <ErrorMessage className="error" name="email" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%",
-            border:"none",
-            borderBottom:"1px solid #2b2b94",
-            outline:"none"
+            style={{
+              width: "98%",
+              border: "none",
+              borderBottom: "1px solid #2b2b94",
+              outline: "none"
 
-          }}
+            }}
             autocomplete="off"
             id="inputCreatePost"
             name="email"
@@ -118,16 +120,17 @@ function Registration() {
           />
           <br></br>
           <br></br>
-          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Password: </label>
+          <label className="lab" style={{ fontWeight: "bold", color: "#2b2b94", display: "flex", justifyContent: "left" }}>Password: </label>
           <ErrorMessage className="error" name="password" component="span" />
           <br></br>
           <Field
-            style={{ width: "98%",
-            border:"none",
-            borderBottom:"1px solid #2b2b94",
-            outline:"none"
+            style={{
+              width: "98%",
+              border: "none",
+              borderBottom: "1px solid #2b2b94",
+              outline: "none"
 
-          }}
+            }}
             autocomplete="off"
             type="password"
             id="inputCreatePost"
@@ -137,10 +140,9 @@ function Registration() {
 
           <br></br>
           <br></br>
-          <label className="lab" style={{fontWeight:"bold",color:"#2b2b94",display:"flex", justifyContent:"left"}}>Dropdown: </label>
+          <label className="lab" style={{ fontWeight: "bold", color: "#2b2b94", display: "flex", justifyContent: "left" }}>User Type: </label>
           <br></br>
-         
-          <select name="cars" id="cars" style={{width:"98%"}} onChange={(event) => setType(event.target.value)}>
+          <select name="cars" id="cars" style={{ width: "98%" }} onChange={(event) => setType(event.target.value)}>
             <option value="student">Student</option>
             <option value="supervisor">Supervisor</option>
             <option value="coordinator">coordinator</option>
@@ -148,37 +150,42 @@ function Registration() {
           <br></br>
           <br></br>
           {type === 'student' ? (
-          <div>
-            
-          <Field
-            style={{ width: "98%",
-            border:"none",
-            borderBottom:"1px solid #2b2b94",
-            outline:"none"
+            <div>
+              <label className="lab" style={{ fontWeight: "bold", color: "#2b2b94", display: "flex", justifyContent: "left" }}>Student Id: </label>
+              <br></br>
+              <Field
+                style={{
+                  width: "98%",
+                  border: "none",
+                  borderBottom: "1px solid #2b2b94",
+                  outline: "none"
 
-          }}
-            autocomplete="off"
-            type="text"
-            id="inputCreatePost"
-            name="stdId"
-            placeholder="Student ID"
-          />
-           <br></br>
-          <br></br>
-            <Field
-            style={{ width: "98%",
-            border:"none",
-            borderBottom:"1px solid #2b2b94",
-            outline:"none"
+                }}
+                autocomplete="off"
+                type="text"
+                id="inputCreatePost"
+                name="stdId"
+                placeholder="Student ID"
+              />
+              <br></br>
+              <br></br>
+              <label className="lab" style={{ fontWeight: "bold", color: "#2b2b94", display: "flex", justifyContent: "left" }}>Department: </label>
+              <br></br>
+              <Field
+                style={{
+                  width: "98%",
+                  border: "none",
+                  borderBottom: "1px solid #2b2b94",
+                  outline: "none"
 
-           }}
-            autocomplete="off"
-            type="text"
-            id="inputCreatePost"
-            name="department"
-            placeholder="Department"
-          />
-          </div>): null}
+                }}
+                autocomplete="off"
+                type="text"
+                id="inputCreatePost"
+                name="department"
+                placeholder="Department"
+              />
+            </div>) : null}
           <br></br> <br></br>
           <button
             type="submit"
@@ -194,7 +201,7 @@ function Registration() {
             }}
           >
             {" "}
-          Create Account
+            Create Account
           </button>
           {/* <a href="/">Login?</a> */}
         </Form>
