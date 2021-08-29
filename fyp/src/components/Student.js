@@ -34,14 +34,14 @@ function Student() {
     return JSON.stringify(obj) === JSON.stringify({});
   }
   useEffect(() => {
-      console.log('jhhhh')
+    console.log('jhhhh')
     axios.get(`http://localhost:3001/basicinfo/${id}`).then((response) => {
       //setName(response.data.name);
       // setEmail(response.data.email);
       console.log("response.data");
       console.log(response.data);
       setUser(response.data[0])
-      if(isEmpty(isNav1)){
+      if (isEmpty(isNav1)) {
         window.location.href = '/'
       }
     });
@@ -50,82 +50,87 @@ function Student() {
 
   return (
     <div>
-    <img src={background} alt="background" style={{width:"100%", height:"85vh"}}/>
+      <img src={background} alt="background" style={{ width: "100%", height: "85vh" }} />
 
-    <div className="container emp-profile" style={{ height: "70%", marginTop:"4%" }}>
+      <div className="container emp-profile" style={{ height: "70%", marginTop: "4%" }}>
 
-      <form method="post">
-       
-        <div className="row">
-          <div className="col-md-8">
-            <div
-              class="card"
-              style={{
-                boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
-                width: "100px",
-                // margin: "auto",
-                // borderRadius:"100%",
-                height: "100px",
-                textAlign: "center",
-                fontFamily: "arial",
-              }}
-            >
-              {/* <img src="#" alt="John" style={{width:"100%"}} /> */}
-              <img
-                src={logo}
-                alt="pic5"
-                style={{ height: "100%", width: "85%" }}
-              />
-              <br></br>
-              <br></br>
-              <div className="row" style={{display:"flex",color:"#575757", flexDirection:"row", width:"250%",}}>
-                <div className="col-md-6" style={{width:"150"}}><h3>Name:</h3></div>
-                <div className="col-md-6" style={{width:"50%" , marginLeft:"50%"}}>  <h3>{user.name}</h3></div>
-             
+        <form method="post">
+
+          <div className="row">
+            <div className="col-md-8">
+              <div
+                class="card"
+                style={{
+                  boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)",
+                  width: "100px",
+                  // margin: "auto",
+                  // borderRadius:"100%",
+                  height: "100px",
+                  textAlign: "center",
+                  fontFamily: "arial",
+                }}
+              >
+                {/* <img src="#" alt="John" style={{width:"100%"}} /> */}
+                <img
+                  src={logo}
+                  alt="pic5"
+                  style={{ height: "100%", width: "85%" }}
+                />
+                <br></br>
+                <br></br>
+                <div className="row" style={{ display: "flex", color: "#575757", flexDirection: "row", width: "250%", }}>
+                  <div className="col-md-6" style={{ width: "150" }}><h3>Name:</h3></div>
+                  <div className="col-md-6" style={{ width: "50%", marginLeft: "50%" }}>  <h3>{user.name}</h3></div>
+
+                </div>
+
+                <br></br>
+                <br></br>
+
+
+                <div className="row" style={{ display: "flex", color: "#575757", flexDirection: "row", width: "250%", }}>
+                  <div className="col-md-6" style={{ width: "150" }}><h3>Email:</h3></div>
+                  <div className="col-md-6" style={{ width: "50", marginLeft: "50%" }}>{user.email}</div>
+
+                </div>
+                <br></br>
+                <br></br>
+
+                <div className="row" style={{ display: "flex", color: "#575757", flexDirection: "row", width: "250%", }}>
+                  <div className="col-md-6" style={{ width: "150" }}>{user.department ? <h3>Department:</h3>: null}</div>
+                  <div className="col-md-6" style={{ width: "50", marginLeft: "50%" }}><h3>{user.department}</h3></div>
+                
+                </div>
+
+                <br></br>
+                <br></br>
+                <div className="row" style={{ display: "flex", color: "#575757", flexDirection: "row", width: "250%", }}>
+                  <div className="col-md-6" style={{ width: "150" }}>{user.stdId ? <h3>Student Id:</h3>: null}</div>
+                  <div className="col-md-6" style={{ width: "50", marginLeft: "50%" }}><h3>{user.stdId}</h3></div>
+                
+                </div>
+                {/* <p>
+                  <button
+                    style={{
+                      border: "none",
+                      outline: "0",
+                      display: "inline-block",
+                      padding: "8px",
+                      color: "white",
+                      borderRadius: "2rem",
+                      backgroundColor: "#575757",
+                      textAlign: "center",
+                      cursor: "pointer",
+                      width: "100%",
+                      fontSize: "18px",
+                    }}
+                  >
+                    {user.stdId}
+                  </button>
+                </p> */}
               </div>
 
-              <br></br>
-              <br></br>
-              
-              
-              <div className="row" style={{display:"flex",color:"#575757", flexDirection:"row", width:"250%",}}>
-              <div className="col-md-6" style={{width:"150"}}><h3>Email:</h3></div>
-              <div className="col-md-6" style={{width:"50", marginLeft:"50%"}}>{user.email}</div>
-              
-              </div>
-              <br></br>
-              <br></br>
-              
-              <div className="row" style={{display:"flex",color:"#575757", flexDirection:"row", width:"250%",}}>
-              <div className="col-md-6" style={{width:"150"}}><h3>Department:</h3></div>
-              <div className="col-md-6" style={{width:"50" , marginLeft:"50%"}}><h3>{user.department}</h3></div>
-              <p></p>
-              </div>
-              <br></br>
-              <br></br>
-
-              <p>
-                <button
-                  style={{
-                    border: "none",
-                    outline: "0",
-                    display: "inline-block",
-                    padding: "8px",
-                    color: "white",
-                    borderRadius:"2rem",
-                    backgroundColor: "#575757",
-                    textAlign: "center",
-                    cursor: "pointer",
-                    width: "100%",
-                    fontSize: "18px",
-                  }}
-                >
-                  {user.stdId}
-                </button>
-              </p>
-            </div>
-
-            {/* <hr></hr>
+              {/* <hr></hr>
                                         <div className="row">
                                             <div className="col-md-6">
                                                 
@@ -161,10 +166,10 @@ function Student() {
                                             </div>
                                         </div>
                                         <br></br> */}
+            </div>
           </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
     </div>
   );
 }

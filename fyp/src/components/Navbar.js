@@ -49,9 +49,9 @@ function Navbar() {
               </Link>
               <img src={logo} style={{width: '60px', height: '60px',marginLeft:"10px",marginRight:"10px"}}/>
               <h1>NEDUET</h1>
-              {isNav.result[0].type !== "student" ? (
+              {isNav.result[0].type === "coordinator"  ? (
                 <button
-                  onClick={() => history.push("/Signup")}
+                  onClick={() => history.push("/Signup") }
                   style={{
                     backgroundColor: "rgb(43, 43, 148)",
                 color: "white",

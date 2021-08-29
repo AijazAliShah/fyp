@@ -139,12 +139,12 @@ const [description, setDescription] = useState("");*/
               ) {
                 return val;
               } else if (
-                val.group_id === Number(searchTerm)
+                val.group_id.toLowerCase().includes(searchTerm.toLowerCase())
 
               ) {
                 return val;
               } else if(
-                val.batch === Number(searchTerm)
+                val.batch.toLowerCase().includes(searchTerm.toLowerCase())
                 
               ){
                 return val;

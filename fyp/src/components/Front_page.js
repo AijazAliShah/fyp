@@ -235,7 +235,7 @@ function Front_page() {
           <Route path="/signup" component={Signup} />
           <Route path="/signup1" component={Signup} />
           <Route exact path="/forgetpassemail/:email">
-          {!isEmpty(isNav) ?  <Redirect to={"/profile/"+isNav.result[0].id} /> : <Login />}
+          {!isEmpty(isNav) ?  <Redirect to={"/profile/"+isNav.result[0].id} /> : <Forgetpassemail />}
         </Route>
         <Route exact path="/forgotpassword">
           {!isEmpty(isNav) ?  <Redirect to={"/profile/"+isNav.result[0].id} /> : <Forgetpassword />}

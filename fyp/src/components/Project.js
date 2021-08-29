@@ -190,10 +190,8 @@ function Project() {
                       onChange={(e) => handleInputChange(e, i)}
                     />
                   </td>
-                </tr>
-              </table>
-              {/* Add and Remove button dynamically */}
-              {inputList.length !== 1 && (
+                  <td style={{display:"flex", flexDirection:"row"}}>
+                  {inputList.length !== 1 && (
                 <button
                   className="add_rem_btn"
                   style={{
@@ -208,7 +206,8 @@ function Project() {
                   -
                 </button>
               )}
-              {inputList.length - 1 === i && (
+
+                  {inputList.length - 1 === i && (
                 <button
                   className="add_rem_btn"
                   style={{
@@ -223,6 +222,12 @@ function Project() {
                   +
                 </button>
               )}
+                  </td>
+                </tr>
+              </table>
+              {/* Add and Remove button dynamically */}
+            
+             
             </div>
           );
         })}

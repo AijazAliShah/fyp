@@ -84,6 +84,10 @@ function Project() {
       const temp = project;
       temp.project.external = data;
       setProject(temp);
+    } else if (type === "batch") {
+      const temp = project;
+      temp.project.batch = data;
+      setProject(temp);
     } else if (type === "fullName") {
       const temp = project;
       temp.stds.result[ind].fullName = data;
@@ -112,6 +116,7 @@ function Project() {
         title: project.project.title,
         internal: project.project.internal,
         external: project.project.external,
+        batch: project.project.batch,
       })
       .then(async (resp) => {
         console.log(resp.data);
@@ -183,6 +188,20 @@ function Project() {
                 required
                 value={project.project.external}
                 onChange={(e) => editData("external", 0, e.target.value)}
+              />
+            </td>
+
+            <td>
+              <label>Batch</label>
+
+              <input
+                type="text"
+                name="batch"
+                placeholder="Batch"
+                className="prj_inp"
+                required
+                value={project.project.batch}
+                onChange={(e) => editData("batch", 0, e.target.value)}
               />
             </td>
           </tr>
