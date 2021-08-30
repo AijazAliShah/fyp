@@ -7,10 +7,14 @@ import "./Info.css";
 
 function Info() {
   const [dataList, setDataList] = useState([]);
+  const [templates, setTemplates] = useState([]);
 
   useEffect(() => {
     Axios.get("http://localhost:3001/api/info").then((response) => {
       setDataList(response.data);
+    });
+    Axios.get("http://localhost:3001/api/templates").then((response) => {
+      setTemplates(response.data);
     });
   }, []);
 
@@ -31,9 +35,11 @@ function Info() {
     "November",
     "December",
   ];
-
+  console.log('templates');
+  console.log(templates);
   return (
-    <div id="table-div1" style={{marginLeft:"5%"}}>
+    templates.length ? 
+    (<div id="table-div1" style={{marginLeft:"5%"}}>
       <br></br>
       {/* <br></br> */}
       <h3 className="info_heading">Timeline and Deliverables </h3>
@@ -86,7 +92,7 @@ function Info() {
 
             <a
               target="_blank"
-              href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProposal.pdf?alt=media&token=479c4a08-9042-48e4-82b5-343a687e1262"
+              href={templates[0].url}
             >
               Download
             </a>
@@ -100,7 +106,7 @@ function Info() {
         
             <a
               target="_blank"
-              href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProgressReport.pdf?alt=media&token=da915196-8aec-4a37-9255-479397ab1560"
+              href={templates[1].url}
             >
               Download
             </a>
@@ -114,7 +120,7 @@ function Info() {
                 
                <a 
               target="_blank"
-              href="https://firebasestorage.googleapis.com/v0/b/fypfirebase-b2b4f.appspot.com/o/doc%2FFYPProgressTracker.pdf?alt=media&token=61924eb7-2f8e-40f8-a17b-ffe9562642b5"
+              href={templates[2].url}
             >
               Download
             </a>
@@ -123,7 +129,7 @@ function Info() {
           </td>
         </tr>
       </table>
-    </div>
+    </div>) : null
   );
 }
 

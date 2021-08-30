@@ -857,3 +857,59 @@ app.get("/forgot/password/:email", async (req, res) => {
   //   }
   // })
 });
+
+
+
+
+
+app.post("/api/templates", async (req, res) => {
+  const name = req.body.name;
+  const url = req.body.url;
+  // const responsibility = req.body.responsibility;
+  // const deliverables = req.body.deliverables;
+  console.log(req.body)
+  res.send(
+    await new Promise(function (resolve, reject) {
+      const sqlInsert =
+        "INSERT INTO templates (name, url) VALUES (?,?);";
+      db.query(
+        sqlInsert,
+        [name, url],
+        (err, result) => {
+          if(err)
+            console.log(err);
+
+            res.send({ result: result });
+        }
+      );
+    }))
+});
+
+
+
+app.post("/api/templates/edit", async (req, res) => {
+  console.log(req.body);
+  const data = req.body;
+  
+
+  res.json(
+    await new Promise(function (resolve, reject) {
+      const SqlUpdate = `UPDATE templates SET name = '${data.name}', url= '${data.url}' WHERE name = '${data.name}'`;
+      db.query(SqlUpdate, (err, result) => {
+        console.log(err,result)
+        if (err) resolve({ auth: false, message: err });
+        resolve({ auth: true, message: "templates updated successfully" });
+      });
+    })
+  );
+});
+
+
+
+
+app.get("/api/templates", (req, res) => {
+  const sqlSelect = "SELECT * FROM templates";
+  db.query(sqlSelect, (err, result) => {
+    res.send(result);
+  });
+});

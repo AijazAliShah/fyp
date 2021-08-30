@@ -47,8 +47,17 @@ function Student() {
     });
 
   }, []);
+  function isEmpty(obj) {
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        return false;
+      }
+    }
 
+    return JSON.stringify(obj) === JSON.stringify({});
+  }
   return (
+    !isEmpty(isNav1) ? (
     <div>
       <img src={background} alt="background" style={{ width: "100%", height: "89vh" }} />
 
@@ -170,7 +179,7 @@ function Student() {
           </div>
         </form>
       </div>
-    </div>
+    </div>) : null
   );
 }
 

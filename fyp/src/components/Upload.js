@@ -59,10 +59,17 @@ class Upload extends Component {
 
         snapshot.ref.getDownloadURL().then((downloadURL) => {
           console.log("File available at", downloadURL);
-          toast("Document uploaded successsfully!", {
-            position: "top-center",
-            type: "success",
-          });
+          axios.post('http://localhost:3001/api/templates/edit', {
+            name:fullname,
+            url:downloadURL,
+          }).then(resp => {
+            console.log(resp.data)
+            toast("Document uploaded successsfully!", {
+              position: "top-center",
+              type: "success",
+            });
+          }).catch(err => console.log(err))
+          
         });
       });
     } else if (this.state.isStd.result[0].type === "student") {
