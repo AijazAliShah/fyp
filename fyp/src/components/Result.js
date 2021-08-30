@@ -407,22 +407,22 @@ export class Mid extends Component {
                   crit.criteriaNo === "17")) && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p6m1 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p6m2 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p6m3 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p7m1 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p7m2 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p7m3 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p8m1 = resp1.data.result.filter(
               (crit) =>
@@ -508,8 +508,11 @@ export class Mid extends Component {
                   crit.criteriaNo === "15" ||
                   crit.criteriaNo === "16")) && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
+            console.log('99999999999')
+            console.log(resp1.data.result)
             const p12m1 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+              (crit) => (crit.evalNo === '4'&& crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+              // && crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1
             );
             const p12m2 = resp1.data.result.filter(
               (crit) => (crit.evalNo === '4' && crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
@@ -517,6 +520,36 @@ export class Mid extends Component {
             const p12m3 = resp1.data.result.filter(
               (crit) => (crit.evalNo === '4' && crit.criteriaNo === "8") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
+            console.log('ssssssssssssssssssssss')
+            console.log({
+              p4m1,
+              p4m2,
+              p4m3,
+              p5m1,
+              p5m2,
+              p5m3,
+              p6m1,
+              p6m2,
+              p6m3,
+              p7m1,
+              p7m2,
+              p7m3,
+              p8m1,
+              p8m2,
+              p8m3,
+              p9m1,
+              p9m2,
+              p9m3,
+              p10m1,
+              p10m2,
+              p10m3,
+              p11m1,
+              p11m2,
+              p11m3,
+              p12m1,
+              p12m2,
+              p12m3,
+            })
             this.setState({
               p4m1,
               p4m2,

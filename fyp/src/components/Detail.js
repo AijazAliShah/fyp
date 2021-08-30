@@ -498,22 +498,22 @@ export class Mid extends Component {
                   crit.criteriaNo === "17")) && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p6m1 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p6m2 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p6m3 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "2") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p7m1 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll1)
             );
             const p7m2 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll2)
             );
             const p7m3 = resp1.data.result.filter(
-              (crit) => (crit.evalNo === 4 && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
+              (crit) => (crit.evalNo === '4' && crit.criteriaNo === "3") && (crit.stdRollNo === 'group' || crit.stdRollNo === resp.data.result[0].stdRoll3)
             );
             const p8m1 = resp1.data.result.filter(
               (crit) =>

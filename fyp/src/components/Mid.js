@@ -627,7 +627,7 @@ export class Mid extends Component {
                   }}
                 >
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 14</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 14</td>
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -781,7 +781,7 @@ export class Mid extends Component {
                   }}
                 >
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 15</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 15</td>
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -935,7 +935,7 @@ export class Mid extends Component {
                   }}
                 >
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 16</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 16</td>
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -1092,7 +1092,7 @@ export class Mid extends Component {
                   }}
                 >
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 17</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 17</td>
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                   <td style={{backgroundColor:"#0b1442", textAlign: "center",

@@ -200,7 +200,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 2</td>
+                  }}>Criterion 2</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -315,7 +315,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 3</td>
+                  }}>Criterion 3</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -432,7 +432,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 4</td>
+                  }}>Criterion 4</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -546,7 +546,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 5</td>
+                  }}>Criterion 5</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -770,7 +770,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 7</td>
+                  }}>Criterion 7</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -882,7 +882,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 8</td>
+                  }}>Criterion 8</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -989,7 +989,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 9</td>
+                  }}>Criterion 9</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -1104,13 +1104,13 @@ export class Mid extends Component {
                 }}
               >
                 <h2>
-                  Name: <b>{this.props.data.stdName1}</b>
+                  Name: <b>{this.props.data.stdName2}</b>
                 </h2>
                 <h2>
-                  Roll Number: <b>{this.props.data.stdRoll1}</b>
+                  Roll Number: <b>{this.props.data.stdRoll2}</b>
                 </h2>
                 <h2>
-                  Position: <b>{this.props.data.groupP1}</b>
+                  Position: <b>{this.props.data.groupP2}</b>
                 </h2>
               </div>
               <br></br>
@@ -1243,7 +1243,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 2</td>
+                  }}>Criterion 2</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -1358,7 +1358,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 3</td>
+                  }}>Criterion 3</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -1475,7 +1475,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 4</td>
+                  }}>Criterion 4</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -1589,7 +1589,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 5</td>
+                  }}>Criterion 5</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -1700,7 +1700,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 6</td>
+                  }}>Criterion 6</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -1813,7 +1813,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 7</td>
+                  }}>Criterion 7</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -1925,7 +1925,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 8</td>
+                  }}>Criterion 8</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -2032,7 +2032,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 9</td>
+                  }}>Criterion 9</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -2147,13 +2147,13 @@ export class Mid extends Component {
                 }}
               >
                 <h2>
-                  Name: <b>{this.props.data.stdName1}</b>
+                  Name: <b>{this.props.data.stdName3}</b>
                 </h2>
                 <h2>
-                  Roll Number: <b>{this.props.data.stdRoll1}</b>
+                  Roll Number: <b>{this.props.data.stdRoll3}</b>
                 </h2>
                 <h2>
-                  Position: <b>{this.props.data.groupP1}</b>
+                  Position: <b>{this.props.data.groupP3}</b>
                 </h2>
               </div>
               <br></br>
@@ -2286,7 +2286,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 2</td>
+                  }}>Criterion 2</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -2401,7 +2401,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 3</td>
+                  }}>Criterion 3</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -2518,7 +2518,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 4</td>
+                  }}>Criterion 4</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -2632,7 +2632,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 5</td>
+                  }}>Criterion 5</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -2743,7 +2743,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 6</td>
+                  }}>Criterion 6</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -2856,7 +2856,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 7</td>
+                  }}>Criterion 7</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -2968,7 +2968,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 8</td>
+                  }}>Criterion 8</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
@@ -3075,7 +3075,7 @@ export class Mid extends Component {
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"
-                  }}>Criteria 9</td>
+                  }}>Criterion 9</td>
                   <td style={{
                     backgroundColor: "#0b1442", textAlign: "center",
                     fontWeight: "bold", color: "#fff"

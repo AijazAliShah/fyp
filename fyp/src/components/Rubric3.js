@@ -422,7 +422,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 2</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 2</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -580,7 +580,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 3</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 3</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -733,7 +733,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 4</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 4</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -889,7 +889,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 5</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 5</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -1043,7 +1043,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 6</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 6</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -1197,7 +1197,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 7</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 7</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -1351,7 +1351,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 8</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 8</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -1505,7 +1505,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 9</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 9</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -1656,7 +1656,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 10</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 10</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -1810,7 +1810,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 11</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 11</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -1964,7 +1964,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 12</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 12</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -2432,7 +2432,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 3</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 3</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -2592,7 +2592,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 4</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 4</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -2750,7 +2750,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 5</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 5</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -2904,7 +2904,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 6</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 6</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -3061,7 +3061,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 7</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 7</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -3215,7 +3215,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 8</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 8</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
@@ -3366,7 +3366,7 @@ export class Mid extends Component {
                     }}
                   >
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
-            fontWeight: "bold",color:"#fff"}}>Criteria 9</td>
+            fontWeight: "bold",color:"#fff"}}>Criterion 9</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",
             fontWeight: "bold",color:"#fff"}}>PLO</td>
                     <td  style={{backgroundColor:"#0b1442", textAlign: "center",

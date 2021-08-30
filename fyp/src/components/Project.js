@@ -69,6 +69,7 @@ function Project() {
                   position: "top-center",
                   type: "success",
                 });
+                window.location='/assignment'
               }
             })
             .catch((err) => console.log(err));
@@ -246,7 +247,10 @@ function Project() {
               backgroundColor: "rgb(43, 43, 148)",
               color: "#fff"
             }}
-            onClick={() => addProject()}
+            // onClick={() => {
+            //   window.location.href ='/assignment'
+            // }}
+            onClick={() => addProject() }
           >
             Insert
           </button>
